@@ -1,0 +1,112 @@
+name: Build ModScanTool
+
+on:
+  push:
+    tags:
+      - 'v*'          # käivitub kui pushid tag nt "v1.0.0"
+  workflow_dispatch:  # lubab käivitada ka käsitsi GitHub UI-st
+
+jobs:
+
+  # ─── Windows build ────────────────────────────────────────────────────────
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Windows installer + portable
+        run: npx electron-builder --win
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Windows artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-build
+          path: |
+            dist/*.exe
+            dist/*.msi
+          retention-days: 30
+
+  # ─── Mac build ────────────────────────────────────────────────────────────
+  build-mac:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Mac .dmg
+        run: npx electron-builder --mac
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Mac artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: mac-build
+          path: |
+            dist/*.dmg
+            dist/*.zip
+          retention-days: 30
+
+  # ─── Release — lisab failid automaatselt GitHub Release'i ─────────────────
+  release:
+    needs: [build-windows, build-mac]
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+
+    steps:
+      - name: Download Windows build
+        uses: actions/download-artifact@v4
+        with:
+          name: windows-build
+          path: dist/windows
+
+      - name: Download Mac build
+        uses: actions/download-artifact@v4
+        with:
+          name: mac-build
+          path: dist/mac
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ModScanTool ${{ github.ref_name }}
+          body: |
+            ## ModScanTool ${{ github.ref_name }}
+
+            ### Download
+            - **Windows** — `ModScan-Setup.exe` (installer) or `ModScan-portable.exe` (no install needed)
+            - **Mac** — `ModScan.dmg`
+
+            ### Installation
+            **Windows:** Run the installer or use the portable .exe directly
+            **Mac:** Open the .dmg file, drag ModScanTool to Applications
+
+            14-day free trial included. Purchase a license at https://modscantool.com
+          files: |
+            dist/windows/*.exe
+            dist/mac/*.dmg
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

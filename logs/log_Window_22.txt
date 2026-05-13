@@ -1,0 +1,6 @@
+# ModScan andmelogi
+# Alustatud: 12.5.2026, 17:02:51
+# Register: Window  22 [100] (offset 100)
+# Seade: COM4
+# Col 1: Time (ISO), Col 2: Value (dec), Col 3: Hex
+Timestamp	Value	Hex

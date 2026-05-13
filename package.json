@@ -1,0 +1,58 @@
+{
+  "name": "modscan",
+  "version": "1.0.0",
+  "description": "ModScan - Modbus Poll Tool",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "electron": "electron .",
+    "build": "electron-builder --win",
+    "build-portable": "electron-builder --win portable",
+    "build-installer": "electron-builder --win nsis"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^8.14.2",
+    "modbus-serial": "^8.0.16"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "build": {
+    "appId": "com.modscan.app",
+    "productName": "ModScan",
+    "copyright": "Copyright 2024",
+    "icon": "electron/icon.png",
+    "files": [
+      "src/**/*",
+      "public/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "node_modules",
+        "to": "node_modules",
+        "filter": ["**/*", "!**/*.md", "!**/.bin"]
+      }
+    ],
+    "win": {
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ],
+      "icon": "electron/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "deleteAppDataOnUninstall": false
+    },
+    "portable": {
+      "artifactName": "ModScan-portable.exe"
+    }
+  }
+}
