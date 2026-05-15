@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ModbusManager — User Manual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Syne',sans-serif;background:#0a0e14;color:#e8eaf0;line-height:1.7}
+a{color:#00d4aa;text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* NAV */
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;border-bottom:1px solid #1a2030;background:#0a0e14;position:sticky;top:0;z-index:100}
+.logo{font-family:'JetBrains Mono',monospace;font-size:1.1rem;font-weight:700;color:#00d4aa}
+.logo span{color:#e8eaf0}
+.nav-back{color:#8892a4;font-size:0.85rem;text-decoration:none}
+.nav-back:hover{color:#e8eaf0}
+
+/* LAYOUT */
+.layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 60px)}
+
+/* SIDEBAR */
+.sidebar{border-right:1px solid #1a2030;padding:2rem 1.5rem;position:sticky;top:60px;height:calc(100vh - 60px);overflow-y:auto}
+.sidebar-title{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#00d4aa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem}
+.sidebar ul{list-style:none}
+.sidebar ul li{margin-bottom:0.3rem}
+.sidebar ul li a{color:#8892a4;font-size:0.83rem;text-decoration:none;display:block;padding:3px 8px;border-radius:4px;border-left:2px solid transparent}
+.sidebar ul li a:hover{color:#e8eaf0;background:#0d1117}
+.sidebar ul li a.active{color:#00d4aa;border-left-color:#00d4aa;background:#0d2a23}
+.sidebar .section-group{margin-top:1.2rem}
+.sidebar .section-group-title{font-size:0.7rem;color:#3a4455;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.4rem;padding-left:8px}
+
+/* CONTENT */
+.content{padding:3rem 4rem;max-width:860px}
+.content h1{font-size:2rem;font-weight:800;color:#f0f2f8;margin-bottom:0.5rem;letter-spacing:-0.02em}
+.content .lead{color:#8892a4;font-size:1rem;margin-bottom:3rem;line-height:1.7}
+
+.content h2{font-size:1.3rem;font-weight:700;color:#f0f2f8;margin:2.5rem 0 1rem;padding-top:1rem;border-top:1px solid #1a2030;letter-spacing:-0.01em}
+.content h2:first-of-type{border-top:none;margin-top:0}
+.content h3{font-size:1rem;font-weight:600;color:#00d4aa;margin:1.5rem 0 0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.85rem;letter-spacing:0.03em;text-transform:uppercase}
+.content p{color:#8892a4;margin-bottom:1rem;font-size:0.92rem}
+.content ul, .content ol{color:#8892a4;font-size:0.92rem;padding-left:1.5rem;margin-bottom:1rem}
+.content li{margin-bottom:0.4rem}
+.content strong{color:#e8eaf0}
+
+/* CODE */
+.content code{font-family:'JetBrains Mono',monospace;font-size:0.82rem;background:#131820;border:1px solid #1e2530;padding:2px 6px;border-radius:3px;color:#00d4aa}
+.content pre{background:#080b10;border:1px solid #1e2530;border-radius:6px;padding:1.2rem;margin:1rem 0;overflow-x:auto}
+.content pre code{background:none;border:none;padding:0;font-size:0.82rem;color:#8892a4;line-height:1.8}
+.content pre code .c{color:#3a4d5e}
+.content pre code .k{color:#00d4aa}
+.content pre code .v{color:#f0b060}
+
+/* CALLOUTS */
+.note{background:#0a1f1a;border:1px solid #00d4aa30;border-radius:6px;padding:1rem 1.2rem;margin:1rem 0;font-size:0.88rem;color:#8892a4}
+.note strong{color:#00d4aa}
+.warning{background:#1a1500;border:1px solid #facc1530;border-radius:6px;padding:1rem 1.2rem;margin:1rem 0;font-size:0.88rem;color:#8892a4}
+.warning strong{color:#facc15}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:0.85rem}
+th{text-align:left;padding:0.6rem 1rem;border-bottom:1px solid #1e2530;color:#4a5568;font-family:'JetBrains Mono',monospace;font-size:0.72rem;text-transform:uppercase}
+td{padding:0.6rem 1rem;border-bottom:1px solid #111820;color:#8892a4}
+tr:hover td{background:#0d1117}
+td strong{color:#e8eaf0}
+td code{font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#f0b060}
+
+/* STEPS */
+.steps{counter-reset:step;margin:1rem 0}
+.step{display:flex;gap:1rem;margin-bottom:1rem;align-items:flex-start}
+.step-num{background:#0d2a23;border:1px solid #00d4aa30;color:#00d4aa;font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:700;width:28px;height:28px;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.step-content{flex:1}
+.step-content strong{color:#e8eaf0;display:block;margin-bottom:0.2rem;font-size:0.92rem}
+.step-content p{margin:0;font-size:0.85rem}
+
+/* FC TABLE */
+.fc-badge{display:inline-block;background:#0d2a23;border:1px solid #00d4aa30;color:#00d4aa;font-family:'JetBrains Mono',monospace;font-size:0.72rem;padding:2px 8px;border-radius:3px}
+
+@media(max-width:768px){
+  .layout{grid-template-columns:1fr}
+  .sidebar{display:none}
+  .content{padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Modbus<span>Manager</span></div>
+  <a href="/" class="nav-back">← Back to modbusmanager.com</a>
+</nav>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-title">Documentation</div>
+    <ul>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#installation">Installation</a></li>
+      <li><a href="#license">License &amp; Trial</a></li>
+    </ul>
+    <div class="section-group">
+      <div class="section-group-title">Connection</div>
+      <ul>
+        <li><a href="#modbus-tcp">Modbus TCP</a></li>
+        <li><a href="#modbus-rtu">Modbus RTU</a></li>
+        <li><a href="#modbus-ascii">Modbus ASCII</a></li>
+      </ul>
+    </div>
+    <div class="section-group">
+      <div class="section-group-title">Usage</div>
+      <ul>
+        <li><a href="#poll-windows">Poll Windows</a></li>
+        <li><a href="#function-codes">Function Codes</a></li>
+        <li><a href="#writing">Writing Registers</a></li>
+        <li><a href="#chart">Chart View</a></li>
+        <li><a href="#txrx-log">TX/RX Log</a></li>
+        <li><a href="#profiles">Profiles</a></li>
+        <li><a href="#csv-export">CSV Export</a></li>
+      </ul>
+    </div>
+    <div class="section-group">
+      <div class="section-group-title">Reference</div>
+      <ul>
+        <li><a href="#register-types">Register Types</a></li>
+        <li><a href="#data-formats">Data Formats</a></li>
+        <li><a href="#error-codes">Error Codes</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <h1>ModbusManager User Manual</h1>
+    <p class="lead">Complete guide for installing, configuring and using ModbusManager — a professional Modbus Poll tool for Windows.</p>
+
+    <!-- INTRODUCTION -->
+    <h2 id="introduction">Introduction</h2>
+    <p>ModbusManager is a desktop application for testing, debugging and monitoring Modbus RTU and TCP devices. It runs on Windows 10/11 and provides a clean, modern interface for industrial engineers and automation professionals.</p>
+
+    <h3>Key Features</h3>
+    <ul>
+      <li><strong>Modbus TCP</strong> — connect to Modbus devices over Ethernet/IP</li>
+      <li><strong>Modbus RTU</strong> — connect over serial RS-232/RS-485</li>
+      <li><strong>Modbus ASCII</strong> — connect using ASCII framing over serial</li>
+      <li><strong>Multiple Poll Windows</strong> — monitor several register ranges simultaneously</li>
+      <li><strong>Real-time TX/RX Log</strong> — see every byte sent and received</li>
+      <li><strong>Chart View</strong> — visualize register values over time</li>
+      <li><strong>Saved Profiles</strong> — save and reload device configurations instantly</li>
+      <li><strong>CSV Export</strong> — export log data for further analysis</li>
+      <li><strong>100% offline</strong> — no internet connection required during operation</li>
+    </ul>
+
+    <h3>System Requirements</h3>
+    <table>
+      <tr><th>Component</th><th>Requirement</th></tr>
+      <tr><td>Operating System</td><td><strong>Windows 10 or Windows 11</strong> (64-bit)</td></tr>
+      <tr><td>RAM</td><td>Minimum 4 GB</td></tr>
+      <tr><td>Disk space</td><td>300 MB</td></tr>
+      <tr><td>Network</td><td>Required for Modbus TCP; not required for RTU</td></tr>
+    </table>
+
+    <!-- INSTALLATION -->
+    <h2 id="installation">Installation</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>Download the installer</strong>
+          <p>Download <code>Modbus.Manager.Setup.1.0.0.exe</code> from <a href="https://www.modbusmanager.com">modbusmanager.com</a>.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>Run the installer</strong>
+          <p>Double-click the downloaded file. If Windows SmartScreen appears, click <strong>"More info" → "Run anyway"</strong>.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>Choose installation folder</strong>
+          <p>The default folder is <code>C:\Program Files\ModbusManager</code>. You can change this if needed.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <strong>Complete installation</strong>
+          <p>Click <strong>Install</strong> and wait for the process to finish. A desktop shortcut will be created automatically.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <strong>Launch ModbusManager</strong>
+          <p>Double-click the desktop shortcut or find ModbusManager in the Start menu.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note"><strong>Note:</strong> Windows Firewall may ask permission to allow ModbusManager through the network. Click <strong>Allow</strong> to enable Modbus TCP connections.</div>
+
+    <!-- LICENSE -->
+    <h2 id="license">License &amp; Trial</h2>
+    <p>ModbusManager includes a <strong>14-day free trial</strong> with full functionality. After the trial expires, you need to activate a license to continue using the software.</p>
+
+    <h3>Activating your license</h3>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>Open the License window</strong>
+          <p>Click the <strong>License</strong> button in the top-right corner of the application.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>Copy your Machine ID</strong>
+          <p>Your unique Machine ID is shown in the License window. Click <strong>Copy</strong> to copy it to clipboard.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>Send your Machine ID</strong>
+          <p>Email your Machine ID to <a href="mailto:support@modbusmanager.com">support@modbusmanager.com</a>. You will receive your license key automatically within minutes.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <strong>Enter your license key</strong>
+          <p>Type or paste your license key (format: <code>MBUS-XXXX-XXXX-XXXX</code>) into the input field and click <strong>Activate</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="warning"><strong>Important:</strong> The license key is tied to your specific machine. Do not share it with others — it will not work on a different computer.</div>
+
+    <!-- MODBUS TCP -->
+    <h2 id="modbus-tcp">Connecting via Modbus TCP</h2>
+    <p>Modbus TCP connects to devices over Ethernet using the standard TCP/IP protocol. This is the most common connection type for modern PLCs, inverters and energy meters.</p>
+
+    <h3>Connection parameters</h3>
+    <table>
+      <tr><th>Parameter</th><th>Description</th><th>Default</th></tr>
+      <tr><td><strong>Host</strong></td><td>IP address of the Modbus device</td><td><code>192.168.1.100</code></td></tr>
+      <tr><td><strong>Port</strong></td><td>TCP port number</td><td><code>502</code></td></tr>
+      <tr><td><strong>Slave ID</strong></td><td>Modbus unit identifier (1–247)</td><td><code>1</code></td></tr>
+    </table>
+
+    <h3>Steps</h3>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>Select TCP mode</strong>
+          <p>In the connection bar at the top, select <strong>FC03 Holding Reg</strong> or your desired function code.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>Enter the IP address and port</strong>
+          <p>Type the device IP address and port. Default Modbus port is 502.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>Set Slave ID</strong>
+          <p>Enter the Slave ID of your device. If unsure, try <code>1</code>.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <strong>Click Connect</strong>
+          <p>The status bar at the bottom will show <strong>Connected (TCP)</strong> if successful.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODBUS RTU -->
+    <h2 id="modbus-rtu">Connecting via Modbus RTU</h2>
+    <p>Modbus RTU connects over a serial port (RS-232 or RS-485). This is used with older PLCs, drives and meters that do not have Ethernet connectivity.</p>
+
+    <h3>Connection parameters</h3>
+    <table>
+      <tr><th>Parameter</th><th>Description</th><th>Typical value</th></tr>
+      <tr><td><strong>Serial Port</strong></td><td>COM port of your USB-to-serial adapter</td><td><code>COM3</code>, <code>COM4</code></td></tr>
+      <tr><td><strong>Baud Rate</strong></td><td>Communication speed in bits/second</td><td><code>9600</code> or <code>19200</code></td></tr>
+      <tr><td><strong>Data Bits</strong></td><td>Number of data bits per frame</td><td><code>8</code></td></tr>
+      <tr><td><strong>Parity</strong></td><td>Error checking method</td><td><code>None</code></td></tr>
+      <tr><td><strong>Stop Bits</strong></td><td>Number of stop bits</td><td><code>1</code></td></tr>
+      <tr><td><strong>Slave ID</strong></td><td>Address of the target device</td><td><code>1</code></td></tr>
+    </table>
+
+    <div class="note"><strong>Tip:</strong> Check your device manual for the correct baud rate and parity settings. The most common setting is 9600 baud, 8 data bits, no parity, 1 stop bit (9600-8-N-1).</div>
+
+    <h3>Finding your COM port</h3>
+    <p>Open <strong>Device Manager</strong> (Win + X → Device Manager) → expand <strong>Ports (COM &amp; LPT)</strong> → note the COM port number of your USB-serial adapter.</p>
+
+    <!-- MODBUS ASCII -->
+    <h2 id="modbus-ascii">Connecting via Modbus ASCII</h2>
+    <p>Modbus ASCII uses human-readable ASCII characters instead of binary encoding. It is slower than RTU but easier to debug manually. Typically used with older equipment.</p>
+
+    <p>The connection parameters are the same as RTU, but the typical Data Bits setting is <code>7</code>. Select <strong>ASCII</strong> mode in the connection settings.</p>
+
+    <!-- POLL WINDOWS -->
+    <h2 id="poll-windows">Poll Windows</h2>
+    <p>Poll Windows allow you to monitor multiple register ranges at the same time. Each window can have its own function code, address range and polling interval.</p>
+
+    <h3>Adding a Poll Window</h3>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>Click "+ Window"</strong>
+          <p>In the top toolbar, click the <strong>+ Window</strong> button to create a new poll window.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>Configure the window</strong>
+          <p>Set the Function Code (FC01–FC04), starting Address, Quantity of registers and Slave ID.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>Click Start</strong>
+          <p>Click the <strong>Start</strong> button to begin automatic polling at the configured interval.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>Poll Window columns</h3>
+    <table>
+      <tr><th>Column</th><th>Description</th></tr>
+      <tr><td><strong>Address</strong></td><td>Absolute register address</td></tr>
+      <tr><td><strong>Offset</strong></td><td>Position within the poll window (0-based)</td></tr>
+      <tr><td><strong>Decimal</strong></td><td>Register value as a decimal integer</td></tr>
+      <tr><td><strong>Hex</strong></td><td>Register value in hexadecimal</td></tr>
+      <tr><td><strong>Binary</strong></td><td>Register value in binary (16-bit)</td></tr>
+      <tr><td><strong>ASCII</strong></td><td>Register value interpreted as ASCII characters</td></tr>
+      <tr><td><strong>Description</strong></td><td>User-defined label for the register</td></tr>
+      <tr><td><strong>Status</strong></td><td>Last poll result (OK / error)</td></tr>
+    </table>
+
+    <!-- FUNCTION CODES -->
+    <h2 id="function-codes">Function Codes</h2>
+    <p>Modbus uses function codes (FC) to specify which type of data to read or write.</p>
+
+    <table>
+      <tr><th>Code</th><th>Name</th><th>Description</th><th>Read/Write</th></tr>
+      <tr>
+        <td><span class="fc-badge">FC01</span></td>
+        <td><strong>Read Coils</strong></td>
+        <td>Digital output status (ON/OFF)</td>
+        <td>Read</td>
+      </tr>
+      <tr>
+        <td><span class="fc-badge">FC02</span></td>
+        <td><strong>Read Discrete Inputs</strong></td>
+        <td>Digital input status (ON/OFF)</td>
+        <td>Read only</td>
+      </tr>
+      <tr>
+        <td><span class="fc-badge">FC03</span></td>
+        <td><strong>Read Holding Registers</strong></td>
+        <td>16-bit read/write registers (most common)</td>
+        <td>Read/Write</td>
+      </tr>
+      <tr>
+        <td><span class="fc-badge">FC04</span></td>
+        <td><strong>Read Input Registers</strong></td>
+        <td>16-bit read-only registers (sensors, measurements)</td>
+        <td>Read only</td>
+      </tr>
+      <tr>
+        <td><span class="fc-badge">FC05</span></td>
+        <td><strong>Write Single Coil</strong></td>
+        <td>Set a single digital output ON or OFF</td>
+        <td>Write</td>
+      </tr>
+      <tr>
+        <td><span class="fc-badge">FC06</span></td>
+        <td><strong>Write Single Register</strong></td>
+        <td>Write a value to a single holding register</td>
+        <td>Write</td>
+      </tr>
+      <tr>
+        <td><span class="fc-badge">FC15</span></td>
+        <td><strong>Write Multiple Coils</strong></td>
+        <td>Set multiple coils at once</td>
+        <td>Write</td>
+      </tr>
+      <tr>
+        <td><span class="fc-badge">FC16</span></td>
+        <td><strong>Write Multiple Registers</strong></td>
+        <td>Write values to multiple holding registers at once</td>
+        <td>Write</td>
+      </tr>
+    </table>
+
+    <!-- WRITING -->
+    <h2 id="writing">Writing Registers &amp; Coils</h2>
+    <p>ModbusManager allows you to write values to Modbus devices using the <strong>Write</strong> tab in any Poll Window.</p>
+
+    <h3>Writing a single register (FC06)</h3>
+    <ol>
+      <li>Open a Poll Window with FC03 (Holding Registers)</li>
+      <li>Click the <strong>Write</strong> tab</li>
+      <li>Enter the register address and the value to write</li>
+      <li>Click <strong>Write</strong></li>
+    </ol>
+
+    <div class="warning"><strong>Warning:</strong> Writing incorrect values to a device can cause unexpected behaviour or damage. Always consult your device manual before writing to registers.</div>
+
+    <!-- CHART -->
+    <h2 id="chart">Chart View</h2>
+    <p>The <strong>Chart</strong> tab in each Poll Window shows register values plotted over time. This is useful for monitoring analog signals, temperatures, pressures and other continuously changing values.</p>
+
+    <ul>
+      <li>Click the <strong>Chart</strong> tab in any Poll Window to see the live chart</li>
+      <li>The chart automatically scales to the current data range</li>
+      <li>Up to the last 100 values are displayed</li>
+    </ul>
+
+    <!-- TX/RX LOG -->
+    <h2 id="txrx-log">TX/RX Log</h2>
+    <p>The TX/RX Log at the bottom of the screen shows every Modbus frame sent and received in real time. This is essential for debugging communication issues.</p>
+
+    <h3>Log entry format</h3>
+    <pre><code><span class="k">[14:06:43]</span> <span class="v">→ TX</span> [FC03] Addr:5 Qty:10 (slave 50)
+<span class="k">[14:06:43]</span> <span class="c">← RX</span> [FC03] 10 regs OK (55ms)</code></pre>
+
+    <table>
+      <tr><th>Symbol</th><th>Meaning</th></tr>
+      <tr><td><code>→ TX</code></td><td>Data sent from ModbusManager to the device</td></tr>
+      <tr><td><code>← RX</code></td><td>Data received from the device</td></tr>
+      <tr><td><code>[FC03]</code></td><td>Function code used</td></tr>
+      <tr><td><code>Addr:5</code></td><td>Starting register address</td></tr>
+      <tr><td><code>Qty:10</code></td><td>Number of registers requested</td></tr>
+      <tr><td><code>(55ms)</code></td><td>Response latency</td></tr>
+    </table>
+
+    <h3>Status bar</h3>
+    <p>The bottom status bar shows cumulative statistics: <strong>TX</strong> (frames sent), <strong>RX</strong> (frames received), <strong>Errors</strong> and average <strong>Latency</strong>.</p>
+
+    <!-- PROFILES -->
+    <h2 id="profiles">Profiles</h2>
+    <p>Profiles allow you to save your entire session configuration — all Poll Windows, connection settings and register descriptions — and reload them instantly.</p>
+
+    <h3>Saving a profile</h3>
+    <ol>
+      <li>Set up your connection and Poll Windows as desired</li>
+      <li>Click the <strong>save icon</strong> (💾) next to a Poll Window name</li>
+      <li>Enter a name for the profile</li>
+      <li>The profile is saved automatically</li>
+    </ol>
+
+    <h3>Loading a profile</h3>
+    <ol>
+      <li>Click the <strong>load icon</strong> next to a Poll Window</li>
+      <li>Select a saved profile from the list</li>
+      <li>The window configuration is restored instantly</li>
+    </ol>
+
+    <div class="note"><strong>Tip:</strong> Profiles are stored locally on your machine in the <code>profiles/</code> folder next to the application. You can copy them to share with colleagues.</div>
+
+    <!-- CSV EXPORT -->
+    <h2 id="csv-export">CSV Export</h2>
+    <p>You can export the TX/RX log to a CSV file for further analysis in Excel or other tools.</p>
+    <ol>
+      <li>Click the <strong>Save log</strong> button in the TX/RX Log panel</li>
+      <li>Choose a filename and location</li>
+      <li>The log is saved as a plain text file in the <code>logs/</code> folder</li>
+    </ol>
+
+    <!-- REGISTER TYPES -->
+    <h2 id="register-types">Register Types Reference</h2>
+    <table>
+      <tr><th>Type</th><th>FC Read</th><th>FC Write</th><th>Size</th><th>Range</th></tr>
+      <tr><td><strong>Coil</strong></td><td><code>FC01</code></td><td><code>FC05</code>, <code>FC15</code></td><td>1 bit</td><td>0 or 1</td></tr>
+      <tr><td><strong>Discrete Input</strong></td><td><code>FC02</code></td><td>Read only</td><td>1 bit</td><td>0 or 1</td></tr>
+      <tr><td><strong>Holding Register</strong></td><td><code>FC03</code></td><td><code>FC06</code>, <code>FC16</code></td><td>16 bits</td><td>0–65535</td></tr>
+      <tr><td><strong>Input Register</strong></td><td><code>FC04</code></td><td>Read only</td><td>16 bits</td><td>0–65535</td></tr>
+    </table>
+
+    <!-- DATA FORMATS -->
+    <h2 id="data-formats">Data Formats</h2>
+    <p>ModbusManager displays register values in multiple formats simultaneously:</p>
+    <table>
+      <tr><th>Format</th><th>Example</th><th>Description</th></tr>
+      <tr><td><strong>Decimal</strong></td><td><code>3169</code></td><td>Standard integer value (0–65535)</td></tr>
+      <tr><td><strong>Hex</strong></td><td><code>0x0C61</code></td><td>Hexadecimal representation</td></tr>
+      <tr><td><strong>Binary</strong></td><td><code>0000110001100001</code></td><td>16-bit binary representation</td></tr>
+      <tr><td><strong>ASCII</strong></td><td><code>·a</code></td><td>Two ASCII characters encoded in the register</td></tr>
+    </table>
+
+    <div class="note"><strong>Tip:</strong> For 32-bit floating point values (Float32), two consecutive holding registers are combined. The value <code>23.5°C</code> may be stored across registers 40001–40002.</div>
+
+    <!-- ERROR CODES -->
+    <h2 id="error-codes">Modbus Error Codes</h2>
+    <table>
+      <tr><th>Code</th><th>Name</th><th>Meaning</th></tr>
+      <tr><td><code>01</code></td><td>Illegal Function</td><td>The device does not support this function code</td></tr>
+      <tr><td><code>02</code></td><td>Illegal Data Address</td><td>The register address does not exist on this device</td></tr>
+      <tr><td><code>03</code></td><td>Illegal Data Value</td><td>The value you tried to write is out of range</td></tr>
+      <tr><td><code>04</code></td><td>Slave Device Failure</td><td>The device encountered an internal error</td></tr>
+      <tr><td><code>06</code></td><td>Slave Device Busy</td><td>The device is busy processing another request</td></tr>
+      <tr><td>—</td><td>Timeout</td><td>No response received. Check cable, address and baud rate</td></tr>
+      <tr><td>—</td><td>Connection Refused</td><td>TCP connection failed. Check IP address and port</td></tr>
+    </table>
+
+    <!-- FAQ -->
+    <h2 id="faq">Frequently Asked Questions</h2>
+
+    <h3>Why does Windows show a security warning when installing?</h3>
+    <p>Windows SmartScreen warns about installers that are not yet widely distributed. Click <strong>"More info" → "Run anyway"</strong> to proceed. ModbusManager is safe to install.</p>
+
+    <h3>My device is not responding — what should I check?</h3>
+    <ul>
+      <li>Verify the IP address (TCP) or COM port (RTU) is correct</li>
+      <li>Check that the Slave ID matches your device configuration</li>
+      <li>For RTU: confirm the baud rate, parity and stop bits match the device</li>
+      <li>For TCP: check that port 502 is not blocked by a firewall</li>
+      <li>Try reducing the number of registers in a single poll (Quantity)</li>
+    </ul>
+
+    <h3>Can I use ModbusManager on a network without internet?</h3>
+    <p>Yes. ModbusManager works completely offline. Internet is only required to download the installer and activate the license once.</p>
+
+    <h3>How do I find my Machine ID?</h3>
+    <p>Open ModbusManager → click the <strong>License</strong> button in the top right corner → your Machine ID is displayed. Click <strong>Copy</strong> to copy it to clipboard.</p>
+
+    <h3>Can I use one license on multiple computers?</h3>
+    <p>Each license is tied to one machine. If you need multiple seats, contact us at <a href="mailto:support@modbusmanager.com">support@modbusmanager.com</a> for team pricing.</p>
+
+    <h3>Where are profiles stored?</h3>
+    <p>Profiles are stored in the <code>profiles/</code> folder in the ModbusManager installation directory. You can back them up or copy them to other machines.</p>
+
+    <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1a2030;color:#3a4455;font-size:0.82rem">
+      <p>Need more help? Contact us at <a href="mailto:support@modbusmanager.com">support@modbusmanager.com</a></p>
+      <p style="margin-top:0.5rem">ModbusManager v1.0.0 · © 2025 ModbusManager</p>
+    </div>
+
+  </main>
+</div>
+
+<script>
+// Highlight active sidebar link on scroll
+const sections = document.querySelectorAll('h2[id], h3[id]');
+const links = document.querySelectorAll('.sidebar a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 100) current = s.id;
+  });
+  links.forEach(l => {
+    l.classList.remove('active');
+    if (l.getAttribute('href') === '#' + current) l.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
