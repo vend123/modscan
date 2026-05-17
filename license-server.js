@@ -15,10 +15,10 @@ function extractMachineId(text) {
   // 1. Otsi MBUS- formaati (juba genereeritud võti - ignoreeri)
   // 2. Otsi puhast hex stringi (8-32 tähemärki, ainult tähed ja numbrid)
   const patterns = [
-    /machine\s*id\s*[:\-]?\s*([A-Za-z0-9\-]{8,64})/i,  // "Machine ID: ABC123"
-    /id\s*[:\-]\s*([A-Za-z0-9\-]{8,64})/i,               // "ID: ABC123"
-    /\b([A-Fa-f0-9]{12,32})\b/,                           // puhas hex string
-    /\b([A-Za-z0-9\-]{16,32})\b/                          // üldine ID formaat
+    /machine\s*id\s*[:\-]?\s*([A-Za-z0-9\-]{16})/i,  // "Machine ID: ABC123"
+    /id\s*[:\-]\s*([A-Za-z0-9\-]{16})/i,               // "ID: ABC123"
+    /\b([A-Fa-f0-9]{16})\b/,                           // puhas hex string
+    /\b([A-Za-z0-9\-]{16})\b/                          // üldine ID formaat
   ];
 
   for (const pattern of patterns) {
