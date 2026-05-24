@@ -112,7 +112,7 @@ footer a:hover{color:#8892a4}
 <section style="max-width:1100px;margin:0 auto">
   <div class="hero">
     <div class="hero-left">
-      <div class="hero-badge">Modbus RTU &amp; TCP · Windows</div>
+      <div class="hero-badge">v1.1.0 · Modbus RTU &amp; TCP · Auto-reconnect · Slave Scan</div>
       <h1>Modbus polling<br>for <span class="accent">modern<br>engineers</span></h1>
       <p class="hero-desc">Test, debug and monitor Modbus slave devices with a fast, clean desktop app. Works on Windows 10/11. No subscriptions, no cloud, no nonsense.</p>
       <div class="hero-btns">
@@ -144,10 +144,13 @@ footer a:hover{color:#8892a4}
   <div class="features-grid">
     <div class="feat"><div class="feat-icon">⚡</div><h3>Modbus RTU &amp; TCP</h3><p>Full support for RTU over serial RS-232/RS-485 and TCP/IP. Reads all four register types: coils, discrete inputs, holding and input registers.</p></div>
     <div class="feat"><div class="feat-icon">📊</div><h3>Real-time monitoring</h3><p>Live register values with configurable poll rates from 100ms. Visual charts, data logging and export to CSV.</p></div>
-    <div class="feat"><div class="feat-icon">💾</div><h3>Saved profiles</h3><p>Save device configurations as profiles and reload in seconds. Share profiles across your team or between job sites.</p></div>
-    <div class="feat"><div class="feat-icon">🔍</div><h3>TX/RX log</h3><p>Full raw communication log — see every byte sent and received. Essential for debugging and troubleshooting devices.</p></div>
+    <div class="feat"><div class="feat-icon">🔍</div><h3>Serial Monitor</h3><p>See every raw byte on the line in real time. Inspect TX/RX traffic, spot protocol errors and debug communication issues without extra tools.</p></div>
+    <div class="feat"><div class="feat-icon">🔎</div><h3>Slave &amp; Address Scan</h3><p>Automatically scan for active slave IDs on a network or scan all register addresses in a device — essential when working with unknown hardware.</p></div>
+    <div class="feat"><div class="feat-icon">🎨</div><h3>Conditional colors &amp; scaling</h3><p>Highlight register values by threshold with custom colors. Apply scaling and value labels so raw numbers show meaningful engineering units.</p></div>
+    <div class="feat"><div class="feat-icon">🔄</div><h3>Auto-reconnect</h3><p>Automatically reconnects after a dropped connection — no manual intervention needed. Keeps long-running monitoring sessions alive without babysitting.</p></div>
+    <div class="feat"><div class="feat-icon">💾</div><h3>Workspace save / load</h3><p>Save your entire session — all windows, poll configs, profiles and settings — and reload it instantly next time.</p></div>
+    <div class="feat"><div class="feat-icon">🌐</div><h3>Multilingual UI</h3><p>Full interface available in multiple languages. Switch languages without reinstalling — built for international engineering teams.</p></div>
     <div class="feat"><div class="feat-icon">🔒</div><h3>100% offline</h3><p>No cloud, no telemetry, no internet connection required. Your industrial data stays on your machine, always.</p></div>
-    <div class="feat"><div class="feat-icon">🏷</div><h3>One-time license</h3><p>Buy once, use forever. No subscriptions, no renewal fees. Free updates included for 12 months after purchase.</p></div>
   </div>
 </section>
 
@@ -171,7 +174,16 @@ footer a:hover{color:#8892a4}
       <tr><td>Modbus TCP</td><td class="hl yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
       <tr><td>TX/RX log</td><td class="hl yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
       <tr><td>Saved profiles</td><td class="hl yes">✓</td><td class="yes">✓</td><td class="no">✗</td></tr>
-      <tr><td>Actively maintained</td><td class="hl yes">✓ 2025</td><td class="yes">✓ 2025</td><td style="color:#facc15">⚠ 2022</td></tr>
+      <tr><td>Serial Monitor</td><td class="hl yes">✓</td><td class="yes">✓</td><td class="no">✗</td></tr>
+      <tr><td>Slave / Address Scan</td><td class="hl yes">✓</td><td class="yes">✓</td><td class="no">✗</td></tr>
+      <tr><td>Conditional colors</td><td class="hl yes">✓</td><td class="yes">✓</td><td class="no">✗</td></tr>
+      <tr><td>Value scaling &amp; labels</td><td class="hl yes">✓</td><td class="yes">✓</td><td class="no">✗</td></tr>
+      <tr><td>32/64-bit float formats</td><td class="hl yes">✓</td><td class="yes">✓</td><td class="no">✗</td></tr>
+      <tr><td>Auto-reconnect</td><td class="hl yes">✓</td><td class="no">✗</td><td class="no">✗</td></tr>
+      <tr><td>Register filter</td><td class="hl yes">✓</td><td class="no">✗</td><td class="no">✗</td></tr>
+      <tr><td>Multilingual UI</td><td class="hl yes">✓</td><td class="no">✗</td><td class="no">✗</td></tr>
+      <tr><td>Workspace save / load</td><td class="hl yes">✓</td><td class="yes">✓</td><td class="no">✗</td></tr>
+      <tr><td>Actively maintained</td><td class="hl yes">✓ 2026</td><td class="yes">✓ 2026</td><td style="color:#facc15">⚠ 2022</td></tr>
       <tr><td>Price</td><td class="hl" style="color:#f0b060">$119 one-time</td><td style="color:#8892a4">$129 one-time</td><td class="yes">Free</td></tr>
     </tbody>
   </table>
@@ -186,12 +198,16 @@ footer a:hover{color:#8892a4}
     <div class="price-card">
       <div class="plan-label">Trial</div>
       <div class="plan-amount">Free</div>
-      <div class="plan-note">14 days, full functionality. No credit card required.</div>
+      <div class="plan-note">Everything in the paid version, free for 14 days. No credit card required.</div>
       <ul class="plan-list">
-        <li>Full Modbus RTU &amp; TCP</li>
-        <li>All register types</li>
-        <li>TX/RX log</li>
-        <li>Saved profiles</li>
+        <li>Modbus RTU, TCP &amp; ASCII</li>
+        <li>Serial Monitor &amp; TX/RX log</li>
+        <li>Slave &amp; Address Scan</li>
+        <li>Conditional colors &amp; scaling</li>
+        <li>Auto-reconnect</li>
+        <li>Workspace save / load</li>
+        <li>Multilingual UI</li>
+        <li>32 / 64-bit float formats</li>
       </ul>
       <a href="https://github.com/vend123/modscan/releases/download/v1.1.0/Modbus.Manager.Setup.1.1.0.exe" class="btn-buy btn-buy-ghost" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManager-Trial', 'value': 1})">Download trial</a>
     </div>
