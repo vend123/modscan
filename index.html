@@ -90,7 +90,8 @@ footer a:hover{color:#8892a4}
 <!-- Paddle.js -->
 <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
 <script>
-  Paddle.Initialize({ environment: "sandbox",
+  Paddle.Environment.set('sandbox');
+  Paddle.Initialize({
     token: 'test_94854f82c1aba44f553b44c423f'
   });
 
