@@ -101,10 +101,17 @@ footer a:hover{color:#8892a4}
       alert('Machine ID is required to complete your purchase.');
       return;
     }
+    var customerEmail = prompt('Please enter your email address.\n\nYour license key will be sent here.');
+    if (!customerEmail || customerEmail.trim() === '' || !customerEmail.includes('@')) {
+      alert('A valid email address is required.');
+      return;
+    }
     gtag('event', 'begin_checkout', {'event_category': 'Purchase', 'event_label': 'ModbusManager-License'});
     Paddle.Checkout.open({
       items: [{ priceId: 'pri_01ksmay7pkzrx56zxrp6jhxedg', quantity: 1 }],
-      customData: { machine_id: machineId.trim() }
+      customer: { email: customerEmail.trim() },
+      customData: { machine_id: machineId.trim(), customer_email: customerEmail.trim() },
+      settings: { displayMode: 'overlay', theme: 'dark' }
     });
   }
 </script>
