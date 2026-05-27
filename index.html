@@ -87,6 +87,26 @@ footer a{color:#3a4455;text-decoration:none}
 footer a:hover{color:#8892a4}
 @media(max-width:860px){.hero{grid-template-columns:1fr}.features-grid{grid-template-columns:1fr 1fr}.pricing-grid{grid-template-columns:1fr}nav .nav-links{display:none}}
 </style>
+<!-- Paddle.js -->
+<script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+<script>
+  Paddle.Initialize({ environment: "sandbox",
+    token: 'test_94854f82c1aba44f553b44c423f'
+  });
+
+  function openPaddleCheckout() {
+    var machineId = prompt('Please enter your Machine ID.\n\nYou can find it in ModbusManager → Help → License Info.');
+    if (!machineId || machineId.trim() === '') {
+      alert('Machine ID is required to complete your purchase.');
+      return;
+    }
+    gtag('event', 'begin_checkout', {'event_category': 'Purchase', 'event_label': 'ModbusManager-License'});
+    Paddle.Checkout.open({
+      items: [{ priceId: 'pri_01ksmay7pkzrx56zxrp6jhxedg', quantity: 1 }],
+      customData: { machine_id: machineId.trim() }
+    });
+  }
+</script>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-42Q8HEKC0X"></script>
 <script>
@@ -221,7 +241,7 @@ footer a:hover{color:#8892a4}
         <li>Email support</li>
         <li>Instant delivery</li>
       </ul>
-      <a href="https://modbusmanager.lemonsqueezy.com/checkout/buy/061cda1d-fafd-43ac-86b8-26dcb01e3b5e" class="btn-buy btn-buy-green">Buy license — \$119</a>
+      <button onclick="openPaddleCheckout()" class="btn-buy btn-buy-green" style="cursor:pointer;border:none;width:100%">Buy license — $119</button>
     </div>
     <div class="price-card">
       <div class="plan-label">Team / Site license</div>
