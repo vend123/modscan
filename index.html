@@ -99,21 +99,59 @@ footer a:hover{color:#8892a4}
 <script>
 
   function openPaddleCheckout() {
-    var machineId = prompt('Please enter your Machine ID.\n\nYou can find it in ModbusManager → Help → License Info.');
-    if (!machineId || machineId.trim() === '') {
-      alert('Machine ID is required to complete your purchase.');
-      return;
+    document.getElementById('buyModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    document.getElementById('buyMachineId').focus();
+  }
+
+  function closeBuyModal() {
+    document.getElementById('buyModal').style.display = 'none';
+    document.body.style.overflow = '';
+    document.getElementById('buyMachineId').value = '';
+    document.getElementById('buyEmail').value = '';
+    document.getElementById('buyMidError').style.display = 'none';
+    document.getElementById('buyEmailError').style.display = 'none';
+  }
+
+  function proceedToCheckout() {
+    var machineId = document.getElementById('buyMachineId').value.trim();
+    var email = document.getElementById('buyEmail').value.trim();
+    var midError = document.getElementById('buyMidError');
+    var emailError = document.getElementById('buyEmailError');
+    var valid = true;
+
+    // Validate Machine ID: exactly 16 alphanumeric characters
+    midError.style.display = 'none';
+    if (!machineId) {
+      midError.textContent = 'Machine ID is required.';
+      midError.style.display = 'block';
+      valid = false;
+    } else if (!/^[a-zA-Z0-9]{16}$/.test(machineId)) {
+      midError.textContent = 'Machine ID must be exactly 16 letters or digits.';
+      midError.style.display = 'block';
+      valid = false;
     }
-    var customerEmail = prompt('Please enter your email address.\n\nYour license key will be sent here.');
-    if (!customerEmail || customerEmail.trim() === '' || !customerEmail.includes('@')) {
-      alert('A valid email address is required.');
-      return;
+
+    // Validate email
+    emailError.style.display = 'none';
+    if (!email) {
+      emailError.textContent = 'Email address is required.';
+      emailError.style.display = 'block';
+      valid = false;
+    } else if (!/^[^@]+@[^@]+\.[^@]+$/.test(email)) {
+      emailError.textContent = 'Please enter a valid email address.';
+      emailError.style.display = 'block';
+      valid = false;
     }
+
+    if (!valid) return;
+
+    closeBuyModal();
     gtag('event', 'begin_checkout', {'event_category': 'Purchase', 'event_label': 'ModbusManager-License'});
     Paddle.Checkout.open({
       items: [{ priceId: 'pri_01ksm9f3qspwq3716vxy5jerst', quantity: 1 }],
-      customer: { email: customerEmail.trim() },
-      customData: { machine_id: machineId.trim(), customer_email: customerEmail.trim() },
+      customer: { email: email },
+      customData: { machine_id: machineId, customer_email: email },
       settings: { displayMode: 'overlay', theme: 'dark' }
     });
   }
@@ -281,5 +319,66 @@ footer a:hover{color:#8892a4}
   <div>support@modbusmanager.com</div>
 </footer>
 
+
+<!-- BUY LICENSE MODAL -->
+<style>
+#buyModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:9999;align-items:center;justify-content:center;padding:16px}
+#buyModalBox{background:#0d1117;border:1px solid #1e2530;border-radius:10px;padding:32px;width:100%;max-width:480px;position:relative}
+.buy-label{display:block;color:#c9d1d9;font-size:.88rem;font-weight:600;margin-bottom:6px}
+.buy-sublabel{font-weight:400;color:#8892a4;margin-left:6px}
+.buy-input{width:100%;box-sizing:border-box;background:#0a0e14;border:1px solid #2a3040;color:#c9d1d9;padding:10px 12px;border-radius:5px;font-size:.9rem;font-family:'Inter',monospace;transition:border-color .2s}
+.buy-input:focus{outline:none;border-color:#00d4aa88}
+.buy-input.mid{color:#00d4aa;font-family:monospace;letter-spacing:.05em}
+.buy-error{color:#f85149;font-size:.8rem;margin-top:4px;display:none}
+.buy-hint{margin-top:10px;background:#0a1520;border:1px solid #1e3040;border-radius:6px;padding:12px 14px}
+.buy-hint-title{color:#8892a4;font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+.buy-hint-steps{color:#c9d1d9;font-size:.82rem;line-height:1.7}
+.buy-hint-preview{margin-top:10px;background:#060c12;border:1px solid #1e2530;border-radius:4px;padding:8px 10px;font-family:monospace;font-size:.78rem;color:#8892a4}
+@keyframes blink{50%{opacity:0}}
+.buy-cursor{animation:blink 1s step-end infinite}
+</style>
+
+<div id="buyModal" onclick="if(event.target===this)closeBuyModal()">
+  <div id="buyModalBox">
+    <button onclick="closeBuyModal()" style="position:absolute;top:14px;right:16px;background:none;border:none;color:#8892a4;font-size:22px;cursor:pointer;line-height:1">&#x2715;</button>
+
+    <h2 style="color:#00d4aa;font-size:1.15rem;margin:0 0 4px;font-family:'Syne',sans-serif">Activate Modbus Manager</h2>
+    <p style="color:#8892a4;font-size:.84rem;margin:0 0 22px">Enter your Machine ID and email to complete purchase.</p>
+
+    <!-- Machine ID -->
+    <div style="margin-bottom:18px">
+      <label class="buy-label">Machine ID <span class="buy-sublabel">— unique to your PC</span></label>
+      <input id="buyMachineId" class="buy-input mid" type="text" maxlength="16" placeholder="16-character ID"
+        oninput="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'')" autocomplete="off">
+      <div id="buyMidError" class="buy-error"></div>
+      <div class="buy-hint">
+        <div class="buy-hint-title">&#x1F4CD; Where to find your Machine ID</div>
+        <div class="buy-hint-steps">
+          1. Open <strong>Modbus Manager</strong><br>
+          2. Click the <strong style="color:#f0c040">&#x1F511; License</strong> button in the toolbar<br>
+          3. Copy the <strong style="color:#00d4aa">Machine ID</strong> shown in the window
+        </div>
+        <div class="buy-hint-preview">
+          <span style="color:#555">License window &rarr;</span>
+          <span style="color:#00d4aa"> Machine ID:</span>
+          <span style="color:#8892a4"> a1b2c3d4e5f6a1b2</span><span class="buy-cursor" style="color:#00d4aa">|</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div style="margin-bottom:22px">
+      <label class="buy-label">Email address <span class="buy-sublabel">— license key sent here</span></label>
+      <input id="buyEmail" class="buy-input" type="email" placeholder="you@company.com" autocomplete="email"
+        onkeydown="if(event.key==='Enter')proceedToCheckout()">
+      <div id="buyEmailError" class="buy-error"></div>
+    </div>
+
+    <button onclick="proceedToCheckout()" style="width:100%;background:#00d4aa;color:#0a0e14;border:none;padding:13px;border-radius:5px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Syne',sans-serif">
+      Continue to payment &rarr;
+    </button>
+    <p style="text-align:center;color:#555;font-size:.74rem;margin:10px 0 0">Secure checkout &bull; $119 one-time payment &bull; Instant delivery</p>
+  </div>
+</div>
 </body>
 </html>
