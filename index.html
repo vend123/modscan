@@ -19,8 +19,8 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ModbusManager — Modbus Poll Software">
-<meta name="twitter:description" content="Modbus master &amp; slave tool for Windows. Slave mode, simulation, Dashboard HMI (Pro). From $49. Free trial.">
+<meta name="twitter:title" content="ModbusManager — Modbus Poll &amp; HMI Dashboard Software for Windows">
+<meta name="twitter:description" content="Modbus master &amp; slave tool for Windows. Built-in slave mode, drag-and-drop Dashboard HMI (Pro). From $49. Free trial.">
 <meta name="google-site-verification" content="Qy3J1Q1rkxqKGITmt5axk9UNHrPUPkOSCkFRzaM9yMI" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -66,6 +66,9 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 3
 .sec-title{font-family:'Saira Condensed',sans-serif;font-size:2.3rem;font-weight:700;color:var(--ink);margin-bottom:0.3rem;letter-spacing:0.01em;text-transform:uppercase}
 .sec-sub{color:var(--muted);font-size:0.95rem;margin-bottom:2.4rem}
 .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--ink);border:2px solid var(--ink);border-radius:3px;overflow:hidden}
+.features-grid .feat:last-child:nth-child(3n - 2){grid-column:span 3}
+.features-grid .feat:nth-last-child(2):nth-child(3n + 1){grid-column:span 2}
+.features-grid .feat:last-child:nth-child(3n - 1){grid-column:span 2}
 .feat{background:var(--plate);padding:1.7rem}
 .pro-tag{display:inline-block;background:#F2A90033;color:var(--amber-ink);border:1px solid var(--safety);border-radius:2px;font-size:.62rem;font-weight:700;padding:2px 6px;vertical-align:middle;margin-left:6px;letter-spacing:.06em;font-family:'IBM Plex Mono',monospace}
 .feat-icon{width:38px;height:38px;background:#fff;border:1.5px solid var(--ink);border-radius:2px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.1rem}
@@ -201,24 +204,23 @@ footer a:hover{color:var(--ink)}
 </script>
 
 <script type="application/ld+json">
+[
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "ModbusManager",
+  "name": "ModbusManager Standard",
   "operatingSystem": "Windows 10, Windows 11",
   "applicationCategory": "DeveloperApplication",
-  "description": "Professional Modbus master and slave tool for Windows. Includes built-in slave mode, register simulation, RTU, ASCII and TCP/IP support. One-time license, no subscription.",
+  "description": "Professional Modbus master and slave tool for Windows. Test, debug and monitor Modbus RTU, TCP and ASCII devices. Built-in slave server, register simulation, Serial Monitor, Test Center. One-time license, no subscription.",
   "softwareVersion": "1.4.0",
   "datePublished": "2026-05-01",
   "url": "https://modbusmanager.com",
   "downloadUrl": "https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Setup.1.4.0.exe",
   "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "49",
-    "highPrice": "119",
+    "@type": "Offer",
+    "price": "49",
     "priceCurrency": "USD",
-    "offerCount": "2",
-    "description": "One-time perpetual license. Standard $49, Pro $119 with Dashboard HMI."
+    "description": "One-time perpetual license for 1 machine."
   },
   "featureList": [
     "Modbus RTU master",
@@ -232,9 +234,6 @@ footer a:hover{color:var(--ink)}
     "Slave Scan",
     "Address Scan",
     "Auto-reconnect",
-    "Drag-and-drop Dashboard HMI (Pro)",
-    "Gauges, lamps, bars, trends, tanks and valves (Pro)",
-    "Fullscreen runtime mode (Pro)",
     "11 UI languages",
     "Workspace save and load",
     "100% offline"
@@ -245,7 +244,43 @@ footer a:hover{color:var(--ink)}
     "name": "ModbusManager",
     "url": "https://modbusmanager.com"
   }
+},
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "ModbusManager Pro",
+  "operatingSystem": "Windows 10, Windows 11",
+  "applicationCategory": "DeveloperApplication",
+  "description": "ModbusManager Pro is a professional Modbus master, slave and HMI Dashboard tool for Windows. Includes all Standard features plus a drag-and-drop Dashboard HMI with gauges, lamps, trend charts, tanks, valves and fullscreen runtime mode — build live Modbus visualizations without SCADA licenses.",
+  "softwareVersion": "1.4.0",
+  "datePublished": "2026-05-01",
+  "url": "https://modbusmanager.com/#pro",
+  "downloadUrl": "https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Pro.Setup.1.4.0.exe",
+  "offers": {
+    "@type": "Offer",
+    "price": "119",
+    "priceCurrency": "USD",
+    "description": "One-time perpetual license for 1 machine. Includes Dashboard HMI."
+  },
+  "featureList": [
+    "All ModbusManager Standard features",
+    "Drag-and-drop Dashboard HMI",
+    "Gauges, lamps, bars, trend charts",
+    "Tanks and valves with live data",
+    "Fullscreen runtime mode",
+    "Multi-page dashboard",
+    "PNG export",
+    "Popup detail pages",
+    "100% offline"
+  ],
+  "screenshot": "https://modbusmanager.com/screenshot.png",
+  "publisher": {
+    "@type": "Organization",
+    "name": "ModbusManager",
+    "url": "https://modbusmanager.com"
+  }
 }
+]
 </script>
 </head>
 <body>
@@ -259,7 +294,10 @@ footer a:hover{color:var(--ink)}
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#support">Support</a></li>
   </ul>
-  <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Setup.1.4.0.exe" class="nav-cta" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManager-Nav', 'value': 1})">Download free trial</a>
+  <div style="display:flex;gap:12px;align-items:center">
+    <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Pro.Setup.1.4.0.exe" style="font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--amber-ink);text-decoration:none;letter-spacing:0.04em" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManagerPro-Nav', 'value': 1})">Pro trial ↓</a>
+    <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Setup.1.4.0.exe" class="nav-cta" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManager-Nav', 'value': 1})">Download free trial</a>
+  </div>
 </nav>
 
 <section style="max-width:1100px;margin:0 auto">
@@ -275,8 +313,14 @@ footer a:hover{color:var(--ink)}
         <div><span>HMI</span><b class="pro">PRO edition</b></div>
       </div>
       <div class="hero-btns">
-        <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Setup.1.4.0.exe" class="btn-primary" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManager-Setup-exe', 'value': 1})">⬇ Download for Windows</a>
-        <a href="#pro" class="btn-buy btn-buy-ghost" style="padding:0.7rem 1.5rem">Explore Pro &rarr;</a>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Setup.1.4.0.exe" class="btn-primary" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManager-Setup-exe', 'value': 1})">⬇ Download Standard — Free trial</a>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--muted);text-align:center">$49 one-time · Windows 10/11</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Pro.Setup.1.4.0.exe" class="btn-buy btn-buy-ghost" style="padding:0.7rem 1.5rem;display:inline-flex;align-items:center;gap:8px;font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:1.05rem;letter-spacing:0.04em;text-transform:uppercase;text-decoration:none" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManagerPro-Trial', 'value': 1})">⬇ Download Pro — Free trial</a>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--muted);text-align:center">$119 one-time · HMI Dashboard included</span>
+        </div>
       </div>
       <div class="os-tags">
         <span class="os-tag">Windows 10/11</span>
@@ -435,7 +479,7 @@ footer a:hover{color:var(--ink)}
         <li>12 months free updates</li>
       </ul>
       <button onclick="openPaddleCheckout('pro')" class="btn-buy btn-buy-green" style="cursor:pointer;border:none;width:100%">Buy Pro — $119</button>
-      <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Pro.Setup.1.4.0.exe" style="display:block;text-align:center;margin-top:10px;color:#5F5E5A;font-size:.8rem" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManagerPro-Trial', 'value': 1})">Download Pro trial ↓</a>
+      <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Pro.Setup.1.4.0.exe" class="btn-buy btn-buy-ghost" style="display:block;text-align:center;margin-top:8px;cursor:pointer;width:100%;box-sizing:border-box" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManagerPro-Trial', 'value': 1})">⬇ Download Pro trial</a>
     </div>
     <div class="price-card">
       <div class="plan-label">Team / Site license</div>
