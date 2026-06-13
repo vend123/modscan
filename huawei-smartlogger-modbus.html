@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Huawei SmartLogger Modbus RTU Setup Guide — Reading Inverter Data with Modbus Poll</title>
+<meta name="description" content="Step-by-step guide to reading Huawei SUN2000 inverter data via SmartLogger Modbus Remapped register scheme. Covers register addresses, scaling, FC03 polling, and monitoring with ModbusManager.">
+<meta name="keywords" content="Huawei SmartLogger Modbus, SmartLogger Modbus RTU, SUN2000 Modbus registers, SmartLogger Modbus Remapped, Huawei inverter Modbus address, SmartLogger register map, Modbus solar inverter, Huawei SUN2000 register 51000, SmartLogger RS485, solar plant Modbus monitoring">
+<meta name="author" content="ModbusManager">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.modbusmanager.com/huawei-smartlogger-modbus.html">
+
+<meta property="og:title" content="Huawei SmartLogger Modbus RTU Setup Guide">
+<meta property="og:description" content="How to read SUN2000 inverter data via SmartLogger Modbus Remapped registers. Register map, scaling, and polling setup.">
+<meta property="og:url" content="https://www.modbusmanager.com/huawei-smartlogger-modbus.html">
+<meta property="og:type" content="article">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Huawei SmartLogger Modbus RTU Setup Guide",
+  "description": "Step-by-step guide to reading Huawei SUN2000 inverter data via the SmartLogger Modbus Remapped register scheme.",
+  "url": "https://www.modbusmanager.com/huawei-smartlogger-modbus.html",
+  "author": { "@type": "Organization", "name": "ModbusManager", "url": "https://modbusmanager.com" },
+  "publisher": { "@type": "Organization", "name": "ModbusManager", "url": "https://modbusmanager.com" },
+  "keywords": "Huawei SmartLogger, Modbus RTU, SUN2000, Modbus Remapped, solar inverter monitoring"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{--enclosure:#D8DAD5;--enclosure2:#E6E8E3;--plate:#F4F5F2;--ink:#16181A;--body:#3A3E40;--muted:#5F5E5A;--steel:#B9BDB6;--safety:#F2A900;--amber-ink:#9A6700;--run:#1E7A4F;--bad:#A32D2D}
+body{font-family:'Archivo',sans-serif;background:var(--enclosure);color:var(--ink);min-height:100vh}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 3rem;border-bottom:2px solid var(--ink);position:sticky;top:0;background:var(--enclosure2);z-index:100}
+.logo{font-family:'Saira Condensed',sans-serif;font-size:1.25rem;font-weight:700;color:var(--ink);letter-spacing:0.05em;text-transform:uppercase;text-decoration:none}
+.logo span{color:var(--amber-ink)}
+.nav-links{display:flex;gap:2rem;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:0.78rem;letter-spacing:0.05em;color:var(--muted)}
+.nav-links a{color:inherit;text-decoration:none;text-transform:uppercase}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink);color:var(--safety);padding:0.5rem 1.3rem;border-radius:2px;font-family:'Saira Condensed',sans-serif;font-size:0.95rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none}
+.nav-cta:hover{color:#fff}
+.hazard{height:10px;background:repeating-linear-gradient(45deg,var(--safety) 0 14px,var(--ink) 14px 28px)}
+.article-wrap{max-width:860px;margin:0 auto;padding:3rem 2rem 5rem}
+.breadcrumb{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--muted);margin-bottom:2rem}
+.breadcrumb a{color:var(--muted);text-decoration:none}
+.breadcrumb a:hover{color:var(--ink)}
+h1{font-family:'Saira Condensed',sans-serif;font-size:2.6rem;font-weight:700;line-height:1.05;text-transform:uppercase;letter-spacing:0.01em;margin-bottom:1rem}
+h2{font-family:'Saira Condensed',sans-serif;font-size:1.5rem;font-weight:700;text-transform:uppercase;letter-spacing:0.03em;margin:2.5rem 0 0.8rem;padding-top:0.5rem;border-top:2px solid var(--ink)}
+h3{font-family:'Saira Condensed',sans-serif;font-size:1.1rem;font-weight:600;text-transform:uppercase;letter-spacing:0.03em;margin:1.5rem 0 0.5rem;color:var(--amber-ink)}
+p{font-size:0.93rem;color:var(--body);line-height:1.75;margin-bottom:1rem}
+.lead{font-size:1.05rem;color:var(--ink);line-height:1.7;margin-bottom:2rem;border-left:3px solid var(--safety);padding-left:1rem}
+code{font-family:'IBM Plex Mono',monospace;font-size:0.82rem;background:#fff;border:1px solid var(--steel);padding:1px 5px;border-radius:2px}
+pre{font-family:'IBM Plex Mono',monospace;font-size:0.8rem;background:var(--ink);color:#E6E8E3;padding:1.2rem 1.4rem;border-radius:3px;overflow-x:auto;margin:1.2rem 0;line-height:1.6}
+pre .c{color:#888}
+pre .v{color:#F2A900}
+pre .k{color:#7ec8e3}
+table{width:100%;border-collapse:collapse;font-size:0.83rem;margin:1.2rem 0;background:var(--plate);border:2px solid var(--ink)}
+th{text-align:left;padding:0.65rem 0.9rem;border-bottom:2px solid var(--ink);background:var(--enclosure2);font-family:'IBM Plex Mono',monospace;font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted)}
+td{padding:0.6rem 0.9rem;border-bottom:1px solid var(--steel);color:var(--body)}
+tr:hover td{background:#ECEEE9}
+td.mono{font-family:'IBM Plex Mono',monospace;font-size:0.78rem}
+td.formula{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--amber-ink)}
+.callout{background:var(--plate);border:1.5px solid var(--ink);border-left:4px solid var(--safety);padding:1rem 1.2rem;border-radius:2px;margin:1.5rem 0;font-size:0.88rem;color:var(--body);line-height:1.6}
+.callout strong{color:var(--ink)}
+.callout.tip{border-left-color:var(--run)}
+.callout.warn{border-left-color:var(--bad)}
+.step-num{display:inline-block;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:0.85rem;background:var(--ink);color:var(--safety);padding:2px 8px;border-radius:2px;margin-right:8px;letter-spacing:0.05em}
+.cta-box{background:var(--ink);color:var(--enclosure);padding:2rem 2.2rem;border-radius:3px;margin:3rem 0;display:flex;gap:2rem;align-items:center;flex-wrap:wrap}
+.cta-box h3{color:var(--safety);margin:0 0 0.4rem;font-size:1.2rem;border:none;padding:0}
+.cta-box p{color:#B9BDB6;font-size:0.85rem;margin:0}
+.cta-box a{background:var(--safety);color:var(--ink);padding:0.65rem 1.4rem;border-radius:2px;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+.cta-box a:hover{background:#fff}
+footer{border-top:2px solid var(--ink);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;color:var(--muted);flex-wrap:wrap;gap:1rem;background:var(--enclosure2)}
+.footer-logo{font-family:'Saira Condensed',sans-serif;color:var(--ink);font-weight:700;text-transform:uppercase;letter-spacing:0.05em}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--ink)}
+@media(max-width:640px){nav .nav-links{display:none}.article-wrap{padding:2rem 1.2rem 4rem}h1{font-size:2rem}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">Modbus<span>Manager</span></a>
+  <ul class="nav-links">
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/#pro">Pro</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+  </ul>
+  <div style="display:flex;gap:12px;align-items:center">
+    <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Pro.Setup.1.4.0.exe" style="font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--amber-ink);text-decoration:none;letter-spacing:0.04em">Pro trial ↓</a>
+    <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Setup.1.4.0.exe" class="nav-cta">Download free trial</a>
+  </div>
+</nav>
+<div class="hazard"></div>
+
+<div class="article-wrap">
+
+  <div class="breadcrumb">
+    <a href="/">ModbusManager</a> &rsaquo; Guides &rsaquo; Huawei SmartLogger Modbus RTU
+  </div>
+
+  <h1>Huawei SmartLogger Modbus RTU Setup Guide</h1>
+
+  <p class="lead">The Huawei SmartLogger uses a <strong>Modbus Remapped</strong> register scheme where each connected SUN2000 inverter is accessible at a calculated starting address — not at the inverter's own Modbus ID. This guide walks through the register layout, address formula, scaling rules, and how to poll a full solar plant using ModbusManager.</p>
+
+  <h2>What is Modbus Remapped?</h2>
+
+  <p>When SUN2000 inverters connect to a SmartLogger via RS485, the SmartLogger acts as the single Modbus slave on the external RS485 bus. It remaps each inverter's registers into a sequential address space, making them all available from one slave ID.</p>
+
+  <p>This is different from daisy-chaining inverters directly — you do <em>not</em> talk to each inverter at its own Modbus ID. You talk to the SmartLogger only, and use the remapped addresses to target specific inverters.</p>
+
+  <div class="callout">
+    <strong>Key point:</strong> All polling goes to the SmartLogger's Modbus slave ID (typically <code>1</code>). The inverter number is encoded in the register address, not in the slave ID.
+  </div>
+
+  <h2>Inverter Address Formula</h2>
+
+  <p>The starting holding register for inverter N (1-based) is:</p>
+
+  <pre><span class="k">start_address</span> = <span class="v">51000</span> + <span class="v">25</span> × (N − 1)</pre>
+
+  <p>Examples for a 24-inverter plant:</p>
+
+  <table>
+    <tr><th>Inverter</th><th>Start Address (0-based)</th><th>Decimal</th></tr>
+    <tr><td>1</td><td class="mono">0xC738</td><td class="mono">51000</td></tr>
+    <tr><td>2</td><td class="mono">0xC751</td><td class="mono">51025</td></tr>
+    <tr><td>3</td><td class="mono">0xC76A</td><td class="mono">51050</td></tr>
+    <tr><td>12</td><td class="mono">0xC7FF</td><td class="mono">51275</td></tr>
+    <tr><td>24</td><td class="mono">0xC897</td><td class="mono">51575</td></tr>
+  </table>
+
+  <p>Each inverter block occupies 25 registers. Reading FC03 from the start address with <code>quantity = 25</code> retrieves all parameters for that inverter in one request.</p>
+
+  <h2>Key Registers (Offsets from Start Address)</h2>
+
+  <table>
+    <tr><th>Offset</th><th>Parameter</th><th>Type</th><th>Scaling</th><th>Unit</th></tr>
+    <tr><td class="mono">+0</td><td>Inverter status</td><td class="mono">U16</td><td class="formula">raw (enum)</td><td>—</td></tr>
+    <tr><td class="mono">+1</td><td>Active power hi-word</td><td class="mono">U16</td><td class="formula">÷1000 (I32 pair)</td><td>kW</td></tr>
+    <tr><td class="mono">+2</td><td>Active power lo-word</td><td class="mono">U16</td><td class="formula">÷1000 (I32 pair)</td><td>kW</td></tr>
+    <tr><td class="mono">+3</td><td>Reactive power hi-word</td><td class="mono">U16</td><td class="formula">÷1000 (I32 pair, signed)</td><td>kVar</td></tr>
+    <tr><td class="mono">+4</td><td>Reactive power lo-word</td><td class="mono">U16</td><td class="formula">÷1000 (I32 pair, signed)</td><td>kVar</td></tr>
+    <tr><td class="mono">+5</td><td>Power factor</td><td class="mono">I16</td><td class="formula">÷1000</td><td>—</td></tr>
+    <tr><td class="mono">+6</td><td>Grid frequency</td><td class="mono">U16</td><td class="formula">÷100</td><td>Hz</td></tr>
+    <tr><td class="mono">+7</td><td>Efficiency</td><td class="mono">U16</td><td class="formula">÷100</td><td>%</td></tr>
+    <tr><td class="mono">+8</td><td>Cabinet temperature</td><td class="mono">I16</td><td class="formula">÷10</td><td>°C</td></tr>
+    <tr><td class="mono">+9</td><td>DC input 1 current</td><td class="mono">I16</td><td class="formula">÷100</td><td>A</td></tr>
+    <tr><td class="mono">+17</td><td>Daily yield hi-word</td><td class="mono">U16</td><td class="formula">÷100 (U32 pair)</td><td>kWh</td></tr>
+    <tr><td class="mono">+18</td><td>Daily yield lo-word</td><td class="mono">U16</td><td class="formula">÷100 (U32 pair)</td><td>kWh</td></tr>
+    <tr><td class="mono">+21</td><td>Cumulative yield hi-word</td><td class="mono">U16</td><td class="formula">÷100 (U32 pair)</td><td>kWh</td></tr>
+    <tr><td class="mono">+22</td><td>Cumulative yield lo-word</td><td class="mono">U16</td><td class="formula">÷100 (U32 pair)</td><td>kWh</td></tr>
+  </table>
+
+  <div class="callout tip">
+    <strong>32-bit pairs:</strong> Active power, reactive power, and energy registers are split across two consecutive 16-bit registers (hi-word, lo-word). Combine them as a signed 32-bit integer before applying the gain: <code>value = (hi &lt;&lt; 16 | lo) / 1000</code>. For reactive power, treat the result as signed (two's complement).
+  </div>
+
+  <h2>Inverter Status Values</h2>
+
+  <p>The status register (offset +0) returns an enum. The most common values:</p>
+
+  <table>
+    <tr><th>Value (hex)</th><th>Meaning</th></tr>
+    <tr><td class="mono">0x0000</td><td>Standby: initialising</td></tr>
+    <tr><td class="mono">0x0200</td><td>On-grid (normal operation)</td></tr>
+    <tr><td class="mono">0x0300</td><td>On-grid: power limited</td></tr>
+    <tr><td class="mono">0x0400</td><td>On-grid: self-derating</td></tr>
+    <tr><td class="mono">0x0500</td><td>Off-grid running</td></tr>
+    <tr><td class="mono">0x8000</td><td>Fault</td></tr>
+    <tr><td class="mono">0xB000</td><td>Communication lost</td></tr>
+    <tr><td class="mono">0xC000</td><td>Uploading (firmware update)</td></tr>
+  </table>
+
+  <h2>Plant-Level SmartLogger Registers</h2>
+
+  <p>Besides individual inverter blocks, the SmartLogger exposes plant-level aggregates at lower addresses (starting around register 37000–37100 depending on firmware). These include total active power, total daily yield, and grid connection status for the whole plant. Consult your SmartLogger firmware documentation for the exact plant-level register map — it can differ between SmartLogger 3000A and SmartLogger 1000A models.</p>
+
+  <h2>Step-by-Step: Polling with ModbusManager</h2>
+
+  <p><span class="step-num">1</span> <strong>Connect</strong> — Set up an RS485 or TCP connection to the SmartLogger. Slave ID is typically <code>1</code>. Baud rate is usually 9600 or 19200 (check SmartLogger &rsaquo; Settings &rsaquo; RS485).</p>
+
+  <p><span class="step-num">2</span> <strong>Open a poll window</strong> — Choose Function Code <code>03</code> (Read Holding Registers). Enter the start address for inverter 1: <code>51000</code>. Set quantity to <code>25</code>.</p>
+
+  <p><span class="step-num">3</span> <strong>Apply scaling</strong> — Right-click on registers that need scaling, select Scaling and enter the gain. For active power (offset +1/+2) you need to combine into an I32 first — use the 32-bit display column in ModbusManager, then scale ÷1000.</p>
+
+  <p><span class="step-num">4</span> <strong>Duplicate for each inverter</strong> — Clone the poll window and change only the start address: <code>51000 + 25 × (N−1)</code>. Name each window "INV-01", "INV-02", etc.</p>
+
+  <p><span class="step-num">5</span> <strong>Save workspace</strong> — Use File &rsaquo; Save Workspace to store all 24 poll windows in a single JSON file. Reload in one click next time.</p>
+
+  <div class="callout warn">
+    <strong>Poll rate:</strong> The SmartLogger updates its internal data cache every 1–5 minutes depending on configuration. Polling faster than the cache refresh rate returns stale values — a scan rate of 60 seconds per window is typically sufficient.
+  </div>
+
+  <h2>Calculating Plant KPIs with Tags (Pro)</h2>
+
+  <p>ModbusManager Pro includes a tag engine where you can write Structured Text expressions to compute derived values across multiple poll windows. For a 24-inverter plant, a tag that sums active power across all inverters looks like:</p>
+
+  <pre><span class="c">// Total active power — sum I32 pairs from all 24 inverters</span>
+<span class="k">plant_kw</span> := <span class="v">0.0</span>;
+<span class="k">FOR</span> i := <span class="v">1</span> <span class="k">TO</span> <span class="v">24</span> <span class="k">DO</span>
+  hi := reg[<span class="v">51000</span> + <span class="v">25</span>*(i-<span class="v">1</span>) + <span class="v">1</span>];
+  lo := reg[<span class="v">51000</span> + <span class="v">25</span>*(i-<span class="v">1</span>) + <span class="v">2</span>];
+  raw := (hi SHL <span class="v">16</span>) OR lo;
+  <span class="k">IF</span> raw > <span class="v">2147483647</span> <span class="k">THEN</span> raw := raw - <span class="v">4294967296</span>; <span class="k">END_IF</span>
+  plant_kw := plant_kw + (raw / <span class="v">1000.0</span>);
+<span class="k">END_FOR</span>;</pre>
+
+  <p>The result can be bound to a Dashboard gauge or KPI element for a live plant overview visible in full-screen runtime mode.</p>
+
+  <div class="cta-box">
+    <div>
+      <h3>Try it with ModbusManager</h3>
+      <p>Free 14-day trial. No credit card. Windows 10/11.</p>
+    </div>
+    <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Setup.1.4.0.exe">Download Free Trial</a>
+  </div>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <h3>Can I use Modbus TCP instead of RS485?</h3>
+  <p>Yes. The SmartLogger supports Modbus TCP on port 502. The register map is identical — the same address formula and scaling applies. Connect ModbusManager via TCP to the SmartLogger's IP address, slave ID 1.</p>
+
+  <h3>My inverter reads 0 even though it is running</h3>
+  <p>Check that the SmartLogger has detected the inverter (SmartLogger web UI &rsaquo; Device List). If the inverter shows "undetected", the RS485 wiring between SmartLogger and inverter is the issue, not the Modbus polling side.</p>
+
+  <h3>The active power register shows a huge number</h3>
+  <p>You are likely reading it as U16 instead of combining the hi/lo pair into I32. Select the 32-bit signed integer display column in ModbusManager for the register pair starting at offset +1.</p>
+
+  <h3>Which SmartLogger firmware versions does this apply to?</h3>
+  <p>The Modbus Remapped scheme described here applies to SmartLogger 3000A and SmartLogger 1000A with firmware V300R023 and later. Older firmware versions may use a different starting address or block size — always verify against the "SmartLogger Modbus Interface Definition" document from Huawei's support portal.</p>
+
+</div>
+
+<div class="hazard"></div>
+<footer>
+  <div class="footer-logo">ModbusManager</div>
+  <div style="display:flex;gap:1.5rem">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/license-terms.html">License terms</a>
+    <a href="/manual.html">Documentation</a>
+    <a href="mailto:support@modbusmanager.com">Support</a>
+  </div>
+  <div>support@modbusmanager.com</div>
+</footer>
+
+</body>
+</html>
