@@ -136,7 +136,16 @@ footer a:hover{color:var(--ink)}
   }
 
   function openPaddleCheckout(product) {
-    selectProduct(product === 'pro' ? 'pro' : 'standard');
+    var prod = (product === 'pro') ? 'pro' : 'standard';
+    // Fires the instant a Buy button is clicked (before the modal opens)
+    gtag('event', 'buy_button_click', {
+      'event_category': 'Purchase',
+      'event_label': prod === 'pro' ? 'ModbusManagerPro-Buy' : 'ModbusManager-Buy',
+      'product': prod,
+      'value': prod === 'pro' ? 119 : 49,
+      'currency': 'USD'
+    });
+    selectProduct(prod);
     document.getElementById('buyModal').style.display = 'flex';
     document.body.style.overflow = 'hidden';
     document.getElementById('buyMachineId').focus();
@@ -185,7 +194,7 @@ footer a:hover{color:var(--ink)}
     if (!valid) return;
 
     closeBuyModal();
-    gtag('event', 'begin_checkout', {'event_category': 'Purchase', 'event_label': selectedProduct === 'pro' ? 'ModbusManagerPro-License' : 'ModbusManager-License'});
+    gtag('event', 'begin_checkout', {'event_category': 'Purchase', 'event_label': selectedProduct === 'pro' ? 'ModbusManagerPro-License' : 'ModbusManager-License', 'product': selectedProduct, 'value': selectedProduct === 'pro' ? 119 : 49, 'currency': 'USD'});
     Paddle.Checkout.open({
       items: [{ priceId: PRICE_IDS[selectedProduct], quantity: 1 }],
       customer: { email: email },
