@@ -143,6 +143,15 @@ footer a{color:var(--muted);text-decoration:none}
 footer a:hover{color:var(--ink)}
 @media(max-width:640px){nav .nav-links{display:none}.article-wrap{padding:2rem 1.2rem 4rem}h1{font-size:2rem}}
 </style>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-42Q8HEKC0X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-42Q8HEKC0X');
+</script>
 </head>
 <body>
 
@@ -154,8 +163,8 @@ footer a:hover{color:var(--ink)}
     <li><a href="/#pricing">Pricing</a></li>
   </ul>
   <div style="display:flex;gap:12px;align-items:center">
-    <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Pro.Setup.1.4.0.exe" style="font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--amber-ink);text-decoration:none;letter-spacing:0.04em">Pro trial ↓</a>
-    <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Setup.1.4.0.exe" class="nav-cta">Download free trial</a>
+    <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Pro.Setup.1.4.0.exe" style="font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--amber-ink);text-decoration:none;letter-spacing:0.04em" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManagerPro-SmartLogger-NavText', 'value': 1})">Pro trial ↓</a>
+    <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Setup.1.4.0.exe" class="nav-cta" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManager-SmartLogger-Nav', 'value': 1})">Download free trial</a>
   </div>
 </nav>
 <div class="hazard"></div>
@@ -317,7 +326,7 @@ footer a:hover{color:var(--ink)}
       <h3>Try it with ModbusManager Pro</h3>
       <p>Tag engine + Dashboard HMI for live plant overviews. Free 14-day trial. No credit card. Windows 10/11.</p>
     </div>
-    <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Pro.Setup.1.4.0.exe">Download Pro Trial</a>
+    <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Pro.Setup.1.4.0.exe" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManagerPro-SmartLogger-Body', 'value': 1})">Download Pro Trial</a>
   </div>
 
   <h2>Frequently Asked Questions</h2>
