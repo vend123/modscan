@@ -650,7 +650,7 @@
       "logFile": "log_Inverter_24.txt"
     },
     {
-      "name": "Jaam – Mõõtmised",
+      "name": "Plant – Measurements",
       "fc": 3,
       "addr": 40500,
       "qty": 78,
@@ -673,11 +673,11 @@
         "count": 0
       },
       "chartReg": 40500,
-      "chartName": "Jaam – Mõõtmised [40500]",
-      "logFile": "log_Jaam_-_Mõõtmised.txt"
+      "chartName": "Plant – Measurements [40500]",
+      "logFile": "log_Plant_-_Measurements.txt"
     },
     {
-      "name": "Jaam – Lisaks",
+      "name": "Plant – Additional",
       "fc": 3,
       "addr": 40685,
       "qty": 16,
@@ -700,11 +700,11 @@
         "count": 0
       },
       "chartReg": 40685,
-      "chartName": "Jaam – Lisaks [40685]",
-      "logFile": "log_Jaam_-_Lisaks.txt"
+      "chartName": "Plant – Additional [40685]",
+      "logFile": "log_Plant_-_Additional.txt"
     },
     {
-      "name": "Jaam – Juhtimine (RW)",
+      "name": "Plant – Control (RW)",
       "fc": 3,
       "addr": 40420,
       "qty": 10,
@@ -727,11 +727,11 @@
         "count": 0
       },
       "chartReg": 40420,
-      "chartName": "Jaam – Juhtimine (RW) [40420]",
-      "logFile": "log_Jaam_-_Juhtimine_(RW).txt"
+      "chartName": "Plant – Control (RW) [40420]",
+      "logFile": "log_Plant_-_Control_(RW).txt"
     },
     {
-      "name": "Jaam – Alarmid",
+      "name": "Plant – Alarms",
       "fc": 3,
       "addr": 50000,
       "qty": 3,
@@ -754,11 +754,11 @@
         "count": 0
       },
       "chartReg": 50000,
-      "chartName": "Jaam – Alarmid [50000]",
-      "logFile": "log_Jaam_-_Alarmid.txt"
+      "chartName": "Plant – Alarms [50000]",
+      "logFile": "log_Plant_-_Alarms.txt"
     },
     {
-      "name": "Jaam – Aeg/Seaded",
+      "name": "Plant – Time/Settings",
       "fc": 3,
       "addr": 40000,
       "qty": 10,
@@ -781,8 +781,8 @@
         "count": 0
       },
       "chartReg": 40000,
-      "chartName": "Jaam – Aeg/Seaded [40000]",
-      "logFile": "log_Jaam_-_Aeg_Seaded.txt"
+      "chartName": "Plant – Time/Settings [40000]",
+      "logFile": "log_Plant_-_Time_Settings.txt"
     }
   ],
   "activePoll": 0,
@@ -1206,21 +1206,21 @@
   },
   "valueNames": {
     "40543": {
-      "1": "Piiramata töö",
-      "2": "Piiratud töö",
-      "3": "Jõude",
-      "4": "Seisak (rike/hooldus)",
-      "5": "Side katkenud"
+      "1": "Unlimited operation",
+      "2": "Limited operation",
+      "3": "Idle",
+      "4": "Shutdown (fault/maintenance)",
+      "5": "Comms interrupted"
     },
     "40566": {
-      "0": "Jõude",
-      "1": "Võrgus",
-      "2": "Võrgus: isederating",
-      "3": "Võrgus: võimsuspiirang",
-      "4": "Plaaniline seisak",
-      "5": "Võimsuspiirangu seisak",
-      "6": "Rikkeseisak",
-      "7": "Side katkenud"
+      "0": "Idle",
+      "1": "On-grid",
+      "2": "On-grid: self-derating",
+      "3": "On-grid: power limiting",
+      "4": "Scheduled shutdown",
+      "5": "Power-limited shutdown",
+      "6": "Fault shutdown",
+      "7": "Comms interrupted"
     },
     "40699": {
       "0": "Lukus",
@@ -1231,107 +1231,107 @@
       "1": "Lubatud"
     },
     "51009": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51034": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51059": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51084": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51109": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51134": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51159": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51184": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51209": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51234": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51259": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51284": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51309": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51334": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51359": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51384": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51409": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51434": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51459": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51484": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51509": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51534": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51559": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     },
     "51584": {
-      "45056": "Side katkenud",
-      "49152": "Üleslaadimine"
+      "45056": "Comms interrupted",
+      "49152": "Uploading"
     }
   },
   "chartSeries": [
     {
       "reg": 40525,
       "fmt": "I32",
-      "name": "Jaam aktiivP",
+      "name": "Plant activeP",
       "slaveId": 0,
       "yMin": null,
       "yMax": null,
@@ -1342,7 +1342,7 @@
   "dashPages": [
     {
       "id": 1,
-      "name": "Ülevaade",
+      "name": "Overview",
       "elements": [
         {
           "id": 1,
@@ -1350,7 +1350,7 @@
           "x": 40,
           "y": 16,
           "value": 0,
-          "text": "☀  Päiksejaam — Ülevaade (24 inverterit)",
+          "text": "☀  Solar Plant — Overview (24 inverters)",
           "fontSize": 22,
           "color": "#00d4aa",
           "bold": true,
@@ -1363,7 +1363,7 @@
           "x": 40,
           "y": 64,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "plant_P_kW",
           "unit": "kW",
@@ -1379,7 +1379,7 @@
           "x": 280,
           "y": 64,
           "value": 0,
-          "label": "Energia täna",
+          "label": "Energy today",
           "sourceType": "tag",
           "tagName": "plant_Eday_kWh",
           "unit": "kWh",
@@ -1395,7 +1395,7 @@
           "x": 520,
           "y": 64,
           "value": 0,
-          "label": "Kogu energia",
+          "label": "Total energy",
           "sourceType": "tag",
           "tagName": "plant_Etot_kWh",
           "unit": "kWh",
@@ -1411,7 +1411,7 @@
           "x": 760,
           "y": 64,
           "value": 0,
-          "label": "Jaama staatus (kood)",
+          "label": "Plant status (code)",
           "sourceType": "tag",
           "tagName": "plant_status",
           "unit": "",
@@ -1427,7 +1427,7 @@
           "x": 40,
           "y": 176,
           "value": 0,
-          "text": "Inverterite staatus (lamp süttib, kui staatus ≠ 0)",
+          "text": "Inverter status (lamp lights up when status ≠ 0)",
           "fontSize": 14,
           "color": "#8892a4",
           "w": 560,
@@ -1871,7 +1871,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51009,
           "regType": "holdingRegisters",
@@ -1887,7 +1887,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv01_P_kW",
           "unit": "kW",
@@ -1904,7 +1904,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51004,
@@ -1924,7 +1924,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51011,
@@ -1944,7 +1944,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51008,
@@ -1986,7 +1986,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51034,
           "regType": "holdingRegisters",
@@ -2002,7 +2002,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv02_P_kW",
           "unit": "kW",
@@ -2019,7 +2019,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51029,
@@ -2039,7 +2039,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51036,
@@ -2059,7 +2059,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51033,
@@ -2101,7 +2101,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51059,
           "regType": "holdingRegisters",
@@ -2117,7 +2117,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv03_P_kW",
           "unit": "kW",
@@ -2134,7 +2134,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51054,
@@ -2154,7 +2154,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51061,
@@ -2174,7 +2174,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51058,
@@ -2216,7 +2216,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51084,
           "regType": "holdingRegisters",
@@ -2232,7 +2232,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv04_P_kW",
           "unit": "kW",
@@ -2249,7 +2249,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51079,
@@ -2269,7 +2269,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51086,
@@ -2289,7 +2289,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51083,
@@ -2331,7 +2331,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51109,
           "regType": "holdingRegisters",
@@ -2347,7 +2347,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv05_P_kW",
           "unit": "kW",
@@ -2364,7 +2364,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51104,
@@ -2384,7 +2384,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51111,
@@ -2404,7 +2404,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51108,
@@ -2446,7 +2446,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51134,
           "regType": "holdingRegisters",
@@ -2462,7 +2462,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv06_P_kW",
           "unit": "kW",
@@ -2479,7 +2479,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51129,
@@ -2499,7 +2499,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51136,
@@ -2519,7 +2519,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51133,
@@ -2561,7 +2561,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51159,
           "regType": "holdingRegisters",
@@ -2577,7 +2577,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv07_P_kW",
           "unit": "kW",
@@ -2594,7 +2594,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51154,
@@ -2614,7 +2614,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51161,
@@ -2634,7 +2634,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51158,
@@ -2676,7 +2676,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51184,
           "regType": "holdingRegisters",
@@ -2692,7 +2692,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv08_P_kW",
           "unit": "kW",
@@ -2709,7 +2709,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51179,
@@ -2729,7 +2729,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51186,
@@ -2749,7 +2749,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51183,
@@ -2791,7 +2791,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51209,
           "regType": "holdingRegisters",
@@ -2807,7 +2807,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv09_P_kW",
           "unit": "kW",
@@ -2824,7 +2824,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51204,
@@ -2844,7 +2844,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51211,
@@ -2864,7 +2864,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51208,
@@ -2906,7 +2906,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51234,
           "regType": "holdingRegisters",
@@ -2922,7 +2922,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv10_P_kW",
           "unit": "kW",
@@ -2939,7 +2939,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51229,
@@ -2959,7 +2959,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51236,
@@ -2979,7 +2979,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51233,
@@ -3021,7 +3021,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51259,
           "regType": "holdingRegisters",
@@ -3037,7 +3037,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv11_P_kW",
           "unit": "kW",
@@ -3054,7 +3054,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51254,
@@ -3074,7 +3074,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51261,
@@ -3094,7 +3094,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51258,
@@ -3136,7 +3136,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51284,
           "regType": "holdingRegisters",
@@ -3152,7 +3152,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv12_P_kW",
           "unit": "kW",
@@ -3169,7 +3169,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51279,
@@ -3189,7 +3189,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51286,
@@ -3209,7 +3209,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51283,
@@ -3251,7 +3251,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51309,
           "regType": "holdingRegisters",
@@ -3267,7 +3267,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv13_P_kW",
           "unit": "kW",
@@ -3284,7 +3284,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51304,
@@ -3304,7 +3304,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51311,
@@ -3324,7 +3324,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51308,
@@ -3366,7 +3366,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51334,
           "regType": "holdingRegisters",
@@ -3382,7 +3382,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv14_P_kW",
           "unit": "kW",
@@ -3399,7 +3399,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51329,
@@ -3419,7 +3419,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51336,
@@ -3439,7 +3439,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51333,
@@ -3481,7 +3481,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51359,
           "regType": "holdingRegisters",
@@ -3497,7 +3497,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv15_P_kW",
           "unit": "kW",
@@ -3514,7 +3514,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51354,
@@ -3534,7 +3534,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51361,
@@ -3554,7 +3554,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51358,
@@ -3596,7 +3596,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51384,
           "regType": "holdingRegisters",
@@ -3612,7 +3612,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv16_P_kW",
           "unit": "kW",
@@ -3629,7 +3629,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51379,
@@ -3649,7 +3649,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51386,
@@ -3669,7 +3669,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51383,
@@ -3711,7 +3711,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51409,
           "regType": "holdingRegisters",
@@ -3727,7 +3727,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv17_P_kW",
           "unit": "kW",
@@ -3744,7 +3744,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51404,
@@ -3764,7 +3764,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51411,
@@ -3784,7 +3784,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51408,
@@ -3826,7 +3826,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51434,
           "regType": "holdingRegisters",
@@ -3842,7 +3842,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv18_P_kW",
           "unit": "kW",
@@ -3859,7 +3859,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51429,
@@ -3879,7 +3879,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51436,
@@ -3899,7 +3899,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51433,
@@ -3941,7 +3941,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51459,
           "regType": "holdingRegisters",
@@ -3957,7 +3957,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv19_P_kW",
           "unit": "kW",
@@ -3974,7 +3974,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51454,
@@ -3994,7 +3994,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51461,
@@ -4014,7 +4014,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51458,
@@ -4056,7 +4056,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51484,
           "regType": "holdingRegisters",
@@ -4072,7 +4072,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv20_P_kW",
           "unit": "kW",
@@ -4089,7 +4089,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51479,
@@ -4109,7 +4109,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51486,
@@ -4129,7 +4129,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51483,
@@ -4171,7 +4171,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51509,
           "regType": "holdingRegisters",
@@ -4187,7 +4187,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv21_P_kW",
           "unit": "kW",
@@ -4204,7 +4204,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51504,
@@ -4224,7 +4224,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51511,
@@ -4244,7 +4244,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51508,
@@ -4286,7 +4286,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51534,
           "regType": "holdingRegisters",
@@ -4302,7 +4302,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv22_P_kW",
           "unit": "kW",
@@ -4319,7 +4319,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51529,
@@ -4339,7 +4339,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51536,
@@ -4359,7 +4359,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51533,
@@ -4401,7 +4401,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51559,
           "regType": "holdingRegisters",
@@ -4417,7 +4417,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv23_P_kW",
           "unit": "kW",
@@ -4434,7 +4434,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51554,
@@ -4454,7 +4454,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51561,
@@ -4474,7 +4474,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51558,
@@ -4516,7 +4516,7 @@
           "w": 80,
           "h": 80,
           "value": 0,
-          "label": "Staatus",
+          "label": "Status",
           "slaveId": 0,
           "address": 51584,
           "regType": "holdingRegisters",
@@ -4532,7 +4532,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Aktiivvõimsus",
+          "label": "Active power",
           "sourceType": "tag",
           "tagName": "inv24_P_kW",
           "unit": "kW",
@@ -4549,7 +4549,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "DC vool",
+          "label": "DC current",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51579,
@@ -4569,7 +4569,7 @@
           "w": 128,
           "h": 76,
           "value": 0,
-          "label": "Kapi temp",
+          "label": "Cabinet temp",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51586,
@@ -4589,7 +4589,7 @@
           "w": 126,
           "h": 76,
           "value": 0,
-          "label": "Võimsustegur",
+          "label": "Power factor",
           "sourceType": "register",
           "slaveId": 0,
           "address": 51583,
@@ -4612,7 +4612,7 @@
       "regType": "holdingRegisters",
       "address": 40525,
       "value": 0,
-      "description": "Aktiivvõimsus hi (I32)"
+      "description": "Active power hi (I32)"
     },
     {
       "name": "plant_P_lo",
@@ -4621,7 +4621,7 @@
       "regType": "holdingRegisters",
       "address": 40526,
       "value": 0,
-      "description": "Aktiivvõimsus lo"
+      "description": "Active power lo"
     },
     {
       "name": "plant_Q_hi",
@@ -4630,7 +4630,7 @@
       "regType": "holdingRegisters",
       "address": 40544,
       "value": 0,
-      "description": "Reaktiivvõimsus hi (I32)"
+      "description": "Reactive power hi (I32)"
     },
     {
       "name": "plant_Q_lo",
@@ -4639,7 +4639,7 @@
       "regType": "holdingRegisters",
       "address": 40545,
       "value": 0,
-      "description": "Reaktiivvõimsus lo"
+      "description": "Reactive power lo"
     },
     {
       "name": "plant_Eday_hi",
@@ -4684,7 +4684,7 @@
       "regType": "holdingRegisters",
       "address": 40543,
       "value": 0,
-      "description": "Jaama staatus (Qinghai)"
+      "description": "Plant status (Qinghai)"
     },
     {
       "name": "plant_P_kW",
@@ -4693,7 +4693,7 @@
       "regType": "holdingRegisters",
       "address": 0,
       "value": 0,
-      "description": "Aktiivvõimsus kW (arvutatud)"
+      "description": "Active power kW (calculated)"
     },
     {
       "name": "plant_Q_kVar",
@@ -4702,7 +4702,7 @@
       "regType": "holdingRegisters",
       "address": 0,
       "value": 0,
-      "description": "Reaktiivvõimsus kVar (arvutatud)"
+      "description": "Reactive power kVar (calculated)"
     },
     {
       "name": "plant_Eday_kWh",
@@ -4711,7 +4711,7 @@
       "regType": "holdingRegisters",
       "address": 0,
       "value": 0,
-      "description": "Päeva energia kWh (arvutatud)"
+      "description": "Daily energy kWh (calculated)"
     },
     {
       "name": "plant_Etot_kWh",
@@ -4720,7 +4720,7 @@
       "regType": "holdingRegisters",
       "address": 0,
       "value": 0,
-      "description": "Kogu energia kWh (arvutatud)"
+      "description": "Total energy kWh (calculated)"
     },
     {
       "name": "inv01_P_hi",
@@ -4729,7 +4729,7 @@
       "regType": "holdingRegisters",
       "address": 51000,
       "value": 0,
-      "description": "Inverter 1 aktiivP hi (I32)"
+      "description": "Inverter 1 activeP hi (I32)"
     },
     {
       "name": "inv01_P_lo",
@@ -4738,13 +4738,13 @@
       "regType": "holdingRegisters",
       "address": 51001,
       "value": 0,
-      "description": "Inverter 1 aktiivP lo"
+      "description": "Inverter 1 activeP lo"
     },
     {
       "name": "inv01_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 1 aktiivvõimsus kW"
+      "description": "Inverter 1 active power kW"
     },
     {
       "name": "inv02_P_hi",
@@ -4753,7 +4753,7 @@
       "regType": "holdingRegisters",
       "address": 51025,
       "value": 0,
-      "description": "Inverter 2 aktiivP hi (I32)"
+      "description": "Inverter 2 activeP hi (I32)"
     },
     {
       "name": "inv02_P_lo",
@@ -4762,13 +4762,13 @@
       "regType": "holdingRegisters",
       "address": 51026,
       "value": 0,
-      "description": "Inverter 2 aktiivP lo"
+      "description": "Inverter 2 activeP lo"
     },
     {
       "name": "inv02_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 2 aktiivvõimsus kW"
+      "description": "Inverter 2 active power kW"
     },
     {
       "name": "inv03_P_hi",
@@ -4777,7 +4777,7 @@
       "regType": "holdingRegisters",
       "address": 51050,
       "value": 0,
-      "description": "Inverter 3 aktiivP hi (I32)"
+      "description": "Inverter 3 activeP hi (I32)"
     },
     {
       "name": "inv03_P_lo",
@@ -4786,13 +4786,13 @@
       "regType": "holdingRegisters",
       "address": 51051,
       "value": 0,
-      "description": "Inverter 3 aktiivP lo"
+      "description": "Inverter 3 activeP lo"
     },
     {
       "name": "inv03_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 3 aktiivvõimsus kW"
+      "description": "Inverter 3 active power kW"
     },
     {
       "name": "inv04_P_hi",
@@ -4801,7 +4801,7 @@
       "regType": "holdingRegisters",
       "address": 51075,
       "value": 0,
-      "description": "Inverter 4 aktiivP hi (I32)"
+      "description": "Inverter 4 activeP hi (I32)"
     },
     {
       "name": "inv04_P_lo",
@@ -4810,13 +4810,13 @@
       "regType": "holdingRegisters",
       "address": 51076,
       "value": 0,
-      "description": "Inverter 4 aktiivP lo"
+      "description": "Inverter 4 activeP lo"
     },
     {
       "name": "inv04_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 4 aktiivvõimsus kW"
+      "description": "Inverter 4 active power kW"
     },
     {
       "name": "inv05_P_hi",
@@ -4825,7 +4825,7 @@
       "regType": "holdingRegisters",
       "address": 51100,
       "value": 0,
-      "description": "Inverter 5 aktiivP hi (I32)"
+      "description": "Inverter 5 activeP hi (I32)"
     },
     {
       "name": "inv05_P_lo",
@@ -4834,13 +4834,13 @@
       "regType": "holdingRegisters",
       "address": 51101,
       "value": 0,
-      "description": "Inverter 5 aktiivP lo"
+      "description": "Inverter 5 activeP lo"
     },
     {
       "name": "inv05_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 5 aktiivvõimsus kW"
+      "description": "Inverter 5 active power kW"
     },
     {
       "name": "inv06_P_hi",
@@ -4849,7 +4849,7 @@
       "regType": "holdingRegisters",
       "address": 51125,
       "value": 0,
-      "description": "Inverter 6 aktiivP hi (I32)"
+      "description": "Inverter 6 activeP hi (I32)"
     },
     {
       "name": "inv06_P_lo",
@@ -4858,13 +4858,13 @@
       "regType": "holdingRegisters",
       "address": 51126,
       "value": 0,
-      "description": "Inverter 6 aktiivP lo"
+      "description": "Inverter 6 activeP lo"
     },
     {
       "name": "inv06_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 6 aktiivvõimsus kW"
+      "description": "Inverter 6 active power kW"
     },
     {
       "name": "inv07_P_hi",
@@ -4873,7 +4873,7 @@
       "regType": "holdingRegisters",
       "address": 51150,
       "value": 0,
-      "description": "Inverter 7 aktiivP hi (I32)"
+      "description": "Inverter 7 activeP hi (I32)"
     },
     {
       "name": "inv07_P_lo",
@@ -4882,13 +4882,13 @@
       "regType": "holdingRegisters",
       "address": 51151,
       "value": 0,
-      "description": "Inverter 7 aktiivP lo"
+      "description": "Inverter 7 activeP lo"
     },
     {
       "name": "inv07_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 7 aktiivvõimsus kW"
+      "description": "Inverter 7 active power kW"
     },
     {
       "name": "inv08_P_hi",
@@ -4897,7 +4897,7 @@
       "regType": "holdingRegisters",
       "address": 51175,
       "value": 0,
-      "description": "Inverter 8 aktiivP hi (I32)"
+      "description": "Inverter 8 activeP hi (I32)"
     },
     {
       "name": "inv08_P_lo",
@@ -4906,13 +4906,13 @@
       "regType": "holdingRegisters",
       "address": 51176,
       "value": 0,
-      "description": "Inverter 8 aktiivP lo"
+      "description": "Inverter 8 activeP lo"
     },
     {
       "name": "inv08_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 8 aktiivvõimsus kW"
+      "description": "Inverter 8 active power kW"
     },
     {
       "name": "inv09_P_hi",
@@ -4921,7 +4921,7 @@
       "regType": "holdingRegisters",
       "address": 51200,
       "value": 0,
-      "description": "Inverter 9 aktiivP hi (I32)"
+      "description": "Inverter 9 activeP hi (I32)"
     },
     {
       "name": "inv09_P_lo",
@@ -4930,13 +4930,13 @@
       "regType": "holdingRegisters",
       "address": 51201,
       "value": 0,
-      "description": "Inverter 9 aktiivP lo"
+      "description": "Inverter 9 activeP lo"
     },
     {
       "name": "inv09_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 9 aktiivvõimsus kW"
+      "description": "Inverter 9 active power kW"
     },
     {
       "name": "inv10_P_hi",
@@ -4945,7 +4945,7 @@
       "regType": "holdingRegisters",
       "address": 51225,
       "value": 0,
-      "description": "Inverter 10 aktiivP hi (I32)"
+      "description": "Inverter 10 activeP hi (I32)"
     },
     {
       "name": "inv10_P_lo",
@@ -4954,13 +4954,13 @@
       "regType": "holdingRegisters",
       "address": 51226,
       "value": 0,
-      "description": "Inverter 10 aktiivP lo"
+      "description": "Inverter 10 activeP lo"
     },
     {
       "name": "inv10_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 10 aktiivvõimsus kW"
+      "description": "Inverter 10 active power kW"
     },
     {
       "name": "inv11_P_hi",
@@ -4969,7 +4969,7 @@
       "regType": "holdingRegisters",
       "address": 51250,
       "value": 0,
-      "description": "Inverter 11 aktiivP hi (I32)"
+      "description": "Inverter 11 activeP hi (I32)"
     },
     {
       "name": "inv11_P_lo",
@@ -4978,13 +4978,13 @@
       "regType": "holdingRegisters",
       "address": 51251,
       "value": 0,
-      "description": "Inverter 11 aktiivP lo"
+      "description": "Inverter 11 activeP lo"
     },
     {
       "name": "inv11_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 11 aktiivvõimsus kW"
+      "description": "Inverter 11 active power kW"
     },
     {
       "name": "inv12_P_hi",
@@ -4993,7 +4993,7 @@
       "regType": "holdingRegisters",
       "address": 51275,
       "value": 0,
-      "description": "Inverter 12 aktiivP hi (I32)"
+      "description": "Inverter 12 activeP hi (I32)"
     },
     {
       "name": "inv12_P_lo",
@@ -5002,13 +5002,13 @@
       "regType": "holdingRegisters",
       "address": 51276,
       "value": 0,
-      "description": "Inverter 12 aktiivP lo"
+      "description": "Inverter 12 activeP lo"
     },
     {
       "name": "inv12_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 12 aktiivvõimsus kW"
+      "description": "Inverter 12 active power kW"
     },
     {
       "name": "inv13_P_hi",
@@ -5017,7 +5017,7 @@
       "regType": "holdingRegisters",
       "address": 51300,
       "value": 0,
-      "description": "Inverter 13 aktiivP hi (I32)"
+      "description": "Inverter 13 activeP hi (I32)"
     },
     {
       "name": "inv13_P_lo",
@@ -5026,13 +5026,13 @@
       "regType": "holdingRegisters",
       "address": 51301,
       "value": 0,
-      "description": "Inverter 13 aktiivP lo"
+      "description": "Inverter 13 activeP lo"
     },
     {
       "name": "inv13_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 13 aktiivvõimsus kW"
+      "description": "Inverter 13 active power kW"
     },
     {
       "name": "inv14_P_hi",
@@ -5041,7 +5041,7 @@
       "regType": "holdingRegisters",
       "address": 51325,
       "value": 0,
-      "description": "Inverter 14 aktiivP hi (I32)"
+      "description": "Inverter 14 activeP hi (I32)"
     },
     {
       "name": "inv14_P_lo",
@@ -5050,13 +5050,13 @@
       "regType": "holdingRegisters",
       "address": 51326,
       "value": 0,
-      "description": "Inverter 14 aktiivP lo"
+      "description": "Inverter 14 activeP lo"
     },
     {
       "name": "inv14_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 14 aktiivvõimsus kW"
+      "description": "Inverter 14 active power kW"
     },
     {
       "name": "inv15_P_hi",
@@ -5065,7 +5065,7 @@
       "regType": "holdingRegisters",
       "address": 51350,
       "value": 0,
-      "description": "Inverter 15 aktiivP hi (I32)"
+      "description": "Inverter 15 activeP hi (I32)"
     },
     {
       "name": "inv15_P_lo",
@@ -5074,13 +5074,13 @@
       "regType": "holdingRegisters",
       "address": 51351,
       "value": 0,
-      "description": "Inverter 15 aktiivP lo"
+      "description": "Inverter 15 activeP lo"
     },
     {
       "name": "inv15_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 15 aktiivvõimsus kW"
+      "description": "Inverter 15 active power kW"
     },
     {
       "name": "inv16_P_hi",
@@ -5089,7 +5089,7 @@
       "regType": "holdingRegisters",
       "address": 51375,
       "value": 0,
-      "description": "Inverter 16 aktiivP hi (I32)"
+      "description": "Inverter 16 activeP hi (I32)"
     },
     {
       "name": "inv16_P_lo",
@@ -5098,13 +5098,13 @@
       "regType": "holdingRegisters",
       "address": 51376,
       "value": 0,
-      "description": "Inverter 16 aktiivP lo"
+      "description": "Inverter 16 activeP lo"
     },
     {
       "name": "inv16_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 16 aktiivvõimsus kW"
+      "description": "Inverter 16 active power kW"
     },
     {
       "name": "inv17_P_hi",
@@ -5113,7 +5113,7 @@
       "regType": "holdingRegisters",
       "address": 51400,
       "value": 0,
-      "description": "Inverter 17 aktiivP hi (I32)"
+      "description": "Inverter 17 activeP hi (I32)"
     },
     {
       "name": "inv17_P_lo",
@@ -5122,13 +5122,13 @@
       "regType": "holdingRegisters",
       "address": 51401,
       "value": 0,
-      "description": "Inverter 17 aktiivP lo"
+      "description": "Inverter 17 activeP lo"
     },
     {
       "name": "inv17_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 17 aktiivvõimsus kW"
+      "description": "Inverter 17 active power kW"
     },
     {
       "name": "inv18_P_hi",
@@ -5137,7 +5137,7 @@
       "regType": "holdingRegisters",
       "address": 51425,
       "value": 0,
-      "description": "Inverter 18 aktiivP hi (I32)"
+      "description": "Inverter 18 activeP hi (I32)"
     },
     {
       "name": "inv18_P_lo",
@@ -5146,13 +5146,13 @@
       "regType": "holdingRegisters",
       "address": 51426,
       "value": 0,
-      "description": "Inverter 18 aktiivP lo"
+      "description": "Inverter 18 activeP lo"
     },
     {
       "name": "inv18_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 18 aktiivvõimsus kW"
+      "description": "Inverter 18 active power kW"
     },
     {
       "name": "inv19_P_hi",
@@ -5161,7 +5161,7 @@
       "regType": "holdingRegisters",
       "address": 51450,
       "value": 0,
-      "description": "Inverter 19 aktiivP hi (I32)"
+      "description": "Inverter 19 activeP hi (I32)"
     },
     {
       "name": "inv19_P_lo",
@@ -5170,13 +5170,13 @@
       "regType": "holdingRegisters",
       "address": 51451,
       "value": 0,
-      "description": "Inverter 19 aktiivP lo"
+      "description": "Inverter 19 activeP lo"
     },
     {
       "name": "inv19_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 19 aktiivvõimsus kW"
+      "description": "Inverter 19 active power kW"
     },
     {
       "name": "inv20_P_hi",
@@ -5185,7 +5185,7 @@
       "regType": "holdingRegisters",
       "address": 51475,
       "value": 0,
-      "description": "Inverter 20 aktiivP hi (I32)"
+      "description": "Inverter 20 activeP hi (I32)"
     },
     {
       "name": "inv20_P_lo",
@@ -5194,13 +5194,13 @@
       "regType": "holdingRegisters",
       "address": 51476,
       "value": 0,
-      "description": "Inverter 20 aktiivP lo"
+      "description": "Inverter 20 activeP lo"
     },
     {
       "name": "inv20_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 20 aktiivvõimsus kW"
+      "description": "Inverter 20 active power kW"
     },
     {
       "name": "inv21_P_hi",
@@ -5209,7 +5209,7 @@
       "regType": "holdingRegisters",
       "address": 51500,
       "value": 0,
-      "description": "Inverter 21 aktiivP hi (I32)"
+      "description": "Inverter 21 activeP hi (I32)"
     },
     {
       "name": "inv21_P_lo",
@@ -5218,13 +5218,13 @@
       "regType": "holdingRegisters",
       "address": 51501,
       "value": 0,
-      "description": "Inverter 21 aktiivP lo"
+      "description": "Inverter 21 activeP lo"
     },
     {
       "name": "inv21_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 21 aktiivvõimsus kW"
+      "description": "Inverter 21 active power kW"
     },
     {
       "name": "inv22_P_hi",
@@ -5233,7 +5233,7 @@
       "regType": "holdingRegisters",
       "address": 51525,
       "value": 0,
-      "description": "Inverter 22 aktiivP hi (I32)"
+      "description": "Inverter 22 activeP hi (I32)"
     },
     {
       "name": "inv22_P_lo",
@@ -5242,13 +5242,13 @@
       "regType": "holdingRegisters",
       "address": 51526,
       "value": 0,
-      "description": "Inverter 22 aktiivP lo"
+      "description": "Inverter 22 activeP lo"
     },
     {
       "name": "inv22_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 22 aktiivvõimsus kW"
+      "description": "Inverter 22 active power kW"
     },
     {
       "name": "inv23_P_hi",
@@ -5257,7 +5257,7 @@
       "regType": "holdingRegisters",
       "address": 51550,
       "value": 0,
-      "description": "Inverter 23 aktiivP hi (I32)"
+      "description": "Inverter 23 activeP hi (I32)"
     },
     {
       "name": "inv23_P_lo",
@@ -5266,13 +5266,13 @@
       "regType": "holdingRegisters",
       "address": 51551,
       "value": 0,
-      "description": "Inverter 23 aktiivP lo"
+      "description": "Inverter 23 activeP lo"
     },
     {
       "name": "inv23_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 23 aktiivvõimsus kW"
+      "description": "Inverter 23 active power kW"
     },
     {
       "name": "inv24_P_hi",
@@ -5281,7 +5281,7 @@
       "regType": "holdingRegisters",
       "address": 51575,
       "value": 0,
-      "description": "Inverter 24 aktiivP hi (I32)"
+      "description": "Inverter 24 activeP hi (I32)"
     },
     {
       "name": "inv24_P_lo",
@@ -5290,16 +5290,16 @@
       "regType": "holdingRegisters",
       "address": 51576,
       "value": 0,
-      "description": "Inverter 24 aktiivP lo"
+      "description": "Inverter 24 activeP lo"
     },
     {
       "name": "inv24_P_kW",
       "type": "internal",
       "value": 0,
-      "description": "Inverter 24 aktiivvõimsus kW"
+      "description": "Inverter 24 active power kW"
     }
   ],
-  "script": "(* Jaama koondvaartused: kombineeri I32/U32 hi/lo sonad + rakenda gain *)\nplant_P_kW := (plant_P_hi * 65536 + plant_P_lo) / 1000;\nplant_Eday_kWh := (plant_Eday_hi * 65536 + plant_Eday_lo) / 10;\nplant_Etot_kWh := (plant_Etot_hi * 65536 + plant_Etot_lo) / 10;\n\n(* Reaktiivvoimsus on margiga (I32) *)\nplant_Q_kVar := plant_Q_hi * 65536 + plant_Q_lo;\nIF plant_Q_kVar > 2147483647 THEN\n  plant_Q_kVar := plant_Q_kVar - 4294967296;\nEND_IF;\nplant_Q_kVar := plant_Q_kVar / 1000;\n\n(* Inverterite aktiivvõimsus: I32 hi/lo → kW *)\ninv01_P_kW := (inv01_P_hi * 65536 + inv01_P_lo) / 1000;\ninv02_P_kW := (inv02_P_hi * 65536 + inv02_P_lo) / 1000;\ninv03_P_kW := (inv03_P_hi * 65536 + inv03_P_lo) / 1000;\ninv04_P_kW := (inv04_P_hi * 65536 + inv04_P_lo) / 1000;\ninv05_P_kW := (inv05_P_hi * 65536 + inv05_P_lo) / 1000;\ninv06_P_kW := (inv06_P_hi * 65536 + inv06_P_lo) / 1000;\ninv07_P_kW := (inv07_P_hi * 65536 + inv07_P_lo) / 1000;\ninv08_P_kW := (inv08_P_hi * 65536 + inv08_P_lo) / 1000;\ninv09_P_kW := (inv09_P_hi * 65536 + inv09_P_lo) / 1000;\ninv10_P_kW := (inv10_P_hi * 65536 + inv10_P_lo) / 1000;\ninv11_P_kW := (inv11_P_hi * 65536 + inv11_P_lo) / 1000;\ninv12_P_kW := (inv12_P_hi * 65536 + inv12_P_lo) / 1000;\ninv13_P_kW := (inv13_P_hi * 65536 + inv13_P_lo) / 1000;\ninv14_P_kW := (inv14_P_hi * 65536 + inv14_P_lo) / 1000;\ninv15_P_kW := (inv15_P_hi * 65536 + inv15_P_lo) / 1000;\ninv16_P_kW := (inv16_P_hi * 65536 + inv16_P_lo) / 1000;\ninv17_P_kW := (inv17_P_hi * 65536 + inv17_P_lo) / 1000;\ninv18_P_kW := (inv18_P_hi * 65536 + inv18_P_lo) / 1000;\ninv19_P_kW := (inv19_P_hi * 65536 + inv19_P_lo) / 1000;\ninv20_P_kW := (inv20_P_hi * 65536 + inv20_P_lo) / 1000;\ninv21_P_kW := (inv21_P_hi * 65536 + inv21_P_lo) / 1000;\ninv22_P_kW := (inv22_P_hi * 65536 + inv22_P_lo) / 1000;\ninv23_P_kW := (inv23_P_hi * 65536 + inv23_P_lo) / 1000;\ninv24_P_kW := (inv24_P_hi * 65536 + inv24_P_lo) / 1000;\n",
+  "script": "(* Plant aggregate values: combine I32/U32 hi/lo words + apply gain *)\nplant_P_kW := (plant_P_hi * 65536 + plant_P_lo) / 1000;\nplant_Eday_kWh := (plant_Eday_hi * 65536 + plant_Eday_lo) / 10;\nplant_Etot_kWh := (plant_Etot_hi * 65536 + plant_Etot_lo) / 10;\n\n(* Reactive power is signed (I32) *)\nplant_Q_kVar := plant_Q_hi * 65536 + plant_Q_lo;\nIF plant_Q_kVar > 2147483647 THEN\n  plant_Q_kVar := plant_Q_kVar - 4294967296;\nEND_IF;\nplant_Q_kVar := plant_Q_kVar / 1000;\n\n(* Inverter active power: I32 hi/lo → kW *)\ninv01_P_kW := (inv01_P_hi * 65536 + inv01_P_lo) / 1000;\ninv02_P_kW := (inv02_P_hi * 65536 + inv02_P_lo) / 1000;\ninv03_P_kW := (inv03_P_hi * 65536 + inv03_P_lo) / 1000;\ninv04_P_kW := (inv04_P_hi * 65536 + inv04_P_lo) / 1000;\ninv05_P_kW := (inv05_P_hi * 65536 + inv05_P_lo) / 1000;\ninv06_P_kW := (inv06_P_hi * 65536 + inv06_P_lo) / 1000;\ninv07_P_kW := (inv07_P_hi * 65536 + inv07_P_lo) / 1000;\ninv08_P_kW := (inv08_P_hi * 65536 + inv08_P_lo) / 1000;\ninv09_P_kW := (inv09_P_hi * 65536 + inv09_P_lo) / 1000;\ninv10_P_kW := (inv10_P_hi * 65536 + inv10_P_lo) / 1000;\ninv11_P_kW := (inv11_P_hi * 65536 + inv11_P_lo) / 1000;\ninv12_P_kW := (inv12_P_hi * 65536 + inv12_P_lo) / 1000;\ninv13_P_kW := (inv13_P_hi * 65536 + inv13_P_lo) / 1000;\ninv14_P_kW := (inv14_P_hi * 65536 + inv14_P_lo) / 1000;\ninv15_P_kW := (inv15_P_hi * 65536 + inv15_P_lo) / 1000;\ninv16_P_kW := (inv16_P_hi * 65536 + inv16_P_lo) / 1000;\ninv17_P_kW := (inv17_P_hi * 65536 + inv17_P_lo) / 1000;\ninv18_P_kW := (inv18_P_hi * 65536 + inv18_P_lo) / 1000;\ninv19_P_kW := (inv19_P_hi * 65536 + inv19_P_lo) / 1000;\ninv20_P_kW := (inv20_P_hi * 65536 + inv20_P_lo) / 1000;\ninv21_P_kW := (inv21_P_hi * 65536 + inv21_P_lo) / 1000;\ninv22_P_kW := (inv22_P_hi * 65536 + inv22_P_lo) / 1000;\ninv23_P_kW := (inv23_P_hi * 65536 + inv23_P_lo) / 1000;\ninv24_P_kW := (inv24_P_hi * 65536 + inv24_P_lo) / 1000;\n",
   "scriptInterval": 2000,
   "saved": "2026-06-09T14:03:50.473402+00:00"
 }
