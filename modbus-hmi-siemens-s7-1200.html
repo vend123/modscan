@@ -3,43 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modbus HMI Dashboard Software for Windows | ModbusManager</title>
-<meta name="description" content="Build a live Modbus HMI dashboard on Windows without SCADA licenses. Drag-and-drop gauges, lamps and trend charts, plus a fullscreen runtime mode.">
-<meta name="keywords" content="Modbus HMI software, Modbus HMI dashboard, Modbus dashboard Windows, build Modbus HMI, Modbus visualization software, Modbus gauge, Modbus SCADA alternative, HMI builder Modbus, Modbus dashboard tool, Modbus Pro">
+<title>Modbus HMI for Siemens S7-1200 | ModbusManager</title>
+<meta name="description" content="Turn ModbusManager Pro into a live HMI dashboard for your Siemens S7-1200 over Modbus TCP. Free demo project (SCL + workspace) you can download and run on real hardware.">
+<meta name="keywords" content="Modbus HMI Siemens S7-1200, S7-1200 Modbus TCP, Siemens PLC HMI software, MB_SERVER, Modbus dashboard Siemens, S7-1200 SCADA alternative, ModbusManager Pro Siemens">
 <meta name="author" content="ModbusManager">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.modbusmanager.com/modbus-hmi-dashboard.html">
+<link rel="canonical" href="https://www.modbusmanager.com/modbus-hmi-siemens-s7-1200.html">
 
-<!-- Open Graph -->
-<meta property="og:title" content="Modbus HMI Dashboard Software for Windows">
+<meta property="og:title" content="Modbus HMI for Siemens S7-1200">
 <meta property="og:site_name" content="ModbusManager">
-<meta property="og:description" content="Build a live Modbus HMI dashboard without SCADA licenses. Drag-and-drop gauges, lamps and trends. $119 one-time, Windows.">
-<meta property="og:url" content="https://www.modbusmanager.com/modbus-hmi-dashboard.html">
+<meta property="og:description" content="Live HMI dashboard for your Siemens S7-1200 over Modbus TCP. Free demo project you can download and run on real hardware.">
+<meta property="og:url" content="https://www.modbusmanager.com/modbus-hmi-siemens-s7-1200.html">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://www.modbusmanager.com/og-hmi.png">
+<meta property="og:image" content="https://www.modbusmanager.com/og-siemens.png">
 
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Modbus HMI Dashboard Software for Windows">
-<meta name="twitter:description" content="Live Modbus HMI dashboard for Windows. Drag-and-drop gauges, lamps, trends. No SCADA license needed. $119 one-time.">
-<meta name="twitter:image" content="https://www.modbusmanager.com/og-hmi.png">
+<meta name="twitter:title" content="Modbus HMI for Siemens S7-1200">
+<meta name="twitter:description" content="Live HMI dashboard for your S7-1200 over Modbus TCP. Free demo project, runs on real hardware.">
+<meta name="twitter:image" content="https://www.modbusmanager.com/og-siemens.png">
 
 <link rel="icon" type="image/png" href="data:image/png;base64,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">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-<!-- JSON-LD: TechArticle + FAQPage + SoftwareApplication -->
 <script type="application/ld+json">
 [
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "Modbus HMI Dashboard Software for Windows",
-  "description": "How to build a live Modbus HMI dashboard on Windows using ModbusManager Pro — drag-and-drop gauges, lamps, trend charts and fullscreen runtime mode without SCADA licenses.",
-  "url": "https://www.modbusmanager.com/modbus-hmi-dashboard.html",
-  "datePublished": "2026-06-01",
-  "dateModified": "2026-06-01",
+  "headline": "Modbus HMI for Siemens S7-1200",
+  "description": "How to use ModbusManager Pro as a live HMI dashboard for a Siemens S7-1200 over Modbus TCP, with a downloadable demo project (SCL source + Pro workspace).",
+  "url": "https://www.modbusmanager.com/modbus-hmi-siemens-s7-1200.html",
+  "datePublished": "2026-06-15",
+  "dateModified": "2026-06-15",
   "author": {"@type": "Organization", "name": "ModbusManager", "url": "https://modbusmanager.com"},
   "publisher": {"@type": "Organization", "name": "ModbusManager", "url": "https://modbusmanager.com"},
   "about": {
@@ -48,7 +45,6 @@
     "operatingSystem": "Windows 10, Windows 11",
     "applicationCategory": "DeveloperApplication",
     "offers": {"@type": "Offer", "price": "119", "priceCurrency": "USD"},
-    "url": "https://modbusmanager.com/#pro",
     "downloadUrl": "https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Pro.Setup.1.4.0.exe"
   }
 },
@@ -56,46 +52,13 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Do I need a separate SCADA server to run a Modbus HMI dashboard?",
-      "acceptedAnswer": {"@type": "Answer", "text": "No. ModbusManager Pro runs entirely on Windows — no server, no cloud, no OPC-UA license. The dashboard polls your Modbus devices directly and displays live data in the same application."}
-    },
-    {
-      "@type": "Question",
-      "name": "Does the Modbus HMI work with both RTU and TCP devices?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Yes. The dashboard reads from any poll window configured in ModbusManager Pro, so you can mix RTU (serial RS-485) and TCP/IP devices on the same dashboard page."}
-    },
-    {
-      "@type": "Question",
-      "name": "What dashboard elements are available?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Gauges, numeric KPI displays, status lamps (on/off/color by value), horizontal and vertical bars, trend charts, tank fill indicators, valve icons, and text labels. All elements resize and snap to grid."}
-    },
-    {
-      "@type": "Question",
-      "name": "Can I build multi-page dashboards?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Yes. ModbusManager Pro supports multiple dashboard pages in a single workspace. You can link pages via button elements or navigate with tabs in runtime mode."}
-    },
-    {
-      "@type": "Question",
-      "name": "What is fullscreen runtime mode?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Runtime mode hides all editor controls and expands the dashboard to fill the screen — suitable for an operator panel or wall display. You exit with Escape."}
-    },
-    {
-      "@type": "Question",
-      "name": "How does the tag engine work?",
-      "acceptedAnswer": {"@type": "Answer", "text": "ModbusManager Pro includes a tag engine with Structured Text scripting. You define register-linked tags and write simple expressions (e.g. combining hi/lo word pairs into a 32-bit value, applying gains) that run every poll cycle. Dashboard elements bind to tag values, not raw registers."}
-    },
-    {
-      "@type": "Question",
-      "name": "Can I export the dashboard to PNG or PDF?",
-      "acceptedAnswer": {"@type": "Answer", "text": "You can export a snapshot of the current dashboard view to PNG. PDF export is not currently supported."}
-    },
-    {
-      "@type": "Question",
-      "name": "What is the price and license model?",
-      "acceptedAnswer": {"@type": "Answer", "text": "ModbusManager Pro costs $119 as a one-time perpetual license for one machine. It includes 12 months of free updates. A 14-day free trial is available — no credit card required."}
-    }
+    {"@type":"Question","name":"Do I need WinCC or a SCADA license to visualise an S7-1200?","acceptedAnswer":{"@type":"Answer","text":"No. ModbusManager Pro runs on a normal Windows PC and polls the S7-1200 directly over Modbus TCP. There is no SCADA server, OPC-UA license or WinCC runtime to buy."}},
+    {"@type":"Question","name":"Does the demo work with a real S7-1200?","acceptedAnswer":{"@type":"Answer","text":"Yes. The demo was built and tested on real S7-1200 hardware. The PLC runs a small simulation and acts as a Modbus TCP server on port 502; ModbusManager Pro polls it and displays the data live."}},
+    {"@type":"Question","name":"Which TIA Portal version do I need?","acceptedAnswer":{"@type":"Answer","text":"The demo logic is an SCL source file that imports into TIA Portal V13 or newer. It was developed on TIA Portal V15.1. You import it via External source files and generate the blocks."}},
+    {"@type":"Question","name":"Modbus TCP or RTU?","acceptedAnswer":{"@type":"Answer","text":"The demo uses Modbus TCP over the S7-1200 onboard Ethernet port, so no extra module is needed. ModbusManager Pro also supports Modbus RTU if you add a CM 1241 serial module."}},
+    {"@type":"Question","name":"Does this only work with Siemens PLCs?","acceptedAnswer":{"@type":"Answer","text":"No. ModbusManager Pro is vendor-neutral. It works with any Modbus RTU or TCP device - inverters, energy meters, VFDs, sensors and PLCs from any manufacturer - and can show several devices on one dashboard."}},
+    {"@type":"Question","name":"Is the inverter data real?","acceptedAnswer":{"@type":"Answer","text":"In the demo the S7-1200 generates a simulated solar inverter (power, voltage, energy, temperature, status) so the dashboard looks alive without real sensors. For production you map the dashboard to your real device registers instead."}},
+    {"@type":"Question","name":"What does ModbusManager Pro cost?","acceptedAnswer":{"@type":"Answer","text":"ModbusManager Pro is a one-time 119 USD perpetual license for one machine, with 12 months of free updates and a 14-day free trial - no credit card required."}}
   ]
 }
 ]
@@ -220,6 +183,8 @@ footer a:hover{color:#fff}
 @media(max-width:520px){
   .widget-grid,.steps{grid-template-columns:1fr}
 }
+.dl-options{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.8rem}
+@media(max-width:768px){.dl-options{grid-template-columns:1fr}}
 </style>
 
 <!-- Google Analytics -->
@@ -240,54 +205,51 @@ footer a:hover{color:#fff}
   <ul class="nav-links">
     <li><a href="/#features">Features</a></li>
     <li><a href="/#pro">Pro</a></li>
-    <li><a href="/#pricing">Pricing</a></li>
-    <li><a href="/modbus-hmi-dashboard.html" style="color:var(--ink)">HMI Dashboard</a></li>
-    <li><a href="/modbus-hmi-siemens-s7-1200.html">Siemens Demo</a></li>
+    <li><a href="/modbus-hmi-dashboard.html">HMI Dashboard</a></li>
+    <li><a href="/modbus-hmi-siemens-s7-1200.html" style="color:var(--ink)">Siemens Demo</a></li>
     <li><a href="/huawei-smartlogger-modbus.html">Guides</a></li>
     <li><a href="/#support">Support</a></li>
   </ul>
   <div style="display:flex;gap:12px;align-items:center">
-    <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Pro.Setup.1.4.0.exe" style="font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--amber-ink);text-decoration:none;letter-spacing:0.04em" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManagerPro-HMI-NavText', 'product': 'pro', 'value': 1})">Pro trial ↓</a>
-    <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Pro.Setup.1.4.0.exe" class="nav-cta" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManagerPro-HMI-Nav', 'product': 'pro', 'value': 1})">Download Pro trial</a>
+    <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Pro.Setup.1.4.0.exe" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManagerPro-Siemens-NavText', 'product': 'pro', 'value': 1})" style="font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--amber-ink);text-decoration:none;letter-spacing:0.04em">Pro trial &darr;</a>
+    <a href="/ModbusManager-Siemens-S7-1200-demo.zip" download onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'Siemens-S7-1200-Demo-Zip', 'value': 1})" class="nav-cta">Free demo &darr;</a>
   </div>
 </nav>
 
-<!-- ═══════════════════════════════════════════════════════════ HERO -->
 <section class="hero">
-  <div class="eyebrow">// ModbusManager Pro — HMI Dashboard</div>
-  <h1>Modbus <span class="accent">HMI Dashboard</span><br>Software for Windows</h1>
-  <p class="hero-desc">Build a live operator dashboard directly from your Modbus registers — without a SCADA server, OPC-UA license, or subscription. Drag-and-drop gauges, lamps, trend charts and run it fullscreen. Works with RTU and TCP devices on Windows 10/11.</p>
+  <div class="eyebrow">// ModbusManager Pro &mdash; Siemens S7-1200</div>
+  <h1>Modbus HMI for<br><span class="accent">Siemens S7-1200</span></h1>
+  <p class="hero-desc">Build a live operator dashboard for your Siemens S7-1200 over Modbus TCP &mdash; without WinCC, a SCADA server or an OPC-UA license. Download the free demo project, run it on real hardware, and watch ModbusManager Pro display the PLC data live. Works the same with any other Modbus device.</p>
   <div class="hero-ctas">
-    <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Pro.Setup.1.4.0.exe" class="btn-primary" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManagerPro-HMI-Hero', 'product': 'pro', 'value': 1})">Download Pro trial — free 14 days</a>
-    <a href="/#pricing" class="btn-ghost">Buy Pro — $119</a>
+    <a href="/ModbusManager-Siemens-S7-1200-demo.zip" download onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'Siemens-S7-1200-Demo-Zip', 'value': 1})" class="btn-primary">Download free demo project</a>
+    <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Pro.Setup.1.4.0.exe" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManagerPro-Siemens-Hero', 'product': 'pro', 'value': 1})" class="btn-ghost">Download Pro trial</a>
   </div>
-  <p class="hero-note">No credit card for trial · Windows 10/11 · One-time license</p>
+  <p class="hero-note">Demo: TIA Portal SCL + Pro workspace &middot; tested on real S7-1200 &middot; Modbus TCP</p>
 </section>
 
 <div class="divider-line"></div>
 
-<!-- ═══════════════════════════════════════════════════════════ WHAT IS -->
 <section class="section">
-  <div class="sec-label">// what is modbus hmi software</div>
-  <h2 class="sec-title">Your Modbus data, visualised</h2>
+  <div class="sec-label">// what the demo shows</div>
+  <h2 class="sec-title">Your S7-1200, visualised live</h2>
   <div class="explainer-grid">
     <div class="explainer-text">
-      <p>A Modbus HMI (Human-Machine Interface) dashboard is a graphical panel that reads live register values from your devices and displays them as gauges, indicators, trends and numbers — the same way an industrial SCADA system would, but without the infrastructure overhead.</p>
-      <p>ModbusManager Pro is built for engineers, integrators and technicians who need a quick, lightweight way to visualise Modbus data on a Windows PC. You configure poll windows as normal, bind dashboard elements to register values, and the display updates in real time. No server, no OPC-UA, no licensing maze.</p>
-      <p>Typical use cases: commissioning a new drive or inverter, building a test-bench display, monitoring a solar plant, or creating a simple operator panel for a small system.</p>
+      <p>The demo turns a Siemens S7-1200 into a Modbus TCP server running a small simulated solar inverter &mdash; AC power, DC voltage and current, grid frequency, temperature, energy yield, battery state of charge and status bits. The PLC generates a realistic day curve so the data moves on its own.</p>
+      <p>ModbusManager Pro polls the PLC over Modbus TCP and shows everything on a drag-and-drop dashboard: gauges, KPI tiles, a power trend and status lamps &mdash; updating live. No WinCC runtime, no SCADA server, no per-tag licensing.</p>
+      <p>The Siemens PLC is just a relatable starting point. The same dashboard works with inverters, energy meters, VFDs and PLCs from any vendor, all on one screen.</p>
     </div>
     <div>
       <div class="definition-box">
-        <div class="def-label">In one sentence</div>
-        <p>ModbusManager Pro reads Modbus RTU / TCP registers, lets you map them to dashboard elements, and displays everything live in a fullscreen operator view — all on a single Windows machine, no extra software.</p>
+        <div class="def-label">Data flow</div>
+        <p>S7-1200 (MB_SERVER, simulated inverter) &rarr; Modbus TCP, port 502 &rarr; ModbusManager Pro dashboard on Windows. One PC, no extra software.</p>
       </div>
       <div style="margin-top:1.2rem;background:var(--plate);border:2px solid var(--ink);border-radius:3px;padding:1.2rem 1.5rem">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.8rem">Who uses it</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.8rem">Dashboard shows</div>
         <ul style="list-style:none;font-size:0.88rem;color:var(--body);line-height:1.7">
-          <li>⚡ Solar / energy engineers monitoring inverters</li>
-          <li>🏭 Integrators commissioning drive systems</li>
-          <li>🔬 R&amp;D labs needing a test-bench display</li>
-          <li>🛠 Technicians who want status at a glance</li>
+          <li>&#9201; AC power &amp; inverter temperature gauges</li>
+          <li>&#128202; Voltage, current, frequency, energy KPIs</li>
+          <li>&#128267; Battery state-of-charge</li>
+          <li>&#128161; Grid / derating / standby status lamps</li>
         </ul>
       </div>
     </div>
@@ -296,212 +258,156 @@ footer a:hover{color:#fff}
 
 <div class="divider-line"></div>
 
-<!-- ═══════════════════════════════════════════════════════════ WIDGETS -->
 <section class="section">
-  <div class="sec-label">// dashboard elements</div>
-  <h2 class="sec-title">What you can put on the dashboard</h2>
-  <p class="sec-sub">All elements are resizable, snap to grid, and bind to a tag or raw register value. Mix and match freely.</p>
+  <div class="sec-label">// download the demo</div>
+  <h2 class="sec-title">Free demo project</h2>
+  <p class="sec-sub">Two ways to get it: a universal source package for any TIA version, or a ready-to-open TIA V15.1 project. Either way you import the PLC logic, open the workspace in ModbusManager Pro, connect, and you have a live dashboard.</p>
   <div class="widget-grid">
     <div class="widget-card">
-      <div class="widget-icon">⏱</div>
-      <div class="widget-name">Gauge</div>
-      <div class="widget-desc">Circular arc gauge with configurable min/max, coloured zones (green/yellow/red) and a numeric readout. Ideal for speed, pressure or temperature.</div>
+      <div class="widget-icon">&#128220;</div>
+      <div class="widget-name">SolarInverterDemo.scl</div>
+      <div class="widget-desc">TIA Portal SCL source &mdash; a data block plus a function block that simulates the inverter and runs the Modbus TCP server. Imports into TIA V13 or newer.</div>
     </div>
     <div class="widget-card">
-      <div class="widget-icon">🔆</div>
-      <div class="widget-name">Status lamp</div>
-      <div class="widget-desc">Binary on/off indicator or multi-state lamp driven by a register value. Set custom colours and labels per state — great for alarm and run status.</div>
+      <div class="widget-icon">&#128202;</div>
+      <div class="widget-name">Workspace .json</div>
+      <div class="widget-desc">A ready-made ModbusManager Pro workspace: poll window, tags, scaling script and a full dashboard page mapped to the demo registers.</div>
     </div>
     <div class="widget-card">
-      <div class="widget-icon">📈</div>
-      <div class="widget-name">Trend chart</div>
-      <div class="widget-desc">Rolling time-series chart for up to four tags. Shows the last N samples at the current poll rate. Useful for monitoring temperature drift or power ramp.</div>
-    </div>
-    <div class="widget-card">
-      <div class="widget-icon">🔢</div>
-      <div class="widget-name">KPI display</div>
-      <div class="widget-desc">Large numeric readout with unit label and optional upper/lower limits. Clean format for displaying power, energy or current values at a glance.</div>
-    </div>
-    <div class="widget-card">
-      <div class="widget-icon">📊</div>
-      <div class="widget-name">Bar / level</div>
-      <div class="widget-desc">Horizontal or vertical bar showing a value as a filled percentage of the range. Works well for tank fill level, battery state or load percentage.</div>
-    </div>
-    <div class="widget-card">
-      <div class="widget-icon">🪣</div>
-      <div class="widget-name">Tank &amp; valve</div>
-      <div class="widget-desc">Animated tank fill icon driven by a register value, plus valve icons that open/close based on a coil or discrete input. Adds visual context to P&amp;ID-style dashboards.</div>
+      <div class="widget-icon">&#128214;</div>
+      <div class="widget-name">README</div>
+      <div class="widget-desc">Register map, TIA setup steps, wiring and test instructions, plus the common gotchas (non-optimized DB, connection settings, power-cycle after download).</div>
     </div>
   </div>
+  <div class="dl-options">
+    <div style="background:var(--plate);border:2px solid var(--ink);border-radius:3px;padding:1.4rem 1.6rem;display:flex;flex-direction:column">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:var(--amber-ink);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem">Any TIA version</div>
+      <div style="font-family:'Saira Condensed',sans-serif;font-size:1.15rem;font-weight:700;text-transform:uppercase;letter-spacing:0.03em;margin-bottom:0.5rem">Source package (.zip)</div>
+      <div style="font-size:0.85rem;color:var(--body);line-height:1.6;margin-bottom:1.1rem;flex:1">SCL source + workspace + README. Imports into TIA Portal V13 or newer. Best if you are not on V15.1 or want to read the code.</div>
+      <a href="/ModbusManager-Siemens-S7-1200-demo.zip" download onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'Siemens-S7-1200-Demo-Zip', 'value': 1})" class="btn-primary" style="text-align:center">Download source (.zip)</a>
+    </div>
+    <div style="background:var(--plate);border:2px solid var(--ink);border-radius:3px;padding:1.4rem 1.6rem;display:flex;flex-direction:column">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:var(--amber-ink);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem">TIA Portal V15.1+</div>
+      <div style="font-family:'Saira Condensed',sans-serif;font-size:1.15rem;font-weight:700;text-transform:uppercase;letter-spacing:0.03em;margin-bottom:0.5rem">Ready-to-open project</div>
+      <div style="font-size:0.85rem;color:var(--body);line-height:1.6;margin-bottom:1.1rem;flex:1">Full TIA project archive. Retrieve it in TIA Portal V15.1 or newer, swap in your CPU if needed, compile and download. Fastest if you run V15.1.</div>
+      <a href="/SolarInverterDemo.zap15_1" download onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'Siemens-S7-1200-TIA-Project', 'value': 1})" class="btn-ghost" style="text-align:center">Download project (.zap15_1)</a>
+    </div>
+  </div>
+  <p style="margin-top:1rem;font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--muted)">Both need: an S7-1200 &middot; ModbusManager Pro (14-day trial works). The workspace .json is also inside the source zip.</p>
 </section>
 
 <div class="divider-line"></div>
 
-<!-- ═══════════════════════════════════════════════════════════ HOW TO -->
 <section class="section">
-  <div class="sec-label">// how to build a modbus hmi dashboard</div>
-  <h2 class="sec-title">Four steps from device to display</h2>
-  <p class="sec-sub">No scripting required for basic dashboards. The tag engine is optional but unlocks computed values like I32/U32 word pairs and gain-applied engineering units.</p>
+  <div class="sec-label">// how to run it</div>
+  <h2 class="sec-title">Four steps to a live dashboard</h2>
   <div class="steps">
     <div class="step">
       <div class="step-label">Step 1</div>
-      <div class="step-title">Poll your device</div>
-      <div class="step-text">Configure a connection (RTU or TCP), add a poll window for your register range, and verify the raw values in the register table. This works the same as ModbusManager Standard.</div>
+      <div class="step-title">Import the SCL</div>
+      <div class="step-text">In TIA Portal: External source files &rarr; add <span class="mono">SolarInverterDemo.scl</span> &rarr; Generate blocks from source. This creates the holding-register DB and the simulation function block.</div>
     </div>
     <div class="step">
       <div class="step-label">Step 2</div>
-      <div class="step-title">Define tags</div>
-      <div class="step-text">Create register-linked tags that map raw register addresses to named engineering values. Optionally write a Structured Text script to combine word pairs or apply a gain multiplier.</div>
+      <div class="step-title">Download to the PLC</div>
+      <div class="step-text">Add a call to the function block in OB1, compile, and download to your S7-1200. Power-cycle the CPU once so the Modbus TCP server binds cleanly to port 502.</div>
     </div>
     <div class="step">
       <div class="step-label">Step 3</div>
-      <div class="step-title">Build the dashboard</div>
-      <div class="step-text">Open the Dashboard editor, drag elements onto the canvas from the palette, and bind each element to a tag or register. Resize, reposition and set ranges or colour zones.</div>
+      <div class="step-title">Open the workspace</div>
+      <div class="step-text">In ModbusManager Pro, open the included workspace. It already has the poll window, tags, scaling script and dashboard configured for the demo register map.</div>
     </div>
     <div class="step">
       <div class="step-label">Step 4</div>
-      <div class="step-title">Run fullscreen</div>
-      <div class="step-text">Switch to Runtime mode to hide all editor controls. The dashboard fills the screen and updates live at your poll interval. Press Escape to return to the editor.</div>
+      <div class="step-title">Connect &amp; watch</div>
+      <div class="step-text">Connect over Modbus TCP to the PLC IP on port 502, unit 1. Switch to Runtime mode &mdash; the power gauge rises and falls, energy climbs and the status lamps react, all live.</div>
     </div>
   </div>
 </section>
 
 <div class="divider-line"></div>
 
-<!-- ═══════════════════════════════════════════════════════════ TAG ENGINE -->
 <section class="section">
-  <div class="sec-label">// tag engine &amp; structured text</div>
-  <h2 class="sec-title">Computed values with the tag engine</h2>
-  <div class="tag-block">
-    <div class="tag-text">
-      <p>Raw Modbus registers often need transformation before they make sense on a dashboard. A 32-bit active power value is stored across two 16-bit registers. A temperature is an integer that needs to be divided by 10. A signed reactive power value needs special handling for negative readings.</p>
-      <p>ModbusManager Pro includes a tag engine with Structured Text scripting. You write simple expressions that run every poll cycle and produce the engineering-unit values that your dashboard elements display.</p>
-      <p>Tags can also be computed internals — totals, differences or Boolean combinations — that have no direct register address but are derived from other tags.</p>
-    </div>
-    <div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem">Example: 32-bit power + gain</div>
-      <div class="code-box"><span class="cm">// Combine hi/lo word pair → I32, apply gain</span>
-<span class="ck">raw</span> := <span class="cv">tag_hi</span> * 65536 + <span class="cv">tag_lo</span>;
-<span class="ck">IF</span> raw > 2147483647 <span class="ck">THEN</span>
-  raw := raw - 4294967296;
-<span class="ck">END_IF</span>;
-<span class="cv">active_power_kW</span> := raw * 0.001;
-
-<span class="cm">// Signed reactive power (same pattern)</span>
-<span class="cv">reactive_kVAr</span> := raw_q * 0.001;</div>
-      <div style="font-size:0.82rem;color:var(--muted);margin-top:0.7rem;font-family:'IBM Plex Mono',monospace">Dashboard gauge binds to <code style="color:var(--amber-ink)">active_power_kW</code></div>
-    </div>
-  </div>
-</section>
-
-<div class="divider-line"></div>
-
-<!-- ═══════════════════════════════════════════════════════════ COMPARE -->
-<section class="section">
-  <div class="sec-label">// standard vs pro</div>
-  <h2 class="sec-title">Which edition do you need?</h2>
-  <p class="sec-sub">Both editions include the full Modbus master and slave toolset. Pro adds the Dashboard HMI on top.</p>
+  <div class="sec-label">// register map</div>
+  <h2 class="sec-title">What the PLC exposes</h2>
+  <p class="sec-sub">Holding registers, 0-based addressing, read with function code 03. 32-bit energy values use two registers (high word first).</p>
   <table class="compare-table">
     <thead>
-      <tr>
-        <th>Feature</th>
-        <th>Standard — $49</th>
-        <th class="hl">Pro — $119</th>
-      </tr>
+      <tr><th>Addr</th><th>Value</th><th>Type</th><th>Scale</th><th>Unit</th></tr>
     </thead>
     <tbody>
-      <tr><td>Modbus RTU, TCP &amp; ASCII master</td><td class="yes">✓</td><td class="hl yes">✓</td></tr>
-      <tr><td>Built-in Slave Mode &amp; register simulation</td><td class="yes">✓</td><td class="hl yes">✓</td></tr>
-      <tr><td>Serial Monitor, Test Center, Slave &amp; Address Scan</td><td class="yes">✓</td><td class="hl yes">✓</td></tr>
-      <tr><td>Charts, scaling, conditional colours, workspaces</td><td class="yes">✓</td><td class="hl yes">✓</td></tr>
-      <tr><td>Auto-reconnect &amp; 11-language UI</td><td class="yes">✓</td><td class="hl yes">✓</td></tr>
-      <tr><td>Drag-and-drop HMI Dashboard canvas</td><td class="no">✗</td><td class="hl yes">✓</td></tr>
-      <tr><td>Gauges, lamps, bars, trends, tanks, valves</td><td class="no">✗</td><td class="hl yes">✓</td></tr>
-      <tr><td>Tag engine with Structured Text scripting</td><td class="no">✗</td><td class="hl yes">✓</td></tr>
-      <tr><td>Fullscreen runtime mode</td><td class="no">✗</td><td class="hl yes">✓</td></tr>
-      <tr><td>Multi-page dashboard, popup windows</td><td class="no">✗</td><td class="hl yes">✓</td></tr>
-      <tr><td>Snap-to-grid, undo/redo, PNG export</td><td class="no">✗</td><td class="hl yes">✓</td></tr>
-      <tr><td>Price (one-time, perpetual)</td><td style="color:var(--amber-ink)">$49</td><td class="hl" style="color:var(--amber-ink)">$119</td></tr>
+      <tr><td class="mono">0</td><td>AC active power</td><td>INT</td><td>&divide;10</td><td>kW</td></tr>
+      <tr><td class="mono">1</td><td>DC voltage</td><td>INT</td><td>&divide;1</td><td>V</td></tr>
+      <tr><td class="mono">2</td><td>DC current</td><td>INT</td><td>&divide;10</td><td>A</td></tr>
+      <tr><td class="mono">3</td><td>Grid frequency</td><td>INT</td><td>&divide;100</td><td>Hz</td></tr>
+      <tr><td class="mono">4</td><td>Inverter temperature</td><td>INT</td><td>&divide;10</td><td>&deg;C</td></tr>
+      <tr><td class="mono">5&ndash;6</td><td>Daily energy yield</td><td>U32</td><td>&divide;100</td><td>kWh</td></tr>
+      <tr><td class="mono">7&ndash;8</td><td>Total energy yield</td><td>U32</td><td>&divide;1</td><td>kWh</td></tr>
+      <tr><td class="mono">9</td><td>DC string 1 current</td><td>INT</td><td>&divide;10</td><td>A</td></tr>
+      <tr><td class="mono">10</td><td>Battery SOC</td><td>INT</td><td>&divide;1</td><td>%</td></tr>
+      <tr><td class="mono">11</td><td>Status word (bit0 run, bit2 derate, bit3 standby)</td><td>WORD</td><td>bits</td><td>&mdash;</td></tr>
     </tbody>
   </table>
-  <div style="margin-top:1.2rem;font-size:0.85rem;color:var(--muted);font-family:'IBM Plex Mono',monospace">
-    Need just the polling tool? <a href="/" style="color:var(--amber-ink)">ModbusManager Standard → $49</a>
+  <div style="margin-top:1rem;font-size:0.85rem;color:var(--muted);font-family:'IBM Plex Mono',monospace">Full details and setup steps are in the README inside the zip.</div>
+</section>
+
+<div class="divider-line"></div>
+
+<section class="section">
+  <div class="sec-label">// why modbusmanager pro</div>
+  <h2 class="sec-title">A lightweight HMI for your PLC</h2>
+  <div class="explainer-grid">
+    <div class="explainer-text">
+      <p>For a small system, a full WinCC or SCADA setup is expensive and heavy. ModbusManager Pro gives you a clean operator dashboard for a one-time 119 USD license &mdash; no runtime fees, no per-tag pricing, no server to maintain.</p>
+      <p>Because it speaks plain Modbus, it is not tied to Siemens. Put an S7-1200, a solar inverter, an energy meter and a VFD on the same dashboard, regardless of brand.</p>
+    </div>
+    <div class="definition-box">
+      <div class="def-label">Good fit for</div>
+      <p>Commissioning and test benches, small operator panels, solar and energy monitoring, machine builders who want a quick visual without a SCADA project, and anyone with mixed-vendor Modbus devices.</p>
+    </div>
   </div>
 </section>
 
 <div class="divider-line"></div>
 
-<!-- ═══════════════════════════════════════════════════════════ FAQ -->
 <section class="section">
   <div class="sec-label">// frequently asked questions</div>
-  <h2 class="sec-title">Modbus HMI — FAQ</h2>
+  <h2 class="sec-title">Siemens + Modbus &mdash; FAQ</h2>
   <div class="faq-list">
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Do I need a separate SCADA server to run a Modbus HMI dashboard?<span class="icon">+</span></div>
-      <div class="faq-a">No. ModbusManager Pro runs entirely on Windows — no server, no cloud, no OPC-UA license. The dashboard polls your Modbus devices directly and displays live data in the same application.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Does the Modbus HMI work with both RTU and TCP devices?<span class="icon">+</span></div>
-      <div class="faq-a">Yes. The dashboard reads from any poll window configured in ModbusManager Pro, so you can mix RTU (serial RS-485) and TCP/IP devices on the same dashboard page.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">What dashboard elements are available?<span class="icon">+</span></div>
-      <div class="faq-a">Gauges, numeric KPI displays, status lamps (on/off/colour by value), horizontal and vertical bars, trend charts, tank fill indicators, valve icons and text labels. All elements resize and snap to grid.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Can I build multi-page dashboards?<span class="icon">+</span></div>
-      <div class="faq-a">Yes. ModbusManager Pro supports multiple dashboard pages in a single workspace. You can link pages via button elements or navigate with tabs in runtime mode.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">What is fullscreen runtime mode?<span class="icon">+</span></div>
-      <div class="faq-a">Runtime mode hides all editor controls and expands the dashboard to fill the screen — suitable for an operator panel or wall display. You exit with Escape.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">How does the tag engine work?<span class="icon">+</span></div>
-      <div class="faq-a">ModbusManager Pro includes a tag engine with Structured Text scripting. You define register-linked tags and write simple expressions (e.g. combining hi/lo word pairs into a 32-bit value, applying gains) that run every poll cycle. Dashboard elements bind to tag values, not raw registers.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Can I export the dashboard to PNG or PDF?<span class="icon">+</span></div>
-      <div class="faq-a">You can export a snapshot of the current dashboard view to PNG. PDF export is not currently supported.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">What is the price and license model?<span class="icon">+</span></div>
-      <div class="faq-a">ModbusManager Pro costs $119 as a one-time perpetual license for one machine. It includes 12 months of free updates. A 14-day free trial is available — no credit card required.</div>
-    </div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do I need WinCC or a SCADA license to visualise an S7-1200?<span class="icon">+</span></div><div class="faq-a">No. ModbusManager Pro runs on a normal Windows PC and polls the S7-1200 directly over Modbus TCP. There is no SCADA server, OPC-UA license or WinCC runtime to buy.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Does the demo work with a real S7-1200?<span class="icon">+</span></div><div class="faq-a">Yes. It was built and tested on real S7-1200 hardware. The PLC runs a small simulation and acts as a Modbus TCP server on port 502; ModbusManager Pro polls it and displays the data live.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Which TIA Portal version do I need?<span class="icon">+</span></div><div class="faq-a">The demo logic is an SCL source file that imports into TIA Portal V13 or newer. It was developed on V15.1. Import it via External source files and generate the blocks.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Modbus TCP or RTU?<span class="icon">+</span></div><div class="faq-a">The demo uses Modbus TCP over the S7-1200 onboard Ethernet port, so no extra module is needed. ModbusManager Pro also supports Modbus RTU if you add a CM 1241 serial module.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Does this only work with Siemens PLCs?<span class="icon">+</span></div><div class="faq-a">No. ModbusManager Pro is vendor-neutral &mdash; it works with any Modbus RTU or TCP device (inverters, meters, VFDs, sensors, PLCs from any maker) and can show several on one dashboard.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is the inverter data real?<span class="icon">+</span></div><div class="faq-a">In the demo the S7-1200 generates a simulated inverter so the dashboard looks alive without sensors. For production you map the dashboard to your real device registers instead.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What does ModbusManager Pro cost?<span class="icon">+</span></div><div class="faq-a">A one-time 119 USD perpetual license for one machine, with 12 months of free updates and a 14-day free trial &mdash; no credit card required.</div></div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════ CTA -->
 <div class="cta-strip">
-  <h2>Try the HMI Dashboard free for 14 days</h2>
-  <p>Download ModbusManager Pro and build your first Modbus dashboard today. No credit card, no cloud, no subscription.</p>
+  <h2>Try it on your own S7-1200</h2>
+  <p>Download the free demo project and the ModbusManager Pro trial, and have a live Siemens dashboard running in minutes.</p>
   <div class="ctas">
-    <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Pro.Setup.1.4.0.exe" class="btn-cta-yellow" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManagerPro-HMI-CTA', 'product': 'pro', 'value': 1})">Download Pro trial</a>
-    <a href="/#pricing" class="btn-cta-outline">See pricing</a>
+    <a href="/ModbusManager-Siemens-S7-1200-demo.zip" download onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'Siemens-S7-1200-Demo-Zip', 'value': 1})" class="btn-cta-yellow">Download free demo</a>
+    <a href="https://github.com/vend123/modscan/releases/download/v1.4.0/Modbus.Manager.Pro.Setup.1.4.0.exe" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManagerPro-Siemens-CTA', 'product': 'pro', 'value': 1})" class="btn-cta-outline">Download Pro trial</a>
   </div>
-  <p style="margin-top:1rem;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--steel)">Windows 10/11 · 14-day trial · Pro from $119 one-time</p>
+  <p style="margin-top:1rem;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--steel)">Windows 10/11 &middot; 14-day trial &middot; Pro $119 one-time</p>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">ModbusManager</div>
   <div style="display:flex;gap:1.5rem;flex-wrap:wrap">
     <a href="/">Home</a>
     <a href="/modbus-hmi-dashboard.html">HMI Dashboard</a>
+    <a href="/modbus-hmi-siemens-s7-1200.html">Siemens Demo</a>
     <a href="/huawei-smartlogger-modbus.html">SmartLogger Guide</a>
-    <a href="/manual.html">Documentation</a>
-    <a href="/privacy.html">Privacy</a>
-    <a href="/license-terms.html">License terms</a>
     <a href="mailto:support@modbusmanager.com">Support</a>
   </div>
   <div>support@modbusmanager.com</div>
 </footer>
 
 <script>
-function toggleFaq(el) {
-  var item = el.parentElement;
-  item.classList.toggle('open');
-}
+function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
 </script>
 
 </body>
