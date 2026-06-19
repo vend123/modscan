@@ -32,11 +32,11 @@ html{scroll-behavior:smooth}
 :root{--enclosure:#D8DAD5;--enclosure2:#E6E8E3;--plate:#F4F5F2;--ink:#16181A;--body:#3A3E40;--muted:#5F5E5A;--steel:#B9BDB6;--safety:#F2A900;--amber-ink:#9A6700;--run:#1E7A4F;--bad:#A32D2D}
 body{font-family:'Archivo',sans-serif;background:var(--enclosure);color:var(--ink);min-height:100vh}
 .mono{font-family:'IBM Plex Mono',monospace}
-nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 3rem;border-bottom:2px solid var(--ink);position:sticky;top:0;background:var(--enclosure2);z-index:100}
+nav{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;padding:1rem 2rem;border-bottom:2px solid var(--ink);position:sticky;top:0;background:var(--enclosure2);z-index:100}
 .logo{font-family:'Saira Condensed',sans-serif;font-size:1.25rem;font-weight:700;color:var(--ink);letter-spacing:0.05em;text-transform:uppercase}
 .logo span{color:var(--amber-ink)}
-.nav-links{display:flex;gap:2rem;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:0.78rem;letter-spacing:0.05em;color:var(--muted)}
-.nav-links a{color:inherit;text-decoration:none;text-transform:uppercase}
+.nav-links{display:flex;gap:1.5rem;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:0.78rem;letter-spacing:0.05em;color:var(--muted)}
+.nav-links a{color:inherit;text-decoration:none;text-transform:uppercase;white-space:nowrap}
 .nav-links a:hover{color:var(--ink)}
 .nav-cta{background:var(--ink);color:var(--safety);padding:0.5rem 1.3rem;border-radius:2px;font-family:'Saira Condensed',sans-serif;font-size:0.95rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none}
 .nav-cta:hover{color:#fff}
@@ -534,11 +534,15 @@ footer a:hover{color:var(--ink)}
 <div class="divider-line"></div>
 <footer id="support">
   <div class="footer-logo">ModbusManager</div>
-  <div style="display:flex;gap:1.5rem">
+  <div style="display:flex;gap:1.4rem;flex-wrap:wrap">
+    <a href="/">Home</a>
+    <a href="/modbus-hmi-dashboard.html">HMI Dashboard</a>
+    <a href="/modbus-hmi-siemens-s7-1200.html">Siemens Demo</a>
+    <a href="/modbus-hmi-ebm-papst.html">ebm-papst</a>
+    <a href="/huawei-smartlogger-modbus.html">Guides</a>
+    <a href="/manual.html">Documentation</a>
     <a href="/privacy.html">Privacy</a>
     <a href="/license-terms.html">License terms</a>
-    <a href="/manual.html">Documentation</a>
-	<a href="/modbus-hmi-ebm-papst.html">ebm-papst</a>
     <a href="mailto:support@modbusmanager.com">Support</a>
   </div>
   <div>support@modbusmanager.com</div>
