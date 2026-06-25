@@ -120,10 +120,15 @@ const server = http.createServer((req, res) => {
         res.end(JSON.stringify({ error: 'Invalid request' }));
       }
     });
-  } else if (req.method === 'GET' && (req.url === '/' || req.url === '/health')) {
-    // Renderi health-check / uptime-ping
-    res.writeHead(200);
-    res.end(JSON.stringify({ status: 'ok' }));
+  } else if ((req.method === 'GET' || req.method === 'HEAD') && (req.url === '/' || req.url === '/health' || req.url.startsWith('/health?'))) {
+    // Renderi health-check / uptime-ping. Lubame nii GET kui HEAD —
+    // UptimeRobot ja paljud monitorid kasutavad HEAD-päringut (kergem).
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    if (req.method === 'HEAD') {
+      res.end();          // HEAD: ainult staatus + päised, ilma sisuta
+    } else {
+      res.end(JSON.stringify({ status: 'ok' }));
+    }
   } else {
     res.writeHead(404);
     res.end(JSON.stringify({ error: 'Not found' }));
