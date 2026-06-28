@@ -71,10 +71,10 @@ body{font-family:'Archivo',sans-serif;background:var(--enclosure);color:var(--in
 .mono{font-family:'IBM Plex Mono',monospace}
 
 /* NAV */
-nav{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;padding:1rem 2rem;border-bottom:2px solid var(--ink);position:sticky;top:0;background:var(--enclosure2);z-index:100}
+nav{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 2rem;border-bottom:2px solid var(--ink);position:sticky;top:0;background:var(--enclosure2);z-index:100}
 .logo{font-family:'Saira Condensed',sans-serif;font-size:1.25rem;font-weight:700;color:var(--ink);letter-spacing:0.05em;text-transform:uppercase;text-decoration:none}
 .logo span{color:var(--amber-ink)}
-.nav-links{display:flex;gap:1.5rem;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:0.78rem;letter-spacing:0.05em;color:var(--muted)}
+.nav-links{display:flex;gap:1.1rem;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:0.74rem;letter-spacing:0.04em;color:var(--muted);flex-wrap:wrap}
 .nav-links a{color:inherit;text-decoration:none;text-transform:uppercase;white-space:nowrap}
 .nav-links a:hover{color:var(--ink)}
 .nav-cta{background:var(--ink);color:var(--safety);padding:0.5rem 1.3rem;border-radius:2px;font-family:'Saira Condensed',sans-serif;font-size:0.95rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none}
@@ -185,6 +185,10 @@ footer a:hover{color:#fff}
 }
 .dl-options{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.8rem}
 @media(max-width:768px){.dl-options{grid-template-columns:1fr}}
+
+@media(max-width:680px){table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap;max-width:100%}}
+
+@media(max-width:680px){nav{padding:0.7rem 1rem;gap:0.6rem}.nav-cta{padding:0.4rem 0.7rem;font-size:0.75rem}nav>div>a:first-child{display:none}}
 </style>
 
 <!-- Google Analytics -->
@@ -215,6 +219,8 @@ footer a:hover{color:#fff}
     <li><a href="/#pro">Pro</a></li>
     <li><a href="/#pricing">Pricing</a></li>
     <li><a href="/modbus-hmi-dashboard.html">HMI Dashboard</a></li>
+    <li><a href="/modbus-data-logger-software.html">Data Logger</a></li>
+    <li><a href="/modbus-alarm-software.html">Alarms</a></li>
     <li><a href="/modbus-hmi-siemens-s7-1200.html">Siemens Demo</a></li>
     <li><a href="/modbus-hmi-ebm-papst.html" style="color:var(--ink)">ebm-papst</a></li>
     <li><a href="/huawei-smartlogger-modbus.html">Guides</a></li>
@@ -394,6 +400,8 @@ footer a:hover{color:#fff}
   <div style="display:flex;gap:1.4rem;flex-wrap:wrap">
     <a href="/">Home</a>
     <a href="/modbus-hmi-dashboard.html">HMI Dashboard</a>
+    <a href="/modbus-data-logger-software.html">Data Logger</a>
+    <a href="/modbus-alarm-software.html">Alarms</a>
     <a href="/modbus-hmi-siemens-s7-1200.html">Siemens Demo</a>
     <a href="/modbus-hmi-ebm-papst.html">ebm-papst</a>
     <a href="/huawei-smartlogger-modbus.html">Guides</a>

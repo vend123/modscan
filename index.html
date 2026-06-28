@@ -30,12 +30,12 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 :root{--enclosure:#D8DAD5;--enclosure2:#E6E8E3;--plate:#F4F5F2;--ink:#16181A;--body:#3A3E40;--muted:#5F5E5A;--steel:#B9BDB6;--safety:#F2A900;--amber-ink:#9A6700;--run:#1E7A4F;--bad:#A32D2D}
-body{font-family:'Archivo',sans-serif;background:var(--enclosure);color:var(--ink);min-height:100vh}
+body{font-family:'Archivo',sans-serif;background:var(--enclosure);color:var(--ink);min-height:100vh;overflow-x:hidden}
 .mono{font-family:'IBM Plex Mono',monospace}
-nav{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;padding:1rem 2rem;border-bottom:2px solid var(--ink);position:sticky;top:0;background:var(--enclosure2);z-index:100}
+nav{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 2rem;border-bottom:2px solid var(--ink);position:sticky;top:0;background:var(--enclosure2);z-index:100}
 .logo{font-family:'Saira Condensed',sans-serif;font-size:1.25rem;font-weight:700;color:var(--ink);letter-spacing:0.05em;text-transform:uppercase}
 .logo span{color:var(--amber-ink)}
-.nav-links{display:flex;gap:1.5rem;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:0.78rem;letter-spacing:0.05em;color:var(--muted)}
+.nav-links{display:flex;gap:1.1rem;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:0.74rem;letter-spacing:0.04em;color:var(--muted);flex-wrap:wrap}
 .nav-links a{color:inherit;text-decoration:none;text-transform:uppercase;white-space:nowrap}
 .nav-links a:hover{color:var(--ink)}
 .nav-cta{background:var(--ink);color:var(--safety);padding:0.5rem 1.3rem;border-radius:2px;font-family:'Saira Condensed',sans-serif;font-size:0.95rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none}
@@ -111,7 +111,7 @@ footer{border-top:2px solid var(--ink);padding:2rem 3rem;display:flex;justify-co
 footer a{color:var(--muted);text-decoration:none}
 footer a:hover{color:var(--ink)}
 @media(max-width:920px){.hero{grid-template-columns:1fr}.features-grid{grid-template-columns:1fr 1fr}.np-specs{grid-template-columns:1fr 1fr}.np-specs>div{border-bottom:1px solid var(--ink)}.hero h1{font-size:2.6rem}}
-@media(max-width:768px){.hero{grid-template-columns:1fr;gap:1.5rem;padding:2rem 1.5rem}.section{padding:2rem 1.5rem;max-width:100%}.hero h1{font-size:2rem}.sec-title{font-size:1.6rem}.features-grid{grid-template-columns:1fr 1fr;gap:1px}.features-grid>div{padding:1.2rem}.pricing-grid{grid-template-columns:1fr}.solar-card{padding:1.5rem!important;gap:1rem!important}.solar-card>div:first-child{font-size:2rem!important}nav .nav-links{display:none}}@media(max-width:640px){nav{padding:0.7rem 1rem;gap:0.6rem}.nav-cta{padding:0.45rem 0.8rem;font-size:0.8rem}.hero{grid-template-columns:1fr;gap:1rem;padding:1.5rem 1rem}.section{padding:1.5rem 1rem;max-width:100%}.hero h1{font-size:1.6rem}.sec-title{font-size:1.3rem}.features-grid{grid-template-columns:1fr;gap:1px}.features-grid>div{padding:1rem}.pricing-grid{grid-template-columns:1fr}.solar-card{padding:1rem!important;gap:0.8rem!important;flex-direction:column}.solar-card>div:first-child{font-size:1.5rem!important}nav .nav-links{display:none}}
+@media(max-width:768px){.hero{grid-template-columns:1fr;gap:1.5rem;padding:2rem 1.5rem}.section{padding:2rem 1.5rem;max-width:100%}.hero h1{font-size:2rem}.sec-title{font-size:1.6rem}.features-grid{grid-template-columns:1fr 1fr;gap:1px}.features-grid>div{padding:1.2rem}.features-grid .feat{grid-column:auto!important}.pricing-grid{grid-template-columns:1fr}.solar-card{padding:1.5rem!important;gap:1rem!important}.solar-card>div:first-child{font-size:2rem!important}nav .nav-links{display:none}}@media(max-width:640px){nav{padding:0.7rem 1rem;gap:0.6rem}.nav-cta{padding:0.45rem 0.8rem;font-size:0.8rem}.hero{grid-template-columns:1fr;gap:1rem;padding:1.5rem 1rem}.section{padding:1.5rem 1rem;max-width:100%}.hero h1{font-size:1.6rem}.sec-title{font-size:1.3rem}.features-grid{grid-template-columns:1fr;gap:1px}.features-grid>div{padding:1rem}.features-grid .feat{grid-column:auto!important}.pricing-grid{grid-template-columns:1fr}.solar-card{padding:1rem!important;gap:0.8rem!important;flex-direction:column}.solar-card>div:first-child{font-size:1.5rem!important}nav .nav-links{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
 <!-- Paddle.js -->
@@ -315,6 +315,8 @@ footer a:hover{color:var(--ink)}
     <li><a href="#pro">Pro</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="/modbus-hmi-dashboard.html">HMI Dashboard</a></li>
+    <li><a href="/modbus-data-logger-software.html">Data Logger</a></li>
+    <li><a href="/modbus-alarm-software.html">Alarms</a></li>
     <li><a href="/modbus-hmi-siemens-s7-1200.html">Siemens Demo</a></li>
     <li><a href="/modbus-hmi-ebm-papst.html">ebm-papst</a></li>
     <li><a href="/huawei-smartlogger-modbus.html">Guides</a></li>
@@ -385,6 +387,7 @@ footer a:hover{color:var(--ink)}
     <div class="feat"><div class="feat-icon">🔄</div><h3>Auto-reconnect</h3><p>Automatically reconnects after a dropped connection — no manual intervention needed. Keeps long-running monitoring sessions alive without babysitting.</p></div>
     <div class="feat"><div class="feat-icon">🌐</div><h3>Multilingual UI</h3><p>Full interface available in 11 languages including Chinese, Russian, Arabic and more. Switch without reinstalling.</p></div>
     <div class="feat"><div class="feat-icon">🌓</div><h3>Light &amp; dark themes</h3><p>Switch between a clean light workspace and a low-glare dark mode in one click — comfortable on a bright factory floor or in a dim control room. Your choice is remembered.</p></div>
+    <div class="feat"><div class="feat-icon">🧪</div><h3>Test Center</h3><p>Build and send custom Modbus requests by hand, inspect raw responses, and verify device behaviour quickly during commissioning and debugging.</p></div>
     <div class="feat"><div class="feat-icon">🔒</div><h3>100% offline</h3><p>No cloud, no telemetry, no internet connection required. Your industrial data stays on your machine, always.</p></div>
   </div>
 </section>
@@ -546,6 +549,8 @@ footer a:hover{color:var(--ink)}
   <div style="display:flex;gap:1.4rem;flex-wrap:wrap">
     <a href="/">Home</a>
     <a href="/modbus-hmi-dashboard.html">HMI Dashboard</a>
+    <a href="/modbus-data-logger-software.html">Data Logger</a>
+    <a href="/modbus-alarm-software.html">Alarms</a>
     <a href="/modbus-hmi-siemens-s7-1200.html">Siemens Demo</a>
     <a href="/modbus-hmi-ebm-papst.html">ebm-papst</a>
     <a href="/huawei-smartlogger-modbus.html">Guides</a>
