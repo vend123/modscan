@@ -262,8 +262,8 @@ nav .nav-links.open .nav-drop-menu a{padding:0.35rem 0;font-size:0.8rem}
   <h1>Schneider PowerLogic<br><span class="accent">PM5000 Modbus</span> Guide</h1>
   <p class="hero-desc">Read voltage, current, power, power factor, frequency and energy from a Schneider PowerLogic PM5000-series power meter over Modbus RTU or TCP. This guide covers the register map, FLOAT32 decoding, serial settings and how to get live data &mdash; and log it &mdash; with ModbusManager on Windows.</p>
   <div class="hero-ctas">
-    <a href="https://github.com/vend123/modscan/releases/download/pro-v1.5.0/Modbus.Manager.Pro.Setup.1.5.0.exe" class="btn-primary" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManagerPro-Schneider-Hero', 'product': 'pro', 'value': 1})">Download ModbusManager &mdash; free trial</a>
-    <a href="/modbus-data-logger-software.html" class="btn-ghost">See the data logger</a>
+    <a href="/SchneiderPM5000_workspace.json" download class="btn-primary" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'Schneider-PM5000-Workspace-Json', 'value': 1})">Download demo workspace</a>
+    <a href="https://github.com/vend123/modscan/releases/download/pro-v1.5.0/Modbus.Manager.Pro.Setup.1.5.0.exe" class="btn-ghost" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManagerPro-Schneider-Hero', 'product': 'pro', 'value': 1})">Get ModbusManager Pro</a>
   </div>
   <p class="hero-note">Windows 10/11 &middot; Modbus RTU &amp; TCP &middot; one-time license</p>
 </section>
@@ -276,6 +276,22 @@ nav .nav-links.open .nav-drop-menu a{padding:0.35rem 0;font-size:0.8rem}
   <h2 class="sec-title">One register map, many meters</h2>
   <p class="sec-sub">The PowerLogic and EasyLogic PM5000 family shares a common Modbus measurement map, so the same addresses work across most models.</p>
   <p style="max-width:780px;margin:1.4rem auto 0;text-align:center;color:var(--muted);line-height:1.7">Schneider Electric&rsquo;s PowerLogic PM5000 series (PM5110, PM5310, PM5330, PM5340, PM5560 and the PM55xx/56xx/57xx ranges) are panel-mounted power and energy meters used in switchboards, sub-metering and energy-management installations. They expose their measurements over Modbus RTU on RS-485 and, on Ethernet models, over Modbus TCP. The core metering registers &mdash; current, voltage, power, power factor, frequency and energy &mdash; sit at the same addresses across the family, so once you can read one PM5000 you can read most of them.</p>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- DOWNLOAD WORKSPACE -->
+<section class="section">
+  <div class="sec-label">// download the demo</div>
+  <h2 class="sec-title">Ready-made PM5000 workspace</h2>
+  <p class="sec-sub">A free ModbusManager Pro workspace with the PM5000 register map already set up: 19 Float32 tags and a power-meter dashboard. Just open it and point it at your meter.</p>
+  <div style="max-width:720px;margin:1.6rem auto 0;background:var(--enclosure2,#e8e9e4);border:1px solid var(--ink,#16181A);border-radius:4px;padding:1.4rem 1.6rem">
+    <p style="margin:0 0 1rem;color:var(--ink,#16181A);line-height:1.7">The workspace polls holding registers from 3000 and decodes voltage, current, power, power factor and frequency as 32-bit floats &mdash; no scripting and no manual word-pairing. Every value lands on a clean dashboard ready to read. Set your meter&rsquo;s slave ID and connection, and you have live data in seconds.</p>
+    <div class="hero-ctas">
+      <a href="/SchneiderPM5000_workspace.json" download class="btn-primary" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'Schneider-PM5000-Workspace-Json-Section', 'value': 1})">Download workspace (.json)</a>
+    </div>
+    <p style="margin:1rem 0 0;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--steel,#5b6470)">Open in ModbusManager Pro &middot; 📋 Workspace &rarr; open &middot; needs the Float32 tag type (v1.6+)</p>
+  </div>
 </section>
 
 <div class="divider-line"></div>
