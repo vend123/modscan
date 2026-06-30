@@ -280,6 +280,23 @@ nav .nav-links.open .nav-drop-menu a{padding:0.35rem 0;font-size:0.8rem}
 
 <div class="divider-line"></div>
 
+<!-- DOWNLOAD WORKSPACE -->
+<section class="section">
+  <div class="sec-label">// download the monitor</div>
+  <h2 class="sec-title">Read-only monitoring workspace</h2>
+  <p class="sec-sub">A free ModbusManager Pro workspace that <strong>only reads</strong> the ACS580 &mdash; status word, output frequency and motor current &mdash; with ready/running/fault lamps on a dashboard. It writes nothing, so it cannot start the motor.</p>
+  <div style="max-width:720px;margin:1.6rem auto 0;background:var(--enclosure2,#e8e9e4);border:1px solid var(--ink,#16181A);border-radius:4px;padding:1.4rem 1.6rem">
+    <p style="margin:0 0 1rem;color:var(--ink,#16181A);line-height:1.7">The workspace polls holding registers from 40004 read-only (FC03), decodes the status word into ready / running / fault indicators and scales the actual values to frequency and current. There is no control word and no write poll &mdash; it is safe to load on a live drive for monitoring. Set your drive&rsquo;s slave address and connection, and you see its state at a glance.</p>
+    <div style="background:#fff4d6;border:1px solid #d4a72c;border-radius:4px;padding:0.7rem 1rem;margin:0 0 1rem;font-size:0.85rem;color:#6b5618;line-height:1.5">⚠ The actual-value registers (40005+) and their scaling depend on drive parameters 53.10&ndash;53.17. This workspace assumes a typical mapping (frequency, current). Verify against your drive and adjust the gains in the script if values look off.</p>
+    <div class="hero-ctas">
+      <a href="/ABB_ACS580_monitor_workspace.json" download class="btn-primary" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ABB-ACS580-Monitor-Workspace-Json', 'value': 1})">Download monitor workspace (.json)</a>
+    </div>
+    <p style="margin:1rem 0 0;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--steel,#5b6470)">Open in ModbusManager Pro &middot; 📋 Workspace &rarr; open &middot; read-only, no control</p>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
 <!-- CONNECTION -->
 <section class="section">
   <div class="sec-label">// connection settings</div>
