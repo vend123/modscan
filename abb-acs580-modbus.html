@@ -3,24 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modbus HMI for ebm-papst EC Fans | ModbusManager</title>
-<meta name="description" content="Monitor and control a bank of ebm-papst EC fans over Modbus RTU on one live <a href="/modbus-hmi-dashboard.html">dashboard</a>. Free 16-fan demo workspace for ModbusManager Pro - runs on the built-in simulator or real fans.">
-<meta name="keywords" content="ebm-papst Modbus, EC fan Modbus RTU, Modbus HVAC fan control, Modbus fan monitoring software, ebm-papst Modbus RTU dashboard, HVAC fan HMI, ModbusManager Pro ebm-papst">
+<title>ABB ACS580 Modbus RTU Guide | Control Word & Registers</title>
+<meta name="description" content="Read and control an ABB ACS580 drive over Modbus RTU (embedded fieldbus). Control word, status word, frequency reference and actual value registers, ABB Drives profile, with ModbusManager setup on Windows.">
+<meta name="keywords" content="ABB ACS580 Modbus, ACS580 Modbus RTU, ABB drive Modbus register, ACS580 control word, ACS580 status word, ABB Drives profile Modbus, ACS880 Modbus, ACH580 Modbus, ABB VFD Modbus RTU, ACS580 EFB, ABB drive Modbus address 40001, ACS580 frequency reference Modbus">
 <meta name="author" content="ModbusManager">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://modbusmanager.com/modbus-hmi-ebm-papst.html">
+<link rel="canonical" href="https://modbusmanager.com/abb-acs580-modbus.html">
 
-<meta property="og:title" content="Modbus HMI for ebm-papst EC Fans">
+<meta property="og:title" content="ABB ACS580 Modbus RTU Guide">
 <meta property="og:site_name" content="ModbusManager">
-<meta property="og:description" content="Monitor and control a bank of ebm-papst EC fans over Modbus RTU on one dashboard. Free 16-fan demo workspace, runs on the built-in simulator or real fans.">
-<meta property="og:url" content="https://modbusmanager.com/modbus-hmi-ebm-papst.html">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://modbusmanager.com/og-ebmpapst.png">
+<meta property="og:description" content="Control word, status word, frequency reference and actual values for the ABB ACS580 over Modbus RTU, with ModbusManager setup.">
+<meta property="og:url" content="https://modbusmanager.com/abb-acs580-modbus.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://modbusmanager.com/og-hmi.png">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Modbus HMI for ebm-papst EC Fans">
-<meta name="twitter:description" content="16 EC fans on one Modbus dashboard. Free demo workspace, no hardware needed.">
-<meta name="twitter:image" content="https://modbusmanager.com/og-ebmpapst.png">
+<meta name="twitter:title" content="ABB ACS580 Modbus RTU Guide">
+<meta name="twitter:description" content="Control word, status word and registers for the ABB ACS580 over Modbus RTU.">
+<meta name="twitter:image" content="https://modbusmanager.com/og-hmi.png">
+
+<meta name="twitter:image" content="https://modbusmanager.com/og-hmi.png">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
@@ -35,38 +37,27 @@
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "Modbus HMI for ebm-papst EC Fans",
-  "description": "Monitor and control a bank of ebm-papst EC fans over Modbus RTU on one ModbusManager Pro dashboard. Free 16-fan demo workspace you can download and run on the built-in simulator or real fans.",
-  "url": "https://modbusmanager.com/modbus-hmi-ebm-papst.html",
-  "datePublished": "2026-06-19",
-  "dateModified": "2026-06-19",
+  "headline": "ABB ACS580 Modbus RTU Guide",
+  "description": "How to read and control an ABB ACS580 variable frequency drive over Modbus RTU using ModbusManager: control word, status word, frequency reference, actual values and the ABB Drives profile.",
+  "url": "https://modbusmanager.com/abb-acs580-modbus.html",
+  "datePublished": "2026-06-30",
+  "dateModified": "2026-06-30",
   "author": {"@type": "Organization", "name": "ModbusManager", "url": "https://modbusmanager.com"},
-  "publisher": {"@type": "Organization", "name": "ModbusManager", "url": "https://modbusmanager.com"},
-  "about": {
-    "@type": "SoftwareApplication",
-    "name": "ModbusManager Pro",
-    "operatingSystem": "Windows 10, Windows 11",
-    "applicationCategory": "DeveloperApplication",
-    "offers": {"@type": "Offer", "price": "119", "priceCurrency": "USD"},
-    "downloadUrl": "https://github.com/vend123/modscan/releases/download/pro-v1.6.0/Modbus.Manager.Pro.Setup.1.6.0.exe"
-  }
+  "publisher": {"@type": "Organization", "name": "ModbusManager", "url": "https://modbusmanager.com"}
 },
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type":"Question","name":"Do I need real ebm-papst fans to try the demo?","acceptedAnswer":{"@type":"Answer","text":"No. The demo workspace includes 16 simulated slave devices, so you can run the whole 16-fan dashboard on one PC with no hardware. Swap in real fans over RS-485 when you are ready."}},
-    {"@type":"Question","name":"Which ebm-papst fans does this work with?","acceptedAnswer":{"@type":"Answer","text":"Any ebm-papst EC fan with the integrated Modbus RTU interface - the common 84, 112, 150 and 200 mm EC and RadiCal ranges. The demo follows the ebm-papst MODBUS parameter layout (D-registers)."}},
-    {"@type":"Question","name":"Modbus RTU or TCP?","acceptedAnswer":{"@type":"Answer","text":"ebm-papst EC fans use Modbus RTU, typically 19200 baud, 8 data bits, even parity, 1 stop bit, over RS-485. Connect a USB-to-RS485 adapter. ModbusManager Pro also supports Modbus TCP if the fans sit behind an RTU-to-TCP gateway."}},
-    {"@type":"Question","name":"Can I control fan speed, not just monitor it?","acceptedAnswer":{"@type":"Answer","text":"Yes. Write the speed setpoint holding register (D001) with function code 06. The feedback values - actual speed, motor status, power, temperature - are read-only input registers read with function code 04."}},
-    {"@type":"Question","name":"How many fans can I show on one dashboard?","acceptedAnswer":{"@type":"Answer","text":"The demo shows 16, but a Modbus RTU bus addresses up to 247 devices and ModbusManager Pro can poll and display many fans on a single dashboard page."}},
-    {"@type":"Question","name":"Does this only work with ebm-papst?","acceptedAnswer":{"@type":"Answer","text":"No. ModbusManager Pro is vendor-neutral. Mix ebm-papst fans with energy meters, VFDs, inverters and PLCs from any manufacturer on one screen."}},
-    {"@type":"Question","name":"What does ModbusManager Pro cost?","acceptedAnswer":{"@type":"Answer","text":"A one-time 119 USD perpetual license for one machine, with 12 months of free updates and a 14-day free trial - no credit card required."}}
+    {"@type": "Question", "name": "What Modbus settings does an ABB ACS580 use?", "acceptedAnswer": {"@type": "Answer", "text": "The ACS580 has an embedded fieldbus (EFB) that runs as a Modbus RTU slave on RS-485. Set the protocol to Modbus RTU in parameter group 58, choose a node address and baud rate (commonly 9600 or 19200), and match parity and stop bits in ModbusManager. The drive supports RTU only, not ASCII."}},
+    {"@type": "Question", "name": "Which register is the ACS580 control word?", "acceptedAnswer": {"@type": "Answer", "text": "In the ABB Drives profile the control word is Modbus holding register 40001, the frequency/speed reference is 40002, and the status word is 40004. These are the core registers for remote start, stop and speed control."}},
+    {"@type": "Question", "name": "How do I start an ACS580 over Modbus?", "acceptedAnswer": {"@type": "Answer", "text": "Set the command source to embedded fieldbus, then write the ABB Drives control word sequence to register 40001: typically 0x0476 then 0x047F to give the run command, together with a reference in 40002. ModbusManager must keep sending frames periodically (every 200-500 ms) or the drive trips on communication loss."}},
+    {"@type": "Question", "name": "Why does the ACS580 not run when I write the control word?", "acceptedAnswer": {"@type": "Answer", "text": "Common causes: the command source is not set to EFB, the control word bit sequence is incomplete, or the master is not transmitting continuously so the drive trips fault 6681 (communication loss). Send the control word and reference together periodically rather than as one-shot commands."}},
+    {"@type": "Question", "name": "Can I monitor ACS580 speed and current with ModbusManager?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Read the status word at 40004 and the mapped actual-value registers (40005 onward) for output frequency, current and power. With ModbusManager Pro you can log them to the Historian, chart trends and set alarms on limits."}}
   ]
 }
 ]
 </script>
-
 <style>
 :root{--enclosure:#D8DAD5;--enclosure2:#E6E8E3;--plate:#F4F5F2;--ink:#16181A;--body:#3A3E40;--muted:#5F5E5A;--steel:#B9BDB6;--safety:#F2A900;--amber-ink:#9A6700;--run:#1E7A4F;--bad:#A32D2D}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -214,12 +205,9 @@ nav .nav-links.open .nav-drop-menu a{padding:0.35rem 0;font-size:0.8rem}
 @media(max-width:768px){nav .nav-links.open a,nav .nav-links.open .nav-drop-label{white-space:normal!important;word-break:break-word}}
 </style>
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-42Q8HEKC0X"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  // Consent Mode v2 - analytics denied by default until the visitor accepts
   gtag('consent', 'default', {
     'ad_storage': 'denied',
     'ad_user_data': 'denied',
@@ -263,172 +251,145 @@ nav .nav-links.open .nav-drop-menu a{padding:0.35rem 0;font-size:0.8rem}
     <li><a href="/#support">Support</a></li>
   </ul>
   <div style="display:flex;gap:12px;align-items:center">
-    <a href="https://github.com/vend123/modscan/releases/download/pro-v1.6.0/Modbus.Manager.Pro.Setup.1.6.0.exe" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManagerPro-ebmpapst-NavText', 'product': 'pro', 'value': 1})" style="font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--amber-ink);text-decoration:none;letter-spacing:0.04em">Pro trial &darr;</a>
-    <a href="/ModbusManager-ebm-papst-16fan-demo.zip" download onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ebm-papst-Demo-Zip', 'value': 1})" class="nav-cta">Free demo &darr;</a>
+    <a href="https://github.com/vend123/modscan/releases/download/pro-v1.6.0/Modbus.Manager.Pro.Setup.1.6.0.exe" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManagerPro-Siemens-NavText', 'product': 'pro', 'value': 1})" style="font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--amber-ink);text-decoration:none;letter-spacing:0.04em">Pro trial &darr;</a>
+    <a href="/ModbusManager-Siemens-S7-1200-demo.zip" download onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'Siemens-S7-1200-Demo-Zip', 'value': 1})" class="nav-cta">Free demo &darr;</a>
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="eyebrow">// ModbusManager Pro &mdash; ebm-papst EC fans</div>
-  <h1>Modbus HMI for<br><span class="accent">ebm-papst EC fans</span></h1>
-  <p class="hero-desc">Monitor and control a whole bank of ebm-papst EC fans over Modbus RTU on one live dashboard &mdash; speed, motor status and power for every fan, without a BMS or a SCADA project. Download the free 16-fan demo workspace, open it in ModbusManager Pro, and explore it with the built-in simulator or your real fans. The same dashboard works with any Modbus device.</p>
+  <div class="eyebrow">// Device guide &mdash; ABB drives</div>
+  <h1>ABB ACS580<br><span class="accent">Modbus RTU</span> Guide</h1>
+  <p class="hero-desc">Read and control an ABB ACS580 variable frequency drive over Modbus RTU through its embedded fieldbus (EFB). This guide covers the ABB Drives profile &mdash; control word, status word, frequency reference and actual values &mdash; and how to test it all with ModbusManager on Windows, without a PLC or ABB commissioning software.</p>
   <div class="hero-ctas">
-    <a href="/ModbusManager-ebm-papst-16fan-demo.zip" download onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ebm-papst-Demo-Zip', 'value': 1})" class="btn-primary">Download free demo workspace</a>
-    <a href="https://github.com/vend123/modscan/releases/download/pro-v1.6.0/Modbus.Manager.Pro.Setup.1.6.0.exe" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManagerPro-ebmpapst-Hero', 'product': 'pro', 'value': 1})" class="btn-ghost">Download Pro trial</a>
+    <a href="https://github.com/vend123/modscan/releases/download/pro-v1.6.0/Modbus.Manager.Pro.Setup.1.6.0.exe" class="btn-primary" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManagerPro-ABB-Hero', 'product': 'pro', 'value': 1})">Download ModbusManager Pro</a>
+    <a href="/modbus-data-logger-software.html" class="btn-ghost">See the data logger</a>
   </div>
-  <p class="hero-note">Demo: 16-fan Pro workspace &middot; runs on the built-in simulator or real fans &middot; Modbus RTU</p>
+  <p class="hero-note">Windows 10/11 &middot; Modbus RTU &amp; TCP &middot; one-time license</p>
 </section>
 
 <div class="divider-line"></div>
 
+<!-- ABOUT -->
 <section class="section">
-  <div class="sec-label">// what the demo shows</div>
-  <h2 class="sec-title">16 EC fans on one screen</h2>
-  <div class="explainer-grid">
-    <div class="explainer-text">
-      <p>ebm-papst EC fans ship with Modbus RTU built in &mdash; every fan reports its actual speed, motor status, power draw and module temperature, and accepts a speed setpoint. This demo turns a bank of sixteen such fans into a single operator dashboard.</p>
-      <p>ModbusManager Pro polls all 16 fans, and a small Structured Text script flags each fan green when its status word is healthy (0) and red on any fault. Speed shows on a fan widget, power as a live value, status on a lamp &mdash; sixteen times over, on one page.</p>
-      <p>No building-management system, no SCADA server, no per-point licensing. One PC on the RS-485 line &mdash; or the built-in simulator if you have no fans on the bench yet.</p>
-    </div>
-    <div>
-      <div class="definition-box">
-        <div class="def-label">Data flow</div>
-        <p>16 &times; ebm-papst EC fan (Modbus RTU, 19200 8E1) &rarr; USB&ndash;RS485 adapter &rarr; ModbusManager Pro dashboard on Windows. Up to 247 fans on one bus.</p>
-      </div>
-      <div style="margin-top:1.2rem;background:var(--plate);border:2px solid var(--ink);border-radius:3px;padding:1.2rem 1.5rem">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.8rem">Dashboard shows (per fan)</div>
-        <ul style="list-style:none;font-size:0.88rem;color:var(--body);line-height:1.7">
-          <li>&#127744; Actual speed &mdash; fan widget (%)</li>
-          <li>&#128202; Current power draw (W)</li>
-          <li>&#128161; Motor-status lamp (green = OK)</li>
-          <li>&#127991; Fan label &amp; slave address</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <div class="sec-label">// about the ACS580 fieldbus</div>
+  <h2 class="sec-title">Embedded fieldbus, no extra hardware</h2>
+  <p class="sec-sub">The ACS580 &mdash; and its siblings ACH580, ACQ580 and the larger ACS880 &mdash; can act as a Modbus RTU slave straight out of the box.</p>
+  <p style="max-width:780px;margin:1.4rem auto 0;text-align:center;color:var(--muted);line-height:1.7">ABB&rsquo;s ACS580 general-purpose drive includes an embedded fieldbus interface (EFB) on its RS-485 terminals. With the protocol set to Modbus RTU, the drive becomes a Modbus slave you can read and control directly &mdash; useful for commissioning, fault-finding, second-hand drive checks and HMI integration without a PLC. Control uses the <strong>ABB Drives profile</strong>, where a control word starts and stops the drive and a reference sets the speed or frequency. The same approach applies across the ACx580 family and, with different parameter groups, the ACS880.</p>
 </section>
 
 <div class="divider-line"></div>
 
+<!-- CONNECTION -->
 <section class="section">
-  <div class="sec-label">// download the demo</div>
-  <h2 class="sec-title">Free 16-fan demo workspace</h2>
-  <p class="sec-sub">One download: a ready-made ModbusManager Pro workspace with sixteen fans pre-mapped to the ebm-papst register layout, the motor-status script, and a finished dashboard page. Open it, point it at the simulator or your fans, and you have a live fan wall.</p>
-  <div class="widget-grid">
-    <div class="widget-card">
-      <div class="widget-icon">&#128202;</div>
-      <div class="widget-name">16-fan workspace</div>
-      <div class="widget-desc">Sixteen poll windows (one slave each), tags for speed, status and power, and a dashboard page with a fan widget, power value and status lamp per fan.</div>
-    </div>
-    <div class="widget-card">
-      <div class="widget-icon">&#128220;</div>
-      <div class="widget-name">Status script</div>
-      <div class="widget-desc">A Structured Text loop that turns each fan&rsquo;s status word into a clean OK / fault flag driving the lamps &mdash; an example of Pro&rsquo;s tag engine.</div>
-    </div>
-    <div class="widget-card">
-      <div class="widget-icon">&#128214;</div>
-      <div class="widget-name">README</div>
-      <div class="widget-desc">Register map, RS-485 bus settings, how to load the workspace, and how to run it against the built-in simulator or real fans.</div>
-    </div>
-  </div>
-  <div style="margin-top:1.8rem;display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-    <a href="/ModbusManager-ebm-papst-16fan-demo.zip" download onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ebm-papst-Demo-Zip', 'value': 1})" class="btn-primary">Download demo workspace (.zip)</a>
-    <a href="/ebmpapst_16fans_workspace.json" download onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ebm-papst-Workspace-Json', 'value': 1})" class="btn-ghost">Just the .json</a>
-  </div>
-  <p style="margin-top:1rem;font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--muted)">Needs ModbusManager Pro (14-day trial works). No hardware required &mdash; the built-in slave simulator can stand in for the fans.</p>
-</section>
-
-<div class="divider-line"></div>
-
-<section class="section">
-  <div class="sec-label">// how to run it</div>
-  <h2 class="sec-title">Four steps to a live fan wall</h2>
-  <div class="steps">
-    <div class="step">
-      <div class="step-label">Step 1</div>
-      <div class="step-title">Open the workspace</div>
-      <div class="step-text">In ModbusManager Pro, open the demo workspace. It loads sixteen poll windows, the tags, the motor-status script and the dashboard page &mdash; all pre-configured.</div>
-    </div>
-    <div class="step">
-      <div class="step-label">Step 2</div>
-      <div class="step-title">Pick a source</div>
-      <div class="step-text">No fans yet? The workspace ships with sixteen simulated slave devices &mdash; start the built-in simulator and drive the speed registers. Have real fans? Wire them on RS-485 and skip the simulator.</div>
-    </div>
-    <div class="step">
-      <div class="step-label">Step 3</div>
-      <div class="step-title">Connect</div>
-      <div class="step-text">Connect over Modbus RTU (19200, 8E1) through your USB&ndash;RS485 adapter, or to the local simulator. Each fan is one slave address &mdash; 1 to 16 in the demo.</div>
-    </div>
-    <div class="step">
-      <div class="step-label">Step 4</div>
-      <div class="step-title">Run it</div>
-      <div class="step-text">Start the script loop and switch the dashboard to Runtime. Speed, power and the status lamps update live across all sixteen fans at once.</div>
-    </div>
-  </div>
-</section>
-
-<div class="divider-line"></div>
-
-<section class="section">
-  <div class="sec-label">// register map</div>
-  <h2 class="sec-title">What each fan exposes</h2>
-  <p class="sec-sub">ebm-papst uses decimal register addresses. The demo reads the feedback block (D010&ndash;D021) as input registers with function code 04; the speed setpoint is a holding register written with function code 06.</p>
+  <div class="sec-label">// connection settings</div>
+  <h2 class="sec-title">Modbus settings</h2>
+  <p class="sec-sub">Configure the embedded fieldbus in parameter group 58, then match the same settings in ModbusManager.</p>
   <table class="compare-table">
-    <thead>
-      <tr><th>Addr</th><th>Value</th><th>Access</th><th>Range / scale</th><th>Unit</th></tr>
-    </thead>
+    <thead><tr><th>Setting</th><th class="hl">Typical value</th></tr></thead>
     <tbody>
-      <tr><td class="mono">53264 (D010)</td><td>Actual speed</td><td>FC04 read</td><td>0&ndash;65535 = 0&ndash;100%</td><td>%</td></tr>
-      <tr><td class="mono">53265 (D011)</td><td>Motor status (0 = OK)</td><td>FC04 read</td><td>bitfield</td><td>&mdash;</td></tr>
-      <tr><td class="mono">53269 (D015)</td><td>Module temperature</td><td>FC04 read</td><td>signed</td><td>&deg;C</td></tr>
-      <tr><td class="mono">53281 (D021)</td><td>Current power</td><td>FC04 read</td><td>&divide;1</td><td>W</td></tr>
-      <tr class="hl"><td class="mono">53249 (D001)</td><td>Speed setpoint</td><td>FC06 write</td><td>0&ndash;65535 = 0&ndash;100%</td><td>%</td></tr>
+      <tr><td>Protocol</td><td class="hl">Modbus RTU (RS-485, RTU only)</td></tr>
+      <tr><td>Command source (par. group 20)</td><td class="hl">Embedded fieldbus (EFB)</td></tr>
+      <tr><td>Node address (par. 58.03)</td><td class="hl">1&ndash;247</td></tr>
+      <tr><td>Baud rate (par. 58.04)</td><td class="hl">9600 or 19200</td></tr>
+      <tr><td>Parity / stop bits (par. 58.05)</td><td class="hl">8E1 or 8N2 (match both ends)</td></tr>
+      <tr><td>Function codes</td><td class="hl">03 read, 06 / 16 write</td></tr>
+      <tr><td>Profile (par. 58.25)</td><td class="hl">ABB Drives (or ABB Drives Enhanced)</td></tr>
     </tbody>
   </table>
-  <div style="margin-top:1rem;font-size:0.85rem;color:var(--muted);font-family:'IBM Plex Mono',monospace">Bus: Modbus RTU, 19200 baud, 8E1, up to 247 fans. The setpoint is stored in EEPROM &mdash; write it on change, not continuously. Full map and steps are in the README inside the zip.</div>
 </section>
 
 <div class="divider-line"></div>
 
+<!-- REGISTER MAP -->
 <section class="section">
-  <div class="sec-label">// why modbusmanager pro</div>
-  <h2 class="sec-title">A lightweight HMI for your fan plant</h2>
-  <div class="explainer-grid">
-    <div class="explainer-text">
-      <p>For a fan wall, an air-handling unit or a test bench, a full BMS or SCADA setup is overkill. ModbusManager Pro gives you a clean operator dashboard for a one-time 119 USD license &mdash; no runtime fees, no per-point pricing, no server to maintain.</p>
-      <p>Because it speaks plain Modbus, it is not tied to ebm-papst. Put EC fans, an energy meter, a VFD and a temperature controller on the same screen, whatever the brand.</p>
-    </div>
-    <div class="definition-box">
-      <div class="def-label">Good fit for</div>
-      <p>HVAC and ventilation commissioning, fan-wall and AHU monitoring, cleanroom and data-centre cooling, OEM test benches, and anyone running several Modbus EC fans who wants one live view without a BMS.</p>
-    </div>
+  <div class="sec-label">// register map</div>
+  <h2 class="sec-title">ABB Drives profile registers</h2>
+  <p class="sec-sub">The core control and feedback registers in the ABB Drives profile. All are 16-bit holding registers, read with FC03 and written with FC06/FC16.</p>
+  <table class="compare-table">
+    <thead><tr><th>Register</th><th>Function</th><th>Access</th><th class="hl">Notes</th></tr></thead>
+    <tbody>
+      <tr><td>40001</td><td>Control Word</td><td>R/W</td><td class="hl">Start/stop/reset bits (ABB Drives profile)</td></tr>
+      <tr><td>40002</td><td>Reference 1</td><td>R/W</td><td class="hl">Speed/frequency setpoint, 20000 = 100%</td></tr>
+      <tr><td>40003</td><td>Reference 2</td><td>R/W</td><td class="hl">Second reference (e.g. torque), if used</td></tr>
+      <tr><td>40004</td><td>Status Word</td><td>R</td><td class="hl">Ready/running/fault bits</td></tr>
+      <tr><td>40005</td><td>Actual Value 1</td><td>R</td><td class="hl">Mapped via par. 53.10 (e.g. output freq)</td></tr>
+      <tr><td>40006</td><td>Actual Value 2</td><td>R</td><td class="hl">Mapped via par. 53.11 (e.g. current)</td></tr>
+      <tr><td>40007&ndash;40012</td><td>Actual Values 3&ndash;8</td><td>R</td><td class="hl">Mapped via par. 53.12&ndash;53.17</td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:1.2rem;font-size:0.85rem;color:var(--muted);font-family:'IBM Plex Mono',monospace;max-width:780px;margin-left:auto;margin-right:auto;text-align:center">
+    Tip: the actual-value registers (40005+) are user-mapped. Set par. 53.10&ndash;53.17 to the drive parameters you want to read &mdash; e.g. 01.06 Output frequency, 01.07 Motor current, 01.10 Motor torque.
+  </div>
+  <p style="max-width:780px;margin:1.4rem auto 0;text-align:center;color:var(--muted);line-height:1.6;font-size:0.9rem">ABB also supports direct parameter access: register number = parameter number with a leading digit, e.g. parameter 01.06 maps to a register near 40106 in 16-bit mode. The exact mapping and 16/32-bit behaviour depend on par. 58.33 addressing mode &mdash; always confirm against the firmware manual for your drive.</p>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- CONTROL WORD -->
+<section class="section">
+  <div class="sec-label">// starting the drive</div>
+  <h2 class="sec-title">Control word sequence</h2>
+  <p class="sec-sub">The ABB Drives control word at 40001 needs a short bit sequence to bring the drive from stopped to running.</p>
+  <table class="compare-table">
+    <thead><tr><th>Step</th><th>Write to 40001</th><th class="hl">Effect</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>0x0476</td><td class="hl">Prepare: ready-on, no run yet</td></tr>
+      <tr><td>2</td><td>0x047F</td><td class="hl">Run: drive accelerates to the reference</td></tr>
+      <tr><td>3</td><td>0x0476</td><td class="hl">Stop (ramp down) &mdash; clears the run bit</td></tr>
+      <tr><td>Fault</td><td>0x0480 (rising edge of bit 7)</td><td class="hl">Fault reset</td></tr>
+    </tbody>
+  </table>
+  <p style="max-width:780px;margin:1.4rem auto 0;text-align:center;color:var(--muted);line-height:1.6;font-size:0.9rem"><strong>Important:</strong> the master must keep sending the control word and reference periodically (every 200&ndash;500 ms). If transmission stops, the ACS580 trips fault 6681 (communication loss). Use ModbusManager&rsquo;s periodic write to hold the run command alive.</p>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- HOW TO -->
+<section class="section">
+  <div class="sec-label">// how to test it</div>
+  <h2 class="sec-title">Test an ACS580 in three steps</h2>
+  <p class="sec-sub">From wiring to a running drive without a PLC.</p>
+  <div class="steps">
+    <div class="step"><div class="step-label">Step 1</div><div class="step-title">Connect</div><div class="step-text">Wire RS-485 A/B/ground to the drive&rsquo;s EFB terminals. Set par. group 58 to Modbus RTU with a node address and baud rate, and set the command source to embedded fieldbus. In ModbusManager pick RTU with matching baud, parity and the drive&rsquo;s slave address.</div></div>
+    <div class="step"><div class="step-label">Step 2</div><div class="step-title">Monitor</div><div class="step-text">Read holding register 40004 (status word) and the mapped actual values from 40005 to confirm communication. You should see the drive&rsquo;s ready/running state and live feedback before you try to control it.</div></div>
+    <div class="step"><div class="step-label">Step 3</div><div class="step-title">Control &amp; log</div><div class="step-text">Write the control word sequence to 40001 with a reference in 40002 to start the drive, sending periodically. Log feedback to the <a href="/modbus-data-logger-software.html">Historian</a>, build a <a href="/modbus-hmi-dashboard.html">dashboard</a>, or set <a href="/modbus-alarm-software.html">alarms</a> on overcurrent or faults.</div></div>
   </div>
 </section>
 
 <div class="divider-line"></div>
 
+<!-- WHY -->
+<section class="section">
+  <div class="sec-label">// why modbusmanager</div>
+  <h2 class="sec-title">A practical tool for ABB drives</h2>
+  <p style="max-width:780px;margin:0 auto;text-align:center;color:var(--muted);line-height:1.7">ModbusManager reads and writes any ACS580 register directly, with periodic writes to hold the control word alive and a serial monitor to see every frame. The Standard edition ($49) covers polling, writing and the serial monitor &mdash; enough to start, stop and monitor a drive. The Pro edition ($119) adds a <a href="/modbus-hmi-dashboard.html">drag-and-drop dashboard</a>, a <a href="/modbus-data-logger-software.html">data logging Historian</a> with CSV export, and an <a href="/modbus-alarm-software.html">alarm system</a> &mdash; all running locally on Windows, with no SCADA server or cloud account.</p>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- FAQ -->
 <section class="section">
   <div class="sec-label">// frequently asked questions</div>
-  <h2 class="sec-title">ebm-papst + Modbus &mdash; FAQ</h2>
+  <h2 class="sec-title">ABB ACS580 Modbus &mdash; FAQ</h2>
   <div class="faq-list">
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do I need real ebm-papst fans to try the demo?<span class="icon">+</span></div><div class="faq-a">No. The workspace includes sixteen simulated slave devices, so you can run the whole 16-fan dashboard on one PC with no hardware. Swap in real fans over RS-485 when you are ready.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Which ebm-papst fans does this work with?<span class="icon">+</span></div><div class="faq-a">Any ebm-papst EC fan with the integrated Modbus RTU interface &mdash; the common 84, 112, 150 and 200 mm EC and RadiCal ranges. The demo follows the ebm-papst MODBUS parameter layout (D-registers).</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Modbus RTU or TCP?<span class="icon">+</span></div><div class="faq-a">ebm-papst EC fans use Modbus RTU, typically 19200 baud, 8 data bits, even parity, 1 stop bit, over RS-485. Connect a USB-to-RS485 adapter. Pro also supports Modbus TCP if the fans sit behind an RTU-to-TCP gateway.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I control fan speed, not just monitor it?<span class="icon">+</span></div><div class="faq-a">Yes. Write the speed setpoint holding register (D001) with function code 06. The feedback values &mdash; actual speed, motor status, power, temperature &mdash; are read-only input registers read with FC04.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How many fans can I show on one dashboard?<span class="icon">+</span></div><div class="faq-a">The demo shows 16, but a Modbus RTU bus addresses up to 247 devices and Pro can poll and display many fans on a single dashboard page.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Does this only work with ebm-papst?<span class="icon">+</span></div><div class="faq-a">No. ModbusManager Pro is vendor-neutral &mdash; mix ebm-papst fans with meters, VFDs, inverters and PLCs from any maker on one screen.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What does ModbusManager Pro cost?<span class="icon">+</span></div><div class="faq-a">A one-time 119 USD perpetual license for one machine, with 12 months of free updates and a 14-day free trial &mdash; no credit card required.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What Modbus settings does an ABB ACS580 use?<span class="icon">+</span></div><div class="faq-a">The ACS580 has an embedded fieldbus (EFB) that runs as a Modbus RTU slave on RS-485. Set the protocol to Modbus RTU in parameter group 58, choose a node address and baud rate (commonly 9600 or 19200), and match parity and stop bits in ModbusManager. The drive supports RTU only, not ASCII.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Which register is the ACS580 control word?<span class="icon">+</span></div><div class="faq-a">In the ABB Drives profile the control word is Modbus holding register 40001, the frequency/speed reference is 40002, and the status word is 40004. These are the core registers for remote start, stop and speed control.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How do I start an ACS580 over Modbus?<span class="icon">+</span></div><div class="faq-a">Set the command source to embedded fieldbus, then write the ABB Drives control word sequence to register 40001: typically 0x0476 then 0x047F to give the run command, together with a reference in 40002. ModbusManager must keep sending frames periodically (every 200-500 ms) or the drive trips on communication loss.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Why does the ACS580 not run when I write the control word?<span class="icon">+</span></div><div class="faq-a">Common causes: the command source is not set to EFB, the control word bit sequence is incomplete, or the master is not transmitting continuously so the drive trips fault 6681 (communication loss). Send the control word and reference together periodically rather than as one-shot commands.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I monitor ACS580 speed and current with ModbusManager?<span class="icon">+</span></div><div class="faq-a">Yes. Read the status word at 40004 and the mapped actual-value registers (40005 onward) for output frequency, current and power. With ModbusManager Pro you can log them to the Historian, chart trends and set alarms on limits.</div></div>
   </div>
 </section>
 
+<!-- CTA -->
 <div class="cta-strip">
-  <h2>Put your fan wall on one screen</h2>
-  <p>Download the free 16-fan demo workspace and the ModbusManager Pro trial, and have a live ebm-papst dashboard running in minutes &mdash; with or without hardware.</p>
+  <h2>Talk to your ABB drive in minutes</h2>
+  <p>Download ModbusManager and connect to your ACS580 over RTU. Free 14-day Pro trial &mdash; no credit card, no cloud.</p>
   <div class="ctas">
-    <a href="/ModbusManager-ebm-papst-16fan-demo.zip" download onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ebm-papst-Demo-Zip', 'value': 1})" class="btn-cta-yellow">Download free demo</a>
-    <a href="https://github.com/vend123/modscan/releases/download/pro-v1.6.0/Modbus.Manager.Pro.Setup.1.6.0.exe" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManagerPro-ebmpapst-CTA', 'product': 'pro', 'value': 1})" class="btn-cta-outline">Download Pro trial</a>
+    <a href="https://github.com/vend123/modscan/releases/download/pro-v1.6.0/Modbus.Manager.Pro.Setup.1.6.0.exe" class="btn-cta-yellow" onclick="gtag('event', 'file_download', {'event_category': 'Download', 'event_label': 'ModbusManagerPro-ABB-CTA', 'product': 'pro', 'value': 1})">Download free trial</a>
+    <a href="/#pricing" class="btn-cta-outline">See pricing</a>
   </div>
-  <p style="margin-top:1rem;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--steel)">Windows 10/11 &middot; 14-day trial &middot; Pro $119 one-time</p>
+  <p style="margin-top:1rem;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--steel)">Windows 10/11 &middot; Standard $49 &middot; Pro $119 one-time</p>
 </div>
 
 <footer>
